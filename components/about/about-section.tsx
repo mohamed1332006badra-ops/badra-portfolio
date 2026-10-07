@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useI18n } from "@/lib/i18n-context";
-import { PHILOSOPHY_PRINCIPLES, SITE_METADATA } from "@/lib/content";
-import { Shield, CheckCircle, Terminal, HeartHandshake, Compass } from "lucide-react";
+import { PHILOSOPHY_PRINCIPLES } from "@/lib/content";
+import { Shield } from "lucide-react";
 
 export function AboutSection() {
   const { language } = useI18n();
@@ -35,7 +35,7 @@ export function AboutSection() {
               className="p-6 sm:p-7 rounded-xl bg-white dark:bg-[#0e1017] border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200"
             >
               <div className="font-mono text-sm font-bold text-blue-600 dark:text-blue-400 mb-3">
-                {principle.number} //
+                {principle.number} {"//"}
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                 {language === "en" ? principle.title.en : principle.title.ar}
@@ -74,8 +74,8 @@ export function AboutSection() {
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 {language === "en"
-                  ? "Zero fabricated client logos, fake revenue figures, or inflated skill percentages. Every architecture and metric documented in this portfolio reflects actual technical implementation."
-                  : "لا شعارات وهمية لعملاء أو أرقام أرباح مختلقة أو نسب مهارات مضللة. كل معمارية ومقياس موثق هنا يعبر عن واقع هندسي حقيقي."}
+                  ? "Zero fabricated client logos, fake revenue figures, or inflated skill percentages. Every architecture and project documented reflects disciplined engineering, with educational simulations explicitly identified."
+                  : "لا شعارات وهمية لعملاء أو أرقام أرباح مختلقة أو نسب مهارات مضللة. كل معمارية ومشروع موثق هنا يعبر عن واقع هندسي منضبط، مع توضيح المحاكيات التعليمية بدقة."}
               </p>
               <div className="pt-2 border-t border-slate-200 dark:border-white/5 flex items-center justify-between font-mono text-[11px] text-slate-500">
                 <span>BADRA Engineering</span>

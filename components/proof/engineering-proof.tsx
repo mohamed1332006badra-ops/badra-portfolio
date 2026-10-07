@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle, Layers, ArrowUpRight, Code2, Server, Cpu, Database, Cloud } from "lucide-react";
+import { CheckCircle, Layers, Code2, Server, Cpu, Database, Cloud } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { ENGINEERING_PROOFS } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
@@ -117,9 +117,9 @@ export function EngineeringProof() {
 
               <div className="mt-5 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-slate-500">
                 <span>Ref: <span className="text-slate-700 dark:text-slate-300">{item.associatedProject}</span></span>
-                <span className="text-emerald-500 flex items-center gap-1">
+                <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-mono text-[11px]">
                   <CheckCircle className="w-3.5 h-3.5" />
-                  <span>Verified</span>
+                  <span>{language === "en" ? "Production Pattern" : "نمط إنتاجي"}</span>
                 </span>
               </div>
             </div>

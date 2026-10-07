@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Zap, Server, Database, HardDrive, Globe, RefreshCw } from "lucide-react";
+import { Zap, Server, Database, HardDrive } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { Button } from "@/components/ui/button";
 
@@ -64,13 +64,22 @@ export function LatencyCacheSim() {
 
   return (
     <div className="p-5 sm:p-6 rounded-xl bg-slate-50 dark:bg-[#131622] border border-slate-200 dark:border-white/10">
-      <div className="pb-4 border-b border-slate-200 dark:border-white/5">
-        <h4 className="font-semibold text-base text-slate-900 dark:text-white">
-          {language === "en" ? "Multi-Tier Latency & Storage Hierarchy" : "تسلسل زمن الاستجابة والتخزين المؤقت"}
-        </h4>
-        <p className="text-xs text-slate-500 mt-0.5">
-          Order-of-magnitude performance disparities across distributed computing layers
-        </p>
+      <div className="pb-4 border-b border-slate-200 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <h4 className="font-semibold text-base text-slate-900 dark:text-white">
+              {language === "en" ? "Multi-Tier Latency & Storage Hierarchy" : "تسلسل زمن الاستجابة والتخزين المؤقت"}
+            </h4>
+            <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60 font-semibold uppercase">
+              {language === "en" ? "Illustrative Simulation" : "محاكاة توضيحية"}
+            </span>
+          </div>
+          <p className="text-xs text-slate-500">
+            {language === "en"
+              ? "Simulated example values illustrating relative architectural tiers across memory, cache, and disk I/O (not live production telemetry)."
+              : "قيم محاكاة توضيحية لإبراز الفروق النسبية بين الذاكرة والتخزين المؤقت وأقراص التخزين (وليست قياسات خوادم حية)."}
+          </p>
+        </div>
       </div>
 
       {/* Scenario Pickers */}

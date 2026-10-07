@@ -35,8 +35,8 @@ export function EngineeringLab() {
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
             {language === "en"
-              ? "Real engineering principles made tangible. Test distributed rate limiting, inspect RAG vector similarity pipelines, and analyze latency disparities in real-time."
-              : "مبادئ هندسية حقيقية قابلة للتجربة والتفاعل. اختبر محدد معدل الطلبات، وتفحص مسار متجهات الذكاء، واستكشف فروق أزمنة الاستجابة."}
+              ? "Real engineering principles made tangible through educational in-browser sandboxes. Explore rate-limiting mechanics, RAG vector similarity pipelines, and multi-tier latency trade-offs."
+              : "مبادئ هندسية وأنظمة موزعة معروضة عبر محاكيات تفاعلية بالمتصفح. استكشف آليات تحديد معدل الطلبات، ومسارات استرجاع المتجهات، ومفاضلات أزمنة الاستجابة."}
           </p>
         </div>
 

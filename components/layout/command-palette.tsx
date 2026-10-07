@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, ArrowRight, CornerDownLeft } from "lucide-react";
+import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, CornerDownLeft } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 
@@ -29,12 +29,18 @@ export function CommandPalette({
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { language, toggleLanguage, direction } = useI18n();
+  const { language, toggleLanguage } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const navigateTo = (hash: string) => {
+  const handleClose = React.useCallback(() => {
+    setQuery("");
+    setSelectedIndex(0);
     onClose();
+  }, [onClose]);
+
+  const navigateTo = (hash: string) => {
+    handleClose();
     const elem = document.querySelector(hash);
     if (elem) {
       elem.scrollIntoView({ behavior: "smooth" });
@@ -128,15 +134,9 @@ export function CommandPalette({
 
   useEffect(() => {
     if (isOpen) {
-      setQuery("");
-      setSelectedIndex(0);
       setTimeout(() => inputRef.current?.focus(), 50);
     }
   }, [isOpen]);
-
-  useEffect(() => {
-    setSelectedIndex(0);
-  }, [query]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -155,13 +155,13 @@ export function CommandPalette({
         }
       } else if (e.key === "Escape") {
         e.preventDefault();
-        onClose();
+        handleClose();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, filteredCommands, selectedIndex, onClose]);
+  }, [isOpen, filteredCommands, selectedIndex, handleClose]);
 
   if (!isOpen) return null;
 
@@ -171,7 +171,7 @@ export function CommandPalette({
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4"
     >
-      <div onClick={onClose} className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" />
+      <div onClick={handleClose} className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" />
 
       <div className="relative w-full max-w-xl bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-10 text-slate-900 dark:text-slate-100">
         {/* Search Input Bar */}
@@ -181,7 +181,10 @@ export function CommandPalette({
             ref={inputRef}
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setSelectedIndex(0);
+            }}
             placeholder={
               language === "en"
                 ? "Type a command or search (e.g. AI, Work, Lab, Theme)..."

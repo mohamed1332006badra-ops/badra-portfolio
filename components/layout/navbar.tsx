@@ -17,7 +17,7 @@ export function Navbar({
   onOpenAiScoper,
   onOpenContactModal,
 }: NavbarProps) {
-  const { language, toggleLanguage, direction } = useI18n();
+  const { language, toggleLanguage } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

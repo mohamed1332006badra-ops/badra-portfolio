@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "@/components/ui/modal";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n-context";
-import { Send, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -36,18 +36,6 @@ export function ContactModal({
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (initialService) {
-      setFormData((prev) => ({ ...prev, projectType: initialService }));
-    }
-  }, [initialService]);
-
-  useEffect(() => {
-    if (initialDescription) {
-      setFormData((prev) => ({ ...prev, description: initialDescription }));
-    }
-  }, [initialDescription]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -66,8 +54,8 @@ export function ContactModal({
       }
 
       setSuccess(true);
-    } catch (err: any) {
-      setErrorMessage(err.message || "Failed to connect to server. Please try again.");
+    } catch (err: unknown) {
+      setErrorMessage(err instanceof Error ? err.message : "Failed to connect to server. Please try again.");
     } finally {
       setLoading(false);
     }

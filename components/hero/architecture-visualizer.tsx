@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Laptop, ShieldCheck, Server, Cpu, Database, Cloud, Activity, CheckCircle2 } from "lucide-react";
+import { Laptop, ShieldCheck, Server, Cpu, Database, Activity, CheckCircle2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 
 interface ArchitectureNode {
@@ -23,8 +23,8 @@ export function ArchitectureVisualizer() {
       id: "client",
       name: { en: "Client Layer", ar: "طبقة العميل" },
       role: {
-        en: "Next.js 15 App Router, progressive streaming hydration, zero CLS bidi typography.",
-        ar: "واجهات Next.js 15 مع ترطيب تدريجي وانتقال فوري وتخطيط دقيق ثنائي الاتجاه.",
+        en: "Next.js 16 App Router, progressive streaming hydration, zero CLS bidi typography.",
+        ar: "واجهات Next.js 16 مع ترطيب تدريجي وانتقال فوري وتخطيط دقيق ثنائي الاتجاه.",
       },
       protocol: "HTTPS / WSS / HTTP/3",
       latency: "12ms (Edge CDN)",

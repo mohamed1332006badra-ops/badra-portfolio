@@ -14,25 +14,21 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+function getInitialLanguage(): Language {
+  if (typeof window === "undefined") return "en";
+  try {
+    const saved = localStorage.getItem("badra_lang") as Language | null;
+    if (saved === "en" || saved === "ar") return saved;
+    const browserLang = navigator.language.toLowerCase();
+    if (browserLang.startsWith("ar")) return "ar";
+  } catch {
+    // Ignore error
+  }
+  return "en";
+}
 
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("badra_lang") as Language | null;
-      if (saved === "en" || saved === "ar") {
-        setLanguageState(saved);
-      } else {
-        // Detect browser preference
-        const browserLang = navigator.language.toLowerCase();
-        if (browserLang.startsWith("ar")) {
-          setLanguageState("ar");
-        }
-      }
-    } catch {
-      // Ignore localStorage errors
-    }
-  }, []);
+export function I18nProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   useEffect(() => {
     const dir = language === "ar" ? "rtl" : "ltr";

@@ -14,8 +14,9 @@ export async function POST(req: NextRequest) {
     }
 
     const sanitizedPrompt = body.prompt.trim().slice(0, 1000);
-    const projectType = body.projectType || "General Web / AI Product";
-    const timeline = body.targetTimeline || "Standard (4-8 weeks)";
+    const projectCategory = body.projectType || "General Web / AI Product";
+    const targetTimeline = body.targetTimeline || "Standard (4-8 weeks)";
+    console.log(`[AI Scoper] Scoping request: ${projectCategory} | Timeline: ${targetTimeline}`);
 
     // Check if an AI provider API key is configured in process.env (safe server-side check)
     const apiKey = process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY;
@@ -36,7 +37,7 @@ export async function POST(req: NextRequest) {
       result = {
         summary: `Architectural specification for an intelligent AI retrieval and workflow engine tailored to: "${sanitizedPrompt.slice(0, 80)}..."`,
         recommendedArchitecture: {
-          frontend: "Next.js 15 App Router with progressive Server-Sent Events (SSE) streaming for tokens",
+          frontend: "Next.js 16 App Router with progressive Server-Sent Events (SSE) streaming for tokens",
           backend: "Python FastAPI / Node.js worker pool with asynchronous chunk parsing and token budgeting",
           database: "PostgreSQL with pgvector (HNSW index) + Redis sliding-window cache",
           aiComponents: "Hybrid BM25 + dense embedding retrieval with cross-encoder re-ranking",

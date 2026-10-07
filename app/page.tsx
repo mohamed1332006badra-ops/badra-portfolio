@@ -106,6 +106,7 @@ export default function HomePage() {
 
       {/* Project Inquiry Modal */}
       <ContactModal
+        key={`${selectedServiceForInquiry}-${inquiryDescription.length}`}
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
         initialService={selectedServiceForInquiry}

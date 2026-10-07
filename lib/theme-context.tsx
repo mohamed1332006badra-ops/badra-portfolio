@@ -11,54 +11,44 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") return "dark";
+  try {
+    const saved = localStorage.getItem("badra_theme") as Theme | null;
+    if (saved === "light" || saved === "dark") return saved;
+  } catch {
+    // Ignore error
+  }
+  return "dark";
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
-    setMounted(true);
-    try {
-      const saved = localStorage.getItem("badra_theme") as Theme | null;
-      if (saved === "light" || saved === "dark") {
-        setThemeState(saved);
-        if (saved === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      } else {
-        // default to dark as specified
-        document.documentElement.classList.add("dark");
-      }
-    } catch {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    if (newTheme === "dark") {
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
     try {
-      localStorage.setItem("badra_theme", newTheme);
+      localStorage.setItem("badra_theme", theme);
     } catch {
       // Ignore
     }
+  }, [theme]);
+
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
   };
 
   const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
+    setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-      <div className={mounted ? "" : "opacity-0 transition-opacity duration-150"}>
-        {children}
-      </div>
+      {children}
     </ThemeContext.Provider>
   );
 }

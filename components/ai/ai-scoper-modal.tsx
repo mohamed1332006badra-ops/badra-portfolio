@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/input";
 import { useI18n } from "@/lib/i18n-context";
 import { AiProjectScopeResult } from "@/lib/types";
-import { Sparkles, Terminal, CheckCircle2, AlertTriangle, Layers, ArrowRight, CornerDownLeft } from "lucide-react";
+import { Sparkles, AlertTriangle, Layers } from "lucide-react";
 
 interface AiScoperModalProps {
   isOpen: boolean;
@@ -15,7 +15,7 @@ interface AiScoperModalProps {
 }
 
 export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModalProps) {
-  const { language, direction } = useI18n();
+  const { language } = useI18n();
   const [prompt, setPrompt] = useState("");
   const [projectType, setProjectType] = useState("Full-Stack Web App");
   const [loading, setLoading] = useState(false);
@@ -45,8 +45,8 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
       }
 
       setResult(data.result);
-    } catch (err: any) {
-      setError(err.message || "An unexpected error occurred.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
     } finally {
       setLoading(false);
     }

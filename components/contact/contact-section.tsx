@@ -5,7 +5,7 @@ import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck, ArrowRight } from "lucide-react";
+import { Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from "lucide-react";
 
 interface ContactSectionProps {
   initialDescription?: string;
@@ -13,7 +13,7 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ initialDescription = "", initialService = "" }: ContactSectionProps) {
-  const { language, direction } = useI18n();
+  const { language } = useI18n();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -62,8 +62,8 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
       }
 
       setSuccess(true);
-    } catch (err: any) {
-      setErrorMessage(err.message || "Failed to connect to server. Please try again.");
+    } catch (err: unknown) {
+      setErrorMessage(err instanceof Error ? err.message : "Failed to connect to server. Please try again.");
     } finally {
       setLoading(false);
     }

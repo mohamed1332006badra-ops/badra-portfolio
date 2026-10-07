@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProjectDetailModal } from "./project-detail-modal";
 import { CaseStudyModal } from "./case-study-modal";
-import { ArrowUpRight, BookOpen, Layers, Terminal, Sparkles, Code2 } from "lucide-react";
+import { ArrowUpRight, BookOpen, Layers } from "lucide-react";
 
 export function ProjectsSection() {
   const { language, direction } = useI18n();

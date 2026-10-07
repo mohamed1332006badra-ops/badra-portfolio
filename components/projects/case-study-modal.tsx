@@ -4,8 +4,7 @@ import React from "react";
 import { CaseStudy } from "@/lib/types";
 import { useI18n } from "@/lib/i18n-context";
 import { Modal } from "@/components/ui/modal";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, AlertTriangle, Layers, BookOpen, Compass, Trophy } from "lucide-react";
+import { AlertTriangle, Layers, BookOpen, Compass, Trophy } from "lucide-react";
 
 interface CaseStudyModalProps {
   caseStudy: CaseStudy | null;

@@ -14,6 +14,20 @@ export function RateLimiterSim() {
   const [isAutoSending, setIsAutoSending] = useState(false);
   const [lastStatus, setLastStatus] = useState<"ok" | "limited" | null>(null);
 
+  const handleRequest = React.useCallback((cost = 1) => {
+    setTokens((prev) => {
+      if (prev >= cost) {
+        setStats((s) => ({ ...s, allowed: s.allowed + 1, total: s.total + 1 }));
+        setLastStatus("ok");
+        return +(prev - cost).toFixed(1);
+      } else {
+        setStats((s) => ({ ...s, dropped: s.dropped + 1, total: s.total + 1 }));
+        setLastStatus("limited");
+        return prev;
+      }
+    });
+  }, []);
+
   // Refill loop
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,21 +43,7 @@ export function RateLimiterSim() {
       handleRequest(1);
     }, 300);
     return () => clearInterval(interval);
-  }, [isAutoSending, tokens]);
-
-  const handleRequest = (cost = 1) => {
-    setTokens((prev) => {
-      if (prev >= cost) {
-        setStats((s) => ({ ...s, allowed: s.allowed + 1, total: s.total + 1 }));
-        setLastStatus("ok");
-        return +(prev - cost).toFixed(1);
-      } else {
-        setStats((s) => ({ ...s, dropped: s.dropped + 1, total: s.total + 1 }));
-        setLastStatus("limited");
-        return prev;
-      }
-    });
-  };
+  }, [isAutoSending, handleRequest]);
 
   const handleReset = () => {
     setTokens(capacity);
@@ -56,11 +56,18 @@ export function RateLimiterSim() {
     <div className="p-5 sm:p-6 rounded-xl bg-slate-50 dark:bg-[#131622] border border-slate-200 dark:border-white/10">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-white/5 gap-3">
         <div>
-          <h4 className="font-semibold text-base text-slate-900 dark:text-white">
-            {language === "en" ? "Token Bucket Rate Limiter Simulator" : "محاكي محدد معدل الطلبات"}
-          </h4>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Capacity: {capacity} tokens · Refill Rate: {refillRate} tokens/sec
+          <div className="flex items-center gap-2 mb-1">
+            <h4 className="font-semibold text-base text-slate-900 dark:text-white">
+              {language === "en" ? "Token Bucket Rate Limiter Simulator" : "محاكي خوارزمية Token Bucket"}
+            </h4>
+            <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 font-semibold uppercase">
+              {language === "en" ? "Algorithm Simulation" : "محاكاة خوارزمية"}
+            </span>
+          </div>
+          <p className="text-xs text-slate-500">
+            {language === "en"
+              ? "In-browser algorithm visualization: Capacity: 10 tokens · Refill Rate: 2 tokens/sec (illustrates API throttling and burst capacity)."
+              : "محاكاة خوارزمية تفاعلية بالمتصفح: سعة 10 رموز · معدل تجديد 2 رمز/ثانية (لتوضيح آليات خنق الطلبات وتدفقات الذروة)."}
           </p>
         </div>
 

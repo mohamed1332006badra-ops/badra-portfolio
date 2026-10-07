@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n-context";
 import { Modal } from "@/components/ui/modal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Cpu, AlertCircle, CheckCircle, Layers } from "lucide-react";
+import { ExternalLink, AlertCircle, CheckCircle, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/ui/icons";
 
 interface ProjectDetailModalProps {
@@ -108,7 +108,7 @@ export function ProjectDetailModal({
 
           <div>
             <h4 className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-              {language === "en" ? "Verified Outcome" : "النتيجة المحققة"}
+              {language === "en" ? "Architectural Outcome" : "النتيجة المعمارية"}
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               {language === "en" ? project.outcome.en : project.outcome.ar}

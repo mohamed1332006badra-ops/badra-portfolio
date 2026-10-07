@@ -3,8 +3,6 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { SERVICES } from "@/lib/content";
-import { ServiceItem } from "@/lib/types";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Clock, ArrowRight, Layout, Cpu, Box, Zap } from "lucide-react";
 

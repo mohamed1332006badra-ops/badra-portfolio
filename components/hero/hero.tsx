@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Terminal, Sparkles, CheckCircle2, Shield, Code, Cpu } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Shield, Code, Cpu } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Button } from "@/components/ui/button";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, Cpu, Sparkles, Check, Database, Layers } from "lucide-react";
+import { Search, Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { Button } from "@/components/ui/button";
 
@@ -56,13 +56,22 @@ export function RagPipelineSim() {
 
   return (
     <div className="p-5 sm:p-6 rounded-xl bg-slate-50 dark:bg-[#131622] border border-slate-200 dark:border-white/10">
-      <div className="pb-4 border-b border-slate-200 dark:border-white/5">
-        <h4 className="font-semibold text-base text-slate-900 dark:text-white">
-          {language === "en" ? "RAG Vector Similarity & Grounding Inspector" : "مستكشف تشريح استرجاع المتجهات الدلالية"}
-        </h4>
-        <p className="text-xs text-slate-500 mt-0.5">
-          Step-by-step pipeline from natural language prompt to grounded context window
-        </p>
+      <div className="pb-4 border-b border-slate-200 dark:border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <h4 className="font-semibold text-base text-slate-900 dark:text-white">
+              {language === "en" ? "Interactive RAG Simulation (Educational Demo)" : "محاكاة مسار استرجاع المتجهات RAG (عرض تعليمي تفاعلي)"}
+            </h4>
+            <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60 font-semibold uppercase">
+              {language === "en" ? "Educational Simulation" : "محاكاة تعليمية"}
+            </span>
+          </div>
+          <p className="text-xs text-slate-500">
+            {language === "en"
+              ? "Educational in-browser simulation demonstrating the mechanics of query embeddings, vector similarity matching, and grounded context assembly."
+              : "محاكاة تعليمية تفاعلية توضح آليات تحويل الاستفسار إلى متجهات وحساب التشابه وحزم السياق الموثق."}
+          </p>
+        </div>
       </div>
 
       {/* Query Input */}
@@ -136,7 +145,7 @@ export function RagPipelineSim() {
             </span>
           </div>
           <div className="text-xs text-slate-700 dark:text-slate-300 p-2.5 rounded bg-emerald-50/30 dark:bg-emerald-950/20 border border-emerald-200/40 dark:border-emerald-800/20 leading-relaxed">
-            <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">[Verified Fact]: </span>
+            <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">[Retrieved & Grounded Fact]: </span>
             Layout shifts in Arabic RTL are eliminated (CLS: 0.00) through CSS logical properties combined with preloaded font metrics, without layout jumps.
             <span className="font-mono text-[10px] text-slate-400 block mt-1">Source Citation: docs/typography-bidi.md#L42</span>
           </div>

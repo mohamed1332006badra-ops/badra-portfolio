@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     },
     featured: true,
     status: "production",
-    technologies: ["Next.js 15", "TypeScript", "FastAPI", "pgvector", "Redis", "LangChain", "Tailwind CSS"],
+    technologies: ["Next.js 16", "TypeScript", "FastAPI", "pgvector", "Redis", "LangChain", "Tailwind CSS"],
     problem: {
       en: "Standard naive vector search frequently returned hallucinations and missed cross-document context in complex technical domain documentation.",
       ar: "البحث الدلالي التقليدي كان يعاني من الهلوسة وفقدان السياق عند التعامل مع وثائق تقنية معقدة متعددة الأقسام.",
@@ -775,12 +775,12 @@ export const LAB_EXPERIMENTS: LabExperiment[] = [
     id: "rate-limiter",
     title: {
       en: "Token Bucket Rate Limiter Simulator",
-      ar: "محاكي محدد معدل الطلبات (Token Bucket)",
+      ar: "محاكي خوارزمية Token Bucket",
     },
-    badge: "SYSTEMS",
+    badge: "ALGORITHM SIM",
     description: {
-      en: "Interactive simulation of the token bucket algorithm used in production APIs to handle burst traffic while enforcing sustained throughput limits.",
-      ar: "محاكاة تفاعلية لخوارزمية Token Bucket المستخدمة في خوادم الإنتاج للتعامل مع تدفقات الطلبات المفاجئة مع حماية الخوادم.",
+      en: "Interactive client-side simulation of the token bucket algorithm demonstrating burst handling and continuous token refilling.",
+      ar: "محاكاة تفاعلية بالمتصفح لخوارزمية Token Bucket توضح التعامل مع تدفقات الذروة وتجديد الرموز.",
     },
     category: "systems",
     type: "rate-limiter",
@@ -788,13 +788,13 @@ export const LAB_EXPERIMENTS: LabExperiment[] = [
   {
     id: "rag-pipeline",
     title: {
-      en: "RAG Embedding & Vector Similarity Inspector",
-      ar: "مستكشف تشريح استرجاع المتجهات الدلالية (RAG)",
+      en: "Interactive RAG Simulation (Educational Demo)",
+      ar: "محاكاة مسار استرجاع المتجهات RAG (عرض تعليمي)",
     },
-    badge: "AI / EMBEDDINGS",
+    badge: "RAG DEMO SIM",
     description: {
-      en: "Visual step-by-step breakdown of how a user prompt is tokenized, embedded into vector space, matched via cosine similarity, and assembled into grounded context.",
-      ar: "تحليل مرئي خطوة بخطوة لكيفية تحويل النص إلى متجهات، وقياس التشابه الدلالي، وتوليد السياق الموثق للنموذج.",
+      en: "Educational simulation of query tokenization, embedding calculation, cosine similarity matching, and citation grounding.",
+      ar: "محاكاة تعليمية لتفكيك الاستفسارات وحساب التضمينات المتجهية وقياس التشابه وتوثيق المراجع.",
     },
     category: "ai",
     type: "rag-pipeline",
@@ -802,13 +802,13 @@ export const LAB_EXPERIMENTS: LabExperiment[] = [
   {
     id: "latency-cache",
     title: {
-      en: "Multi-Tier Latency & Cache Heatmap",
-      ar: "خريطة زمن الاستجابة والتخزين المؤقت متعدد المستويات",
+      en: "Multi-Tier Latency & Cache Hierarchy",
+      ar: "تسلسل زمن الاستجابة والتخزين المؤقت متعدد المستويات",
     },
-    badge: "PERFORMANCE",
+    badge: "LATENCY MODEL",
     description: {
-      en: "Explore the real latency divergence between L1 memory cache, Redis L2, database index lookups, and un-indexed table scans across distributed hops.",
-      ar: "استكشف الفروق الحقيقية في زمن الوصول بين ذاكرة المعالج، وذاكرة Redis، وفهارس قاعدة البيانات، والقراءة المباشرة من الأقراص.",
+      en: "Simulated architectural latency model illustrating relative order-of-magnitude differences between L1 memory, Redis L2, and disk I/O.",
+      ar: "نموذج محاكاة معماري يوضح الفروق النسبية في أزمنة الاستجابة بين الذاكرة والتخزين المؤقت وأقراص التخزين.",
     },
     category: "performance",
     type: "latency-cache",
