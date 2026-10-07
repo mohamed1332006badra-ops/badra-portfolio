@@ -9,7 +9,7 @@ export function AboutSection() {
   const { language } = useI18n();
 
   return (
-    <section id="about" className="py-24 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#090b10]/80">
+    <section id="about" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-50/70 dark:bg-[#0c0e14]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
@@ -32,7 +32,7 @@ export function AboutSection() {
           {PHILOSOPHY_PRINCIPLES.map((principle) => (
             <div
               key={principle.number}
-              className="p-6 sm:p-7 rounded-xl bg-white dark:bg-[#0e1017] border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200"
+              className="p-6 sm:p-7 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200"
             >
               <div className="font-mono text-sm font-bold text-blue-600 dark:text-blue-400 mb-3">
                 {principle.number} {"//"}
@@ -48,7 +48,7 @@ export function AboutSection() {
         </div>
 
         {/* Mohamed Ahmed Badra Background & Non-Negotiable Truth Disclosure */}
-        <div className="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0c0e15] p-6 sm:p-10">
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
@@ -67,7 +67,7 @@ export function AboutSection() {
             </div>
 
             {/* Truth Policy Card */}
-            <div className="p-5 rounded-xl bg-slate-50 dark:bg-[#131622] border border-slate-200 dark:border-white/10 space-y-3">
+            <div className="p-5 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                 <Shield className="w-4 h-4" />
                 <span>{language === "en" ? "Verified Truth Standard" : "معيار الصدق الهندسي"}</span>
@@ -77,7 +77,7 @@ export function AboutSection() {
                   ? "Zero fabricated client logos, fake revenue figures, or inflated skill percentages. Every architecture and project documented reflects disciplined engineering, with educational simulations explicitly identified."
                   : "لا شعارات وهمية لعملاء أو أرقام أرباح مختلقة أو نسب مهارات مضللة. كل معمارية ومشروع موثق هنا يعبر عن واقع هندسي منضبط، مع توضيح المحاكيات التعليمية بدقة."}
               </p>
-              <div className="pt-2 border-t border-slate-200 dark:border-white/5 flex items-center justify-between font-mono text-[11px] text-slate-500">
+              <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between font-mono text-[11px] text-slate-500">
                 <span>BADRA Engineering</span>
                 <span className="text-blue-500">2030</span>
               </div>

@@ -54,6 +54,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       // Ignore
     }
     if (typeof window !== "undefined") {
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
       window.dispatchEvent(new Event("badra-theme-change"));
     }
   };

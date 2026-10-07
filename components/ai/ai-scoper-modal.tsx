@@ -171,20 +171,20 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 <span>{language === "en" ? "Recommended Engineering Stack" : "البنية التقنية الموصى بها"}</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <div className="p-2.5 rounded bg-slate-50 dark:bg-[#141722] border border-slate-200/80 dark:border-white/5">
+                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block">Frontend</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.frontend}</span>
                 </div>
-                <div className="p-2.5 rounded bg-slate-50 dark:bg-[#141722] border border-slate-200/80 dark:border-white/5">
+                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block">Backend / APIs</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.backend}</span>
                 </div>
-                <div className="p-2.5 rounded bg-slate-50 dark:bg-[#141722] border border-slate-200/80 dark:border-white/5">
+                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
                   <span className="font-mono text-[10px] text-slate-400 uppercase block">Database & Caching</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.database}</span>
                 </div>
                 {result.recommendedArchitecture.aiComponents && (
-                  <div className="p-2.5 rounded bg-slate-50 dark:bg-[#141722] border border-slate-200/80 dark:border-white/5">
+                  <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
                     <span className="font-mono text-[10px] text-purple-400 uppercase block">AI & Vectors</span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.aiComponents}</span>
                   </div>
@@ -199,7 +199,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
               </span>
               <div className="space-y-2">
                 {result.keyMilestones.map((m, idx) => (
-                  <div key={idx} className="p-2.5 rounded bg-white dark:bg-[#0c0e15] border border-slate-200/80 dark:border-white/10 text-xs flex items-start gap-3">
+                  <div key={idx} className="p-2.5 rounded bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs flex items-start gap-3">
                     <span className="font-mono text-blue-500 font-bold shrink-0">{m.phase}:</span>
                     <span className="text-slate-600 dark:text-slate-300">{m.deliverables}</span>
                   </div>
@@ -223,7 +223,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
             )}
 
             {/* Actions */}
-            <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
               <Button variant="outline" size="sm" onClick={() => setResult(null)}>
                 {language === "en" ? "← Modify Prompt" : "← تعديل الوصف"}
               </Button>

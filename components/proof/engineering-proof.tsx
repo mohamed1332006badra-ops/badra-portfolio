@@ -34,8 +34,20 @@ export function EngineeringProof() {
     }
   };
 
+  const getProjectRefName = (name: string, lang: "en" | "ar") => {
+    if (lang === "en") return name;
+    return name
+      .replace(/OmniFlow & DevPulse/g, "OmniFlow و DevPulse")
+      .replace(/OmniFlow RAG & CogniCommerce/g, "OmniFlow RAG و CogniCommerce")
+      .replace(/NexusPulse & OmniFlow/g, "NexusPulse و OmniFlow")
+      .replace(/CogniCommerce & OmniFlow/g, "CogniCommerce و OmniFlow")
+      .replace(/OmniFlow RAG Engine/g, "محرك OmniFlow RAG")
+      .replace(/All Production Repositories/g, "كافة مستودعات الإنتاج")
+      .replace(/Production Deployments/g, "بيئات النشر الإنتاجية");
+  };
+
   return (
-    <section id="proof" className="py-20 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#090b10]/80">
+    <section id="proof" className="py-20 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-50/70 dark:bg-[#0c0e14]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -55,7 +67,7 @@ export function EngineeringProof() {
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-1.5 p-1 bg-white dark:bg-[#141722] rounded-lg border border-slate-200 dark:border-white/10">
+          <div className="flex flex-wrap gap-1.5 p-1 bg-white dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -77,10 +89,10 @@ export function EngineeringProof() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group flex flex-col justify-between rounded-xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0e1017] p-5 sm:p-6 hover:border-slate-300 dark:hover:border-white/20 hover:shadow-lg transition-all duration-200"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 sm:p-6 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-lg transition-all duration-200"
             >
               <div>
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 dark:border-white/5">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200/60 dark:border-slate-800/60">
                   <div className="flex items-center gap-2">
                     <div className="p-1.5 rounded-md bg-slate-100 dark:bg-white/5">
                       {getCategoryIcon(item.category)}
@@ -104,7 +116,7 @@ export function EngineeringProof() {
                     </p>
                   </div>
 
-                  <div className="p-2.5 rounded bg-slate-50 dark:bg-[#141722]/80 border border-slate-100 dark:border-white/5">
+                  <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60">
                     <span className="text-[10px] font-mono uppercase tracking-wider text-blue-600 dark:text-blue-400 block mb-0.5">
                       {language === "en" ? "Architectural Constraint" : "القيد المعماري"}
                     </span>
@@ -115,10 +127,15 @@ export function EngineeringProof() {
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-slate-500">
-                <span>Ref: <span className="text-slate-700 dark:text-slate-300">{item.associatedProject}</span></span>
-                <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-mono text-[11px]">
-                  <CheckCircle className="w-3.5 h-3.5" />
+              <div className="mt-5 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500 gap-2">
+                <span className="truncate">
+                  {language === "en" ? "Ref: " : "المرجع: "}
+                  <span className="text-slate-700 dark:text-slate-300 font-medium">
+                    {getProjectRefName(item.associatedProject, language)}
+                  </span>
+                </span>
+                <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-mono text-[11px] shrink-0">
+                  <CheckCircle className="w-3.5 h-3.5 shrink-0" />
                   <span>{language === "en" ? "Production Pattern" : "نمط إنتاجي"}</span>
                 </span>
               </div>

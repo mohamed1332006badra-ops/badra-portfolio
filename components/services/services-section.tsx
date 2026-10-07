@@ -24,7 +24,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
   };
 
   return (
-    <section id="services" className="py-24 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#08090d]">
+    <section id="services" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
@@ -47,12 +47,12 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
           {SERVICES.map((srv) => (
             <div
               key={srv.id}
-              className="flex flex-col justify-between rounded-xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0c0e15] p-6 sm:p-8 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200 shadow-sm"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-8 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 shadow-sm"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/60 dark:border-white/5">
-                  <div className="p-2.5 rounded-lg bg-white dark:bg-[#141722] border border-slate-200/60 dark:border-white/10">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/60 dark:border-slate-800/60">
+                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
                     {getServiceIcon(srv.icon)}
                   </div>
                   <div className="flex items-center gap-1.5 font-mono text-xs text-slate-500">
@@ -69,7 +69,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
                 </p>
 
                 {/* Problem vs Solution */}
-                <div className="space-y-3 mb-6 p-4 rounded-lg bg-white dark:bg-[#131622] border border-slate-200/80 dark:border-white/5 text-xs">
+                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 text-xs">
                   <div>
                     <span className="font-mono text-red-500 uppercase font-semibold block mb-0.5">
                       {language === "en" ? "Problem Solved:" : "المشكلة المعالجة:"}
@@ -105,7 +105,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-slate-200/60 dark:border-white/5">
+              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
                 <Button
                   variant="primary"
                   size="md"

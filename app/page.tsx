@@ -44,7 +44,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Global Navigation Bar */}
       <Navbar
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}

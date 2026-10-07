@@ -36,7 +36,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-24 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#08090d]">
+    <section id="projects" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -56,7 +56,7 @@ export function ProjectsSection() {
           </div>
 
           {/* Filter Bar */}
-          <div className="flex flex-wrap gap-1.5 p-1 bg-slate-100 dark:bg-[#141722] rounded-lg border border-slate-200 dark:border-white/5">
+          <div className="flex flex-wrap gap-1.5 p-1 bg-slate-50/70 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -78,11 +78,11 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="flex flex-col justify-between rounded-xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0c0e15] p-6 sm:p-7 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-200 group shadow-sm hover:shadow-md"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-7 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 group shadow-sm hover:shadow-md"
             >
               <div>
                 {/* Meta header */}
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/60 dark:border-white/5">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/60 dark:border-slate-800/60">
                   <Badge variant={project.category === "ai" ? "purple" : "accent"} size="sm">
                     {language === "en" ? project.categoryLabel.en : project.categoryLabel.ar}
                   </Badge>
@@ -100,7 +100,7 @@ export function ProjectsSection() {
                 </p>
 
                 {/* Problem & Solution Snippet */}
-                <div className="space-y-3 mb-6 p-4 rounded-lg bg-white dark:bg-[#131622] border border-slate-200/80 dark:border-white/5 text-xs">
+                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 text-xs">
                   <div>
                     <span className="font-mono uppercase tracking-wider text-red-500 font-semibold block mb-0.5">
                       {language === "en" ? "Problem:" : "المشكلة:"}
@@ -124,7 +124,7 @@ export function ProjectsSection() {
                   {project.technologies.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-200/60 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5"
+                      className="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/80"
                     >
                       {t}
                     </span>
@@ -133,7 +133,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-200/60 dark:border-white/5 flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
                 <Button
                   variant="outline"
                   size="sm"

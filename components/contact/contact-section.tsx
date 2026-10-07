@@ -70,7 +70,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
   };
 
   return (
-    <section id="contact" className="py-24 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#08090d]">
+    <section id="contact" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-14">
@@ -91,7 +91,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Direct channels left column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-xl bg-slate-50 dark:bg-[#0c0e15] border border-slate-200/80 dark:border-white/10 space-y-5">
+            <div className="p-6 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-5">
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                 {language === "en" ? "Direct Contact Channels" : "قنوات الاتصال المباشرة"}
               </h3>
@@ -99,7 +99,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
               <div className="space-y-4 text-xs sm:text-sm">
                 <a
                   href={`mailto:${SITE_METADATA.contact.email}`}
-                  className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-[#141722] border border-slate-200/60 dark:border-white/5 hover:border-blue-500 transition-colors group"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800/60 hover:border-blue-500 transition-colors group"
                 >
                   <div className="p-2 rounded-md bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400">
                     <Mail className="w-4 h-4" />
@@ -116,7 +116,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                   href={SITE_METADATA.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-[#141722] border border-slate-200/60 dark:border-white/5 hover:border-emerald-500 transition-colors group"
+                  className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800/60 hover:border-emerald-500 transition-colors group"
                 >
                   <div className="p-2 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400">
                     <MessageSquare className="w-4 h-4" />
@@ -131,7 +131,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
               </div>
 
               {/* Guarantees */}
-              <div className="pt-4 border-t border-slate-200/60 dark:border-white/5 space-y-2.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
+              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 space-y-2.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-blue-500 shrink-0" />
                   <span>{language === "en" ? "Response within 24 hours guaranteed" : "رد مؤكد خلال 24 ساعة"}</span>
@@ -179,7 +179,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-xl bg-slate-50/60 dark:bg-[#0c0e15] border border-slate-200/80 dark:border-white/10 space-y-5">
+              <form onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-5">
                 {/* Project Type Selector */}
                 <div>
                   <label className="text-xs font-semibold uppercase font-mono text-slate-500 block mb-2">
@@ -196,7 +196,7 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                           className={`px-3 py-1.5 text-xs font-medium rounded-md border transition-colors cursor-pointer ${
                             isSelected
                               ? "bg-blue-600 text-white border-blue-600 shadow-xs"
-                              : "bg-white dark:bg-[#141722] border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/20"
+                              : "bg-white dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600"
                           }`}
                         >
                           {language === "en" ? pt.en : pt.ar}

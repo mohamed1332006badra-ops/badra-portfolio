@@ -22,7 +22,7 @@ export function EngineeringLab() {
   };
 
   return (
-    <section id="lab" className="py-24 border-t border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#090b10]/90">
+    <section id="lab" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-50/70 dark:bg-[#0c0e14]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
@@ -50,8 +50,8 @@ export function EngineeringLab() {
                 onClick={() => setActiveExperiment(exp.type)}
                 className={`flex flex-col text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
                   isSelected
-                    ? "bg-white dark:bg-[#131622] border-blue-500 shadow-md ring-1 ring-blue-500/20"
-                    : "bg-white/60 dark:bg-[#0e1017]/60 border-slate-200/80 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20"
+                    ? "bg-white dark:bg-slate-900 border-blue-500 shadow-md ring-1 ring-blue-500/20"
+                    : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
                 }`}
               >
                 <div className="flex items-center justify-between w-full mb-2">
@@ -77,7 +77,7 @@ export function EngineeringLab() {
         </div>
 
         {/* Active Sandbox Viewer */}
-        <div className="bg-white dark:bg-[#0c0e15] border border-slate-200/80 dark:border-white/10 rounded-2xl shadow-xl overflow-hidden p-2 sm:p-4">
+        <div className="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden p-2 sm:p-4">
           {activeExperiment === "rate-limiter" && <RateLimiterSim />}
           {activeExperiment === "rag-pipeline" && <RagPipelineSim />}
           {activeExperiment === "latency-cache" && <LatencyCacheSim />}

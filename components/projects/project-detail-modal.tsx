@@ -85,7 +85,7 @@ export function ProjectDetailModal({
         </div>
 
         {/* Architecture & Implementation */}
-        <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#141722] border border-slate-200 dark:border-white/10">
+        <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center gap-1.5 font-mono text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">
             <Layers className="w-4 h-4" />
             <span>{language === "en" ? "System Architecture" : "المعمارية البرمجية"}</span>
@@ -117,7 +117,7 @@ export function ProjectDetailModal({
         </div>
 
         {/* Footer CTAs */}
-        <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+        <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             {project.repoUrl && (
               <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">

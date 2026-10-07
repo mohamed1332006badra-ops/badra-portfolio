@@ -14,9 +14,9 @@ export function Card({
 }: CardProps) {
   return (
     <div
-      className={`rounded-lg border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-[#0e1017]/80 backdrop-blur-sm p-6 transition-all duration-200 ${
+      className={`rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 transition-all duration-200 ${
         hoverEffect
-          ? "hover:border-slate-300 dark:hover:border-white/20 hover:shadow-md hover:-translate-y-0.5"
+          ? "hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md hover:-translate-y-0.5"
           : ""
       } ${className}`}
       {...props}

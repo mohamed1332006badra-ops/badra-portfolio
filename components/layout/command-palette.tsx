@@ -173,9 +173,9 @@ export function CommandPalette({
     >
       <div onClick={handleClose} className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" />
 
-      <div className="relative w-full max-w-xl bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-10 text-slate-900 dark:text-slate-100">
+      <div className="relative w-full max-w-xl bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 text-slate-900 dark:text-slate-100">
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-100 dark:border-white/10 gap-3">
+        <div className="flex items-center px-4 py-3.5 border-b border-slate-200/60 dark:border-slate-800/60 gap-3">
           <Search className="w-5 h-5 text-slate-400 shrink-0" />
           <input
             ref={inputRef}

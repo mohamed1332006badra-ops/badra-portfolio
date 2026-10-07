@@ -46,7 +46,7 @@ export function Navbar({
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 border-b ${
           scrolled
-            ? "bg-white/80 dark:bg-[#08090d]/85 backdrop-blur-md border-slate-200/80 dark:border-white/10 shadow-sm"
+            ? "bg-white/80 dark:bg-[#08090d]/85 backdrop-blur-md border-slate-200/60 dark:border-slate-800/60 shadow-sm"
             : "bg-transparent border-transparent"
         }`}
       >
@@ -54,7 +54,7 @@ export function Navbar({
           {/* Brand Logo */}
           <a
             href="#"
-            className="flex items-center gap-2.5 font-bold tracking-tight text-slate-900 dark:text-white group"
+            className="flex items-center gap-2.5 font-bold tracking-tight text-slate-900 dark:text-white group shrink-0"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] group-hover:scale-125 transition-transform" />
             <span className="text-xl font-mono tracking-wider font-extrabold">BADRA</span>
@@ -64,12 +64,12 @@ export function Navbar({
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+          <nav className="hidden md:flex items-center gap-0.5 lg:gap-1.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                className="px-2 lg:px-3 py-1.5 text-xs lg:text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-100 dark:hover:bg-white/5 transition-colors whitespace-nowrap"
               >
                 {language === "en" ? link.label.en : link.label.ar}
               </a>
@@ -77,12 +77,13 @@ export function Navbar({
           </nav>
 
           {/* Right Action Tools */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2 shrink-0">
             {/* Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}
               aria-label="Command Palette ⌘K"
-              className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 rounded-md transition-colors"
+              title={language === "en" ? "Command Palette (⌘K)" : "لوحة الأوامر (⌘K)"}
+              className="hidden lg:flex items-center gap-1.5 px-2 py-1.5 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-slate-800 rounded-md transition-colors"
             >
               <Terminal className="w-3.5 h-3.5 text-blue-500" />
               <span>⌘K</span>
@@ -92,10 +93,11 @@ export function Navbar({
             <button
               onClick={onOpenAiScoper}
               title={language === "en" ? "AI Scoper: 'Tell me what you want to build'" : "مساعد التخطيط الذكي"}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-md transition-colors"
+              aria-label={language === "en" ? "Scope with AI" : "تخطيط ذكي"}
+              className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 text-xs font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-md transition-colors shrink-0"
             >
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-              <span className="hidden lg:inline">
+              <Sparkles className="w-3.5 h-3.5 animate-pulse shrink-0" />
+              <span className="hidden xl:inline">
                 {language === "en" ? "Scope with AI" : "تخطيط ذكي"}
               </span>
             </button>
@@ -104,9 +106,9 @@ export function Navbar({
             <button
               onClick={toggleLanguage}
               aria-label={language === "en" ? "Switch language to Arabic عربي" : "Switch language to English EN"}
-              className="p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors flex items-center gap-1 text-xs font-medium"
+              className="p-1.5 sm:p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors flex items-center gap-1 text-xs font-medium shrink-0"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="w-4 h-4 shrink-0" />
               <span>{mounted ? (language === "en" ? "عربي" : "EN") : "عربي"}</span>
             </button>
 
@@ -114,7 +116,7 @@ export function Navbar({
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors"
+              className="p-1.5 sm:p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors shrink-0"
             >
               {mounted ? (
                 theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-600" />
@@ -128,7 +130,7 @@ export function Navbar({
               variant="primary"
               size="sm"
               onClick={onOpenContactModal}
-              className="hidden md:inline-flex"
+              className="hidden md:inline-flex text-xs lg:text-sm px-2.5 lg:px-3.5 py-1.5 whitespace-nowrap shrink-0"
             >
               {language === "en" ? "Start a Project" : "ابدأ مشروعك"}
             </Button>

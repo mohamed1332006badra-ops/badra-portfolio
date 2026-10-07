@@ -17,6 +17,18 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
 
   if (!caseStudy) return null;
 
+  const displayTitle =
+    (language === "en" ? caseStudy.title?.en : caseStudy.title?.ar) ||
+    caseStudy.title?.en ||
+    caseStudy.title?.ar ||
+    "NexusPulse — Real-Time Telemetry & Edge Monitoring Architecture";
+
+  const displayOverview =
+    (language === "en" ? caseStudy.overview?.en : caseStudy.overview?.ar) ||
+    caseStudy.overview?.en ||
+    caseStudy.overview?.ar ||
+    "";
+
   return (
     <Modal
       isOpen={isOpen}
@@ -35,22 +47,24 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
         {/* Title & Overview */}
         <div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-3">
-            {language === "en" ? caseStudy.title.en : caseStudy.title.ar}
+            {displayTitle}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            {language === "en" ? caseStudy.overview.en : caseStudy.overview.ar}
-          </p>
+          {displayOverview && (
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              {displayOverview}
+            </p>
+          )}
         </div>
 
         {/* Context & Problem */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-lg bg-slate-50 dark:bg-[#141722] border border-slate-200/80 dark:border-white/5">
+          <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
             <div className="flex items-center gap-2 font-mono text-xs font-semibold text-slate-500 mb-2">
               <Compass className="w-4 h-4 text-blue-400" />
               <span>{language === "en" ? "Context & Background" : "السياق والخلفية"}</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              {language === "en" ? caseStudy.context.en : caseStudy.context.ar}
+              {language === "en" ? caseStudy.context?.en : caseStudy.context?.ar}
             </p>
           </div>
 
@@ -60,7 +74,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
               <span>{language === "en" ? "Core Problem Statement" : "المشكلة الجوهرية"}</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              {language === "en" ? caseStudy.problemStatement.en : caseStudy.problemStatement.ar}
+              {language === "en" ? caseStudy.problemStatement?.en : caseStudy.problemStatement?.ar}
             </p>
           </div>
         </div>
@@ -76,7 +90,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
             {caseStudy.architectureSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-[#0c0e15] border border-slate-200 dark:border-white/10"
+                className="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800"
               >
                 <span className="font-mono text-base font-bold text-blue-500 shrink-0">
                   {step.step}
@@ -103,7 +117,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
             {caseStudy.keyDecisions.map((item, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-lg bg-slate-50 dark:bg-[#141722]/80 border border-slate-100 dark:border-white/5"
+                className="p-3.5 rounded-lg bg-slate-50/70 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60"
               >
                 <div className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
                   {language === "en" ? item.decision.en : item.decision.ar}

@@ -69,10 +69,10 @@ export function Modal({
       {/* Modal Dialog */}
       <div
         ref={modalRef}
-        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-white/10 rounded-xl shadow-2xl overflow-hidden z-10 my-8 text-slate-900 dark:text-slate-100 ${className}`}
+        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 my-8 text-slate-900 dark:text-slate-100 ${className}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-white/10">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/60 dark:border-slate-800/60">
           <div className="font-semibold text-lg">{title}</div>
           <button
             onClick={onClose}

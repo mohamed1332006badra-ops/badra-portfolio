@@ -338,8 +338,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: "cs-nexus",
     projectId: "nexus-pulse",
     title: {
-      en: "Scaling Real-Time Edge Telemetry to 60fps UI without Browser Lockup",
-      ar: "توسيع نطاق مقاييس الحافة إلى 60 إطاراً في الثانية دون إجهاد المتصفح",
+      en: "NexusPulse — Real-Time Telemetry & Edge Monitoring Architecture",
+      ar: "NexusPulse — معمارية القياس عن بُعد والمراقبة اللحظية على الخوادم الطرفية",
     },
     overview: {
       en: "Eliminating UI thrash when streaming thousands of metrics per second through architectural decoupling of WebSocket parsing and canvas rendering.",
