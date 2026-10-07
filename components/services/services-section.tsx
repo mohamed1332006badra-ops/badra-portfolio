@@ -24,7 +24,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
   };
 
   return (
-    <section id="services" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
+    <section id="services" className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
@@ -47,15 +47,15 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
           {SERVICES.map((srv) => (
             <div
               key={srv.id}
-              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-8 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200 shadow-sm"
+              className="flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-8 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md transition-all duration-200 shadow-sm"
             >
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200/60 dark:border-slate-800/60">
-                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800">
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800/60">
+                  <div className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 shadow-xs">
                     {getServiceIcon(srv.icon)}
                   </div>
-                  <div className="flex items-center gap-1.5 font-mono text-xs text-slate-500">
+                  <div className="flex items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 font-medium">
                     <Clock className="w-3.5 h-3.5" />
                     <span>{language === "en" ? srv.typicalTimeline.en : srv.typicalTimeline.ar}</span>
                   </div>
@@ -64,17 +64,17 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                   {language === "en" ? srv.title.en : srv.title.ar}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-sm text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
                   {language === "en" ? srv.summary.en : srv.summary.ar}
                 </p>
 
                 {/* Problem vs Solution */}
-                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 text-xs">
+                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/60 text-xs">
                   <div>
                     <span className="font-mono text-red-500 uppercase font-semibold block mb-0.5">
                       {language === "en" ? "Problem Solved:" : "المشكلة المعالجة:"}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-400">
+                    <span className="text-slate-700 dark:text-slate-300">
                       {language === "en" ? srv.problemSolved.en : srv.problemSolved.ar}
                     </span>
                   </div>
@@ -82,7 +82,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
                     <span className="font-mono text-emerald-500 uppercase font-semibold block mb-0.5">
                       {language === "en" ? "Architectural Approach:" : "النهج المعماري:"}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-400">
+                    <span className="text-slate-700 dark:text-slate-300">
                       {language === "en" ? srv.solutionApproach.en : srv.solutionApproach.ar}
                     </span>
                   </div>
@@ -90,7 +90,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
 
                 {/* Deliverables checklist */}
                 <div className="mb-6">
-                  <span className="font-mono text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2.5">
+                  <span className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider block mb-2.5">
                     {language === "en" ? "Concrete Deliverables" : "المخرجات المحددة"}
                   </span>
                   <ul className="space-y-2">
@@ -105,7 +105,7 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60">
                 <Button
                   variant="primary"
                   size="md"

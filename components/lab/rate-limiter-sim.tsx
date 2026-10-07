@@ -64,7 +64,7 @@ export function RateLimiterSim() {
               {language === "en" ? "Algorithm Simulation" : "محاكاة خوارزمية"}
             </span>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             {language === "en"
               ? "In-browser algorithm visualization: Capacity: 10 tokens · Refill Rate: 2 tokens/sec (illustrates API throttling and burst capacity)."
               : "محاكاة خوارزمية تفاعلية بالمتصفح: سعة 10 رموز · معدل تجديد 2 رمز/ثانية (لتوضيح آليات خنق الطلبات وتدفقات الذروة)."}
@@ -89,7 +89,7 @@ export function RateLimiterSim() {
       {/* Visual Bucket */}
       <div className="py-6 flex flex-col sm:flex-row items-center gap-6">
         <div className="w-full sm:w-48 flex flex-col items-center">
-          <span className="text-xs font-mono text-slate-500 mb-1">
+          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 mb-1 font-medium">
             Bucket Level ({Math.floor(tokens)} / {capacity})
           </span>
           <div className="w-full h-32 rounded-lg border-2 border-dashed border-slate-300 dark:border-white/20 p-1 flex flex-col-reverse relative overflow-hidden bg-white dark:bg-[#0c0e15]">
@@ -122,7 +122,7 @@ export function RateLimiterSim() {
 
           {/* Real-time Status Badge */}
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500 font-mono">Last Response:</span>
+            <span className="text-xs text-slate-700 dark:text-slate-400 font-mono">Last Response:</span>
             {lastStatus === "ok" && (
               <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
                 <CheckCircle2 className="w-3.5 h-3.5" /> 200 OK (Processed)
@@ -134,22 +134,22 @@ export function RateLimiterSim() {
               </span>
             )}
             {!lastStatus && (
-              <span className="text-xs font-mono text-slate-400">Waiting for trigger</span>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">Waiting for trigger</span>
             )}
           </div>
 
           {/* Metric Stats */}
           <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200 dark:border-white/5 font-mono text-center">
-            <div className="p-2 rounded bg-white dark:bg-[#1b2030]">
-              <span className="text-[10px] text-slate-400 block">TOTAL</span>
+            <div className="p-2 rounded bg-white dark:bg-[#1b2030] border border-slate-200 dark:border-white/5 shadow-2xs">
+              <span className="text-[10px] text-slate-600 dark:text-slate-400 block font-semibold">TOTAL</span>
               <span className="text-sm font-bold text-slate-900 dark:text-white">{stats.total}</span>
             </div>
-            <div className="p-2 rounded bg-white dark:bg-[#1b2030]">
-              <span className="text-[10px] text-emerald-500 block">200 OK</span>
+            <div className="p-2 rounded bg-white dark:bg-[#1b2030] border border-slate-200 dark:border-white/5 shadow-2xs">
+              <span className="text-[10px] text-emerald-600 dark:text-emerald-500 block font-semibold">200 OK</span>
               <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{stats.allowed}</span>
             </div>
-            <div className="p-2 rounded bg-white dark:bg-[#1b2030]">
-              <span className="text-[10px] text-red-500 block">429 DROPPED</span>
+            <div className="p-2 rounded bg-white dark:bg-[#1b2030] border border-slate-200 dark:border-white/5 shadow-2xs">
+              <span className="text-[10px] text-red-600 dark:text-red-500 block font-semibold">429 DROPPED</span>
               <span className="text-sm font-bold text-red-600 dark:text-red-400">{stats.dropped}</span>
             </div>
           </div>

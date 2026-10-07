@@ -66,7 +66,7 @@ export function RagPipelineSim() {
               {language === "en" ? "Educational Simulation" : "محاكاة تعليمية"}
             </span>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             {language === "en"
               ? "Educational in-browser simulation demonstrating the mechanics of query embeddings, vector similarity matching, and grounded context assembly."
               : "محاكاة تعليمية تفاعلية توضح آليات تحويل الاستفسار إلى متجهات وحساب التشابه وحزم السياق الموثق."}
@@ -101,9 +101,9 @@ export function RagPipelineSim() {
         <div className={`p-3 rounded-lg border transition-colors ${activeStep >= 1 ? "bg-white dark:bg-[#0c0e15] border-blue-500/30" : "opacity-50"}`}>
           <div className="flex items-center justify-between text-xs font-mono mb-1.5">
             <span className="text-blue-500 font-bold">01. Query Embedding (text-embedding-3-small)</span>
-            <span className="text-slate-400">Dim: 1536</span>
+            <span className="text-slate-600 dark:text-slate-400">Dim: 1536</span>
           </div>
-          <div className="font-mono text-[11px] text-slate-500 bg-slate-100 dark:bg-white/5 p-2 rounded truncate">
+          <div className="font-mono text-[11px] text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/5 p-2 rounded truncate border border-slate-200 dark:border-white/5">
             [0.0241, -0.8123, 0.4419, 0.1092, -0.0521, 0.7712, 0.3201, -0.1982, ... +1528 dimensions]
           </div>
         </div>
@@ -112,7 +112,7 @@ export function RagPipelineSim() {
         <div className={`p-3 rounded-lg border transition-colors ${activeStep >= 2 ? "bg-white dark:bg-[#0c0e15] border-purple-500/30" : "opacity-50"}`}>
           <div className="flex items-center justify-between text-xs font-mono mb-2">
             <span className="text-purple-500 font-bold">02. HNSW Vector Similarity Scores (pgvector)</span>
-            <span className="text-slate-400">Top-k: 3</span>
+            <span className="text-slate-600 dark:text-slate-400">Top-k: 3</span>
           </div>
           <div className="space-y-2">
             {sampleChunks.map((chunk, idx) => (
@@ -121,16 +121,16 @@ export function RagPipelineSim() {
                 className={`p-2.5 rounded text-xs border ${
                   idx === 0
                     ? "bg-purple-50/50 dark:bg-purple-950/20 border-purple-200 dark:border-purple-800/40"
-                    : "bg-slate-50 dark:bg-white/5 border-slate-100 dark:border-white/5 text-slate-500"
+                    : "bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/5 text-slate-700 dark:text-slate-300"
                 }`}
               >
                 <div className="flex items-center justify-between font-mono text-[11px] mb-1">
                   <span className="font-semibold text-slate-800 dark:text-slate-200">{chunk.source}</span>
-                  <span className={idx === 0 ? "text-emerald-500 font-bold" : "text-slate-400"}>
+                  <span className={idx === 0 ? "text-emerald-500 font-bold" : "text-slate-600 dark:text-slate-400"}>
                     Similarity: {chunk.vectorSimilarity}
                   </span>
                 </div>
-                <p className="text-slate-600 dark:text-slate-300 line-clamp-2">{chunk.content}</p>
+                <p className="text-slate-700 dark:text-slate-300 line-clamp-2">{chunk.content}</p>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export function RagPipelineSim() {
           <div className="text-xs text-slate-700 dark:text-slate-300 p-2.5 rounded bg-emerald-50/30 dark:bg-emerald-950/20 border border-emerald-200/40 dark:border-emerald-800/20 leading-relaxed">
             <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">[Retrieved & Grounded Fact]: </span>
             Layout shifts in Arabic RTL are eliminated (CLS: 0.00) through CSS logical properties combined with preloaded font metrics, without layout jumps.
-            <span className="font-mono text-[10px] text-slate-400 block mt-1">Source Citation: docs/typography-bidi.md#L42</span>
+            <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 block mt-1">Source Citation: docs/typography-bidi.md#L42</span>
           </div>
         </div>
       </div>

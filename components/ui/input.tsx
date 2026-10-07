@@ -20,14 +20,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           id={inputId}
-          className={`w-full px-3.5 py-2.5 text-sm rounded-md bg-white dark:bg-[#141722] border ${
+          className={`w-full px-3.5 py-2.5 text-sm rounded-md bg-white dark:bg-slate-900/60 border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-              : "border-slate-300 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              : "border-slate-300 dark:border-slate-700 focus:border-blue-600 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500"
           } text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors ${className}`}
           {...props}
         />
-        {hint && !error && <span className="text-[11px] text-slate-500 dark:text-slate-400">{hint}</span>}
+        {hint && !error && <span className="text-[11px] text-slate-600 dark:text-slate-400">{hint}</span>}
         {error && <span className="text-[11px] text-red-500 font-medium">{error}</span>}
       </div>
     );
@@ -57,14 +57,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={textareaId}
           rows={rows}
-          className={`w-full px-3.5 py-2.5 text-sm rounded-md bg-white dark:bg-[#141722] border ${
+          className={`w-full px-3.5 py-2.5 text-sm rounded-md bg-white dark:bg-slate-900/60 border ${
             error
               ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-              : "border-slate-300 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              : "border-slate-300 dark:border-slate-700 focus:border-blue-600 dark:focus:border-blue-500 focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500"
           } text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-colors resize-y ${className}`}
           {...props}
         />
-        {hint && !error && <span className="text-[11px] text-slate-500 dark:text-slate-400">{hint}</span>}
+        {hint && !error && <span className="text-[11px] text-slate-600 dark:text-slate-400">{hint}</span>}
         {error && <span className="text-[11px] text-red-500 font-medium">{error}</span>}
       </div>
     );

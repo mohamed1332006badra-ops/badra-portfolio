@@ -36,7 +36,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
+    <section id="projects" className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -56,7 +56,7 @@ export function ProjectsSection() {
           </div>
 
           {/* Filter Bar */}
-          <div className="flex flex-wrap gap-1.5 p-1 bg-slate-50/70 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800">
+          <div className="flex flex-wrap gap-1.5 p-1 bg-slate-50/80 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xs">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
@@ -82,11 +82,11 @@ export function ProjectsSection() {
             >
               <div>
                 {/* Meta header */}
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200/60 dark:border-slate-800/60">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800/60">
                   <Badge variant={project.category === "ai" ? "purple" : "accent"} size="sm">
                     {language === "en" ? project.categoryLabel.en : project.categoryLabel.ar}
                   </Badge>
-                  <span className="font-mono text-[11px] text-slate-400 uppercase">
+                  <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 uppercase font-medium">
                     STATUS: {project.status}
                   </span>
                 </div>
@@ -95,17 +95,17 @@ export function ProjectsSection() {
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors">
                   {language === "en" ? project.title.en : project.title.ar}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 mb-5 leading-relaxed">
+                <p className="text-sm text-slate-700 dark:text-slate-300 mb-5 leading-relaxed">
                   {language === "en" ? project.tagline.en : project.tagline.ar}
                 </p>
 
                 {/* Problem & Solution Snippet */}
-                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-800/60 text-xs">
+                <div className="space-y-3 mb-6 p-4 rounded-lg bg-slate-50/80 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/60 text-xs">
                   <div>
                     <span className="font-mono uppercase tracking-wider text-red-500 font-semibold block mb-0.5">
                       {language === "en" ? "Problem:" : "المشكلة:"}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-400 line-clamp-2">
+                    <span className="text-slate-700 dark:text-slate-300 line-clamp-2">
                       {language === "en" ? project.problem.en : project.problem.ar}
                     </span>
                   </div>
@@ -113,7 +113,7 @@ export function ProjectsSection() {
                     <span className="font-mono uppercase tracking-wider text-emerald-500 font-semibold block mb-0.5">
                       {language === "en" ? "Solution:" : "الحل:"}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-400 line-clamp-2">
+                    <span className="text-slate-700 dark:text-slate-300 line-clamp-2">
                       {language === "en" ? project.solution.en : project.solution.ar}
                     </span>
                   </div>
@@ -133,7 +133,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
                 <Button
                   variant="outline"
                   size="sm"

@@ -46,7 +46,7 @@ export function Navbar({
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 border-b ${
           scrolled
-            ? "bg-white/80 dark:bg-[#08090d]/85 backdrop-blur-md border-slate-200/60 dark:border-slate-800/60 shadow-sm"
+            ? "bg-white/90 dark:bg-[#08090d]/85 backdrop-blur-md border-slate-200 dark:border-slate-800/60 shadow-sm"
             : "bg-transparent border-transparent"
         }`}
       >
@@ -139,7 +139,7 @@ export function Navbar({
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
-              className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-md"
+              className="md:hidden p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-md"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -174,7 +174,7 @@ export function Navbar({
                   <Terminal className="w-4 h-4 text-blue-500" />
                   <span>{language === "en" ? "Command Palette" : "لوحة الأوامر السريعة"}</span>
                 </div>
-                <span className="font-mono text-xs text-slate-500">⌘K</span>
+                <span className="font-mono text-xs text-slate-600 dark:text-slate-400 font-semibold">⌘K</span>
               </button>
 
               <button

@@ -36,7 +36,7 @@ export function ProjectDetailModal({
           <Badge variant="accent" size="sm">
             {language === "en" ? project.categoryLabel.en : project.categoryLabel.ar}
           </Badge>
-          <span className="font-mono text-xs text-slate-500">
+          <span className="font-mono text-xs text-slate-600 dark:text-slate-400 font-semibold">
             {project.status.toUpperCase()}
           </span>
         </div>
@@ -47,7 +47,7 @@ export function ProjectDetailModal({
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-2">
             {language === "en" ? project.title.en : project.title.ar}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300">
             {language === "en" ? project.tagline.en : project.tagline.ar}
           </p>
         </div>
@@ -85,7 +85,7 @@ export function ProjectDetailModal({
         </div>
 
         {/* Architecture & Implementation */}
-        <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
+        <div className="p-4 rounded-lg bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="flex items-center gap-1.5 font-mono text-xs font-semibold text-blue-600 dark:text-blue-400 mb-2">
             <Layers className="w-4 h-4" />
             <span>{language === "en" ? "System Architecture" : "المعمارية البرمجية"}</span>
@@ -98,26 +98,26 @@ export function ProjectDetailModal({
         {/* Challenges & Outcome */}
         <div className="space-y-3">
           <div>
-            <h4 className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+            <h4 className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-1">
               {language === "en" ? "Key Technical Challenge" : "أبرز التحديات التقنية"}
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               {language === "en" ? project.challenges.en : project.challenges.ar}
             </p>
           </div>
 
           <div>
-            <h4 className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
+            <h4 className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-1">
               {language === "en" ? "Architectural Outcome" : "النتيجة المعمارية"}
             </h4>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
               {language === "en" ? project.outcome.en : project.outcome.ar}
             </p>
           </div>
         </div>
 
         {/* Footer CTAs */}
-        <div className="pt-4 border-t border-slate-200/60 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
+        <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             {project.repoUrl && (
               <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">

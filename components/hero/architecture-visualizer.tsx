@@ -79,9 +79,9 @@ export function ArchitectureVisualizer() {
   const selectedNodeData = nodes.find((n) => n.id === activeNode) || nodes[3];
 
   return (
-    <div className="relative rounded-xl border border-slate-200/80 dark:border-white/10 bg-white/40 dark:bg-[#0c0e15]/90 backdrop-blur-md p-5 sm:p-6 shadow-xl">
+    <div className="relative rounded-xl border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-[#0c0e15]/90 backdrop-blur-md p-5 sm:p-6 shadow-md">
       {/* Top Header & Simulation Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200/60 dark:border-white/10 gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 dark:border-white/10 gap-3">
         <div className="flex items-center gap-2.5">
           <Activity className="w-4 h-4 text-blue-500 animate-pulse" />
           <span className="font-mono text-xs font-semibold tracking-wider uppercase text-slate-800 dark:text-slate-200">
@@ -96,7 +96,7 @@ export function ArchitectureVisualizer() {
             className={`px-2 py-1 text-[11px] font-mono rounded transition-colors ${
               trafficMode === "standard"
                 ? "bg-white dark:bg-blue-600 text-slate-900 dark:text-white shadow-xs font-semibold"
-                : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
             }`}
           >
             {language === "en" ? "Standard Flow" : "تدفق طبيعي"}
@@ -106,7 +106,7 @@ export function ArchitectureVisualizer() {
             className={`px-2 py-1 text-[11px] font-mono rounded transition-colors ${
               trafficMode === "peak"
                 ? "bg-white dark:bg-emerald-600 text-slate-900 dark:text-white shadow-xs font-semibold"
-                : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
             }`}
           >
             {language === "en" ? "High Concurrency" : "ذروة حركة"}
@@ -116,7 +116,7 @@ export function ArchitectureVisualizer() {
             className={`px-2 py-1 text-[11px] font-mono rounded transition-colors ${
               trafficMode === "rag"
                 ? "bg-white dark:bg-purple-600 text-slate-900 dark:text-white shadow-xs font-semibold"
-                : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200"
             }`}
           >
             {language === "en" ? "AI / RAG Ingest" : "استعلام ذكاء"}
@@ -135,16 +135,16 @@ export function ArchitectureVisualizer() {
               className={`flex flex-col items-center text-center p-3 sm:p-4 rounded-lg border transition-all duration-150 cursor-pointer ${
                 isSelected
                   ? "bg-blue-500/10 dark:bg-white/10 border-blue-500 dark:border-blue-400 shadow-md ring-1 ring-blue-500/30"
-                  : "bg-slate-50/50 dark:bg-[#141722]/50 border-slate-200/80 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20"
+                  : "bg-white dark:bg-[#141722]/50 border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20 shadow-xs"
               }`}
             >
-              <div className="p-2 rounded-md bg-white dark:bg-[#1b2030] shadow-xs mb-2 border border-slate-200/50 dark:border-white/10">
+              <div className="p-2 rounded-md bg-white dark:bg-[#1b2030] shadow-xs mb-2 border border-slate-200 dark:border-white/10">
                 {node.icon}
               </div>
               <span className="text-xs font-semibold text-slate-900 dark:text-white">
                 {language === "en" ? node.name.en : node.name.ar}
               </span>
-              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
+              <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 mt-0.5">
                 {node.latency}
               </span>
             </button>
@@ -178,20 +178,20 @@ export function ArchitectureVisualizer() {
       </div>
 
       {/* Selected Node Deep-Dive Card */}
-      <div className="mt-4 p-4 rounded-lg bg-slate-50 dark:bg-[#131622] border border-slate-200 dark:border-white/10">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200/60 dark:border-white/5">
+      <div className="mt-4 p-4 rounded-lg bg-slate-50/80 dark:bg-[#131622] border border-slate-200 dark:border-white/10 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200 dark:border-white/5">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
             <h2 className="text-sm font-semibold text-slate-900 dark:text-white">
               {language === "en" ? selectedNodeData.name.en : selectedNodeData.name.ar}
             </h2>
           </div>
-          <div className="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-3 text-xs font-mono text-slate-600 dark:text-slate-400">
             <span>Protocol: <span className="text-slate-800 dark:text-slate-200">{selectedNodeData.protocol}</span></span>
             <span>Target Latency: <span className="text-emerald-600 dark:text-emerald-400">{selectedNodeData.latency}</span></span>
           </div>
         </div>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2.5 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mt-2.5 leading-relaxed">
           {language === "en" ? selectedNodeData.role.en : selectedNodeData.role.ar}
         </p>
       </div>

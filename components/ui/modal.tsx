@@ -72,12 +72,12 @@ export function Modal({
         className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 my-8 text-slate-900 dark:text-slate-100 ${className}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800/60">
           <div className="font-semibold text-lg">{title}</div>
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="p-1 rounded-md text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            className="p-1 rounded-md text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>

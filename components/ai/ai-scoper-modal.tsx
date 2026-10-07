@@ -80,7 +80,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                 {language === "en" ? "Tell me what you want to build." : "أخبرني بما تريد بناءه."}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
                 {language === "en"
                   ? "Describe your product idea or engineering challenge. Our system will generate a recommended architecture, stack breakdown, and delivery phases."
                   : "اشرح فكرة منتجك أو التحدي البرمجي المطلوب. سيقوم النظام بتحليل المتطلبات واقتراح المعمارية المثلى ومراحل التنفيذ."}
@@ -95,7 +95,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 <select
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-md bg-white dark:bg-[#141722] border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white"
+                  className="w-full px-3 py-2 text-xs rounded-md bg-white dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-blue-500 focus:outline-hidden focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500 transition-colors"
                 >
                   <option value="Full-Stack Web App">Full-Stack Web Application</option>
                   <option value="AI & RAG System">AI Assistant / RAG Knowledge Pipeline</option>
@@ -116,7 +116,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                       "A bilingual customer intelligence dashboard with vector search on support tickets and real-time metric updates."
                     )
                   }
-                  className="w-full text-left px-3 py-2 text-xs rounded-md bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 hover:text-blue-500 truncate"
+                  className="w-full text-left px-3 py-2 text-xs rounded-md bg-slate-50/80 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-slate-300 dark:hover:border-white/20 transition-colors truncate shadow-2xs"
                 >
                   Click to fill: Customer intelligence & RAG...
                 </button>
@@ -171,21 +171,21 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 <span>{language === "en" ? "Recommended Engineering Stack" : "البنية التقنية الموصى بها"}</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block">Frontend</span>
+                <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+                  <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Frontend</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.frontend}</span>
                 </div>
-                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block">Backend / APIs</span>
+                <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+                  <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Backend / APIs</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.backend}</span>
                 </div>
-                <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-                  <span className="font-mono text-[10px] text-slate-400 uppercase block">Database & Caching</span>
+                <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+                  <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Database & Caching</span>
                   <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.database}</span>
                 </div>
                 {result.recommendedArchitecture.aiComponents && (
-                  <div className="p-2.5 rounded bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-                    <span className="font-mono text-[10px] text-purple-400 uppercase block">AI & Vectors</span>
+                  <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+                    <span className="font-mono text-[10px] text-purple-600 dark:text-purple-400 uppercase block font-semibold">AI & Vectors</span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.aiComponents}</span>
                   </div>
                 )}
@@ -194,14 +194,14 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
 
             {/* Milestones */}
             <div>
-              <span className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2.5">
+              <span className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider block mb-2.5">
                 {language === "en" ? "Phased Delivery Milestones" : "مراحل التسليم المقترحة"}
               </span>
               <div className="space-y-2">
                 {result.keyMilestones.map((m, idx) => (
-                  <div key={idx} className="p-2.5 rounded bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs flex items-start gap-3">
+                  <div key={idx} className="p-2.5 rounded bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs flex items-start gap-3 shadow-xs">
                     <span className="font-mono text-blue-500 font-bold shrink-0">{m.phase}:</span>
-                    <span className="text-slate-600 dark:text-slate-300">{m.deliverables}</span>
+                    <span className="text-slate-700 dark:text-slate-300">{m.deliverables}</span>
                   </div>
                 ))}
               </div>

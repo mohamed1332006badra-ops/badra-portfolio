@@ -37,7 +37,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
       title={
         <div className="flex items-center gap-2">
           <BookOpen className="w-5 h-5 text-blue-500" />
-          <span className="font-mono text-sm tracking-wide uppercase text-slate-500">
+          <span className="font-mono text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 font-semibold">
             {language === "en" ? "Engineering Case Study" : "دراسة حالة هندسية"}
           </span>
         </div>
@@ -50,7 +50,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
             {displayTitle}
           </h2>
           {displayOverview && (
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
               {displayOverview}
             </p>
           )}
@@ -58,8 +58,8 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
 
         {/* Context & Problem */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-lg bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-            <div className="flex items-center gap-2 font-mono text-xs font-semibold text-slate-500 mb-2">
+          <div className="p-4 rounded-lg bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+            <div className="flex items-center gap-2 font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 mb-2">
               <Compass className="w-4 h-4 text-blue-400" />
               <span>{language === "en" ? "Context & Background" : "السياق والخلفية"}</span>
             </div>
@@ -90,7 +90,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
             {caseStudy.architectureSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800"
+                className="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs"
               >
                 <span className="font-mono text-base font-bold text-blue-500 shrink-0">
                   {step.step}
@@ -99,7 +99,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
                   <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
                     {language === "en" ? step.title.en : step.title.ar}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     {language === "en" ? step.desc.en : step.desc.ar}
                   </p>
                 </div>
@@ -110,19 +110,19 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
 
         {/* Key Architectural Decisions */}
         <div>
-          <h4 className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+          <h4 className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-3">
             {language === "en" ? "Key Decisions & Trade-Offs" : "القرارات المعمارية والمفاضلات"}
           </h4>
           <div className="space-y-3">
             {caseStudy.keyDecisions.map((item, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-lg bg-slate-50/70 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60"
+                className="p-3.5 rounded-lg bg-slate-50/80 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800/60 shadow-xs"
               >
                 <div className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
                   {language === "en" ? item.decision.en : item.decision.ar}
                 </div>
-                <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                <div className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                   <span className="font-mono text-blue-500 font-medium">
                     {language === "en" ? "Rationale: " : "السبب والمبرر: "}
                   </span>
@@ -135,7 +135,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
 
         {/* Technical Challenges */}
         <div>
-          <h4 className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+          <h4 className="font-mono text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-3">
             {language === "en" ? "Hardest Challenges & Resolution" : "أبرز التحديات التقنية وحلولها"}
           </h4>
           <div className="space-y-3">
@@ -167,7 +167,7 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
           <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium mb-2">
             {language === "en" ? caseStudy.metricsOrOutcome.en : caseStudy.metricsOrOutcome.ar}
           </p>
-          <p className="text-xs text-slate-600 dark:text-slate-400 italic">
+          <p className="text-xs text-slate-700 dark:text-slate-300 italic">
             &ldquo;{language === "en" ? caseStudy.lessonsLearned.en : caseStudy.lessonsLearned.ar}&rdquo;
           </p>
         </div>

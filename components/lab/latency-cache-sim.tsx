@@ -74,7 +74,7 @@ export function LatencyCacheSim() {
               {language === "en" ? "Illustrative Simulation" : "محاكاة توضيحية"}
             </span>
           </div>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             {language === "en"
               ? "Simulated example values illustrating relative architectural tiers across memory, cache, and disk I/O (not live production telemetry)."
               : "قيم محاكاة توضيحية لإبراز الفروق النسبية بين الذاكرة والتخزين المؤقت وأقراص التخزين (وليست قياسات خوادم حية)."}
@@ -134,7 +134,7 @@ export function LatencyCacheSim() {
                 <div className="flex items-center gap-1.5">
                   {tier.icon}
                   <span className="text-slate-800 dark:text-slate-200 font-medium">{tier.name}</span>
-                  <span className="text-[10px] text-slate-400">({tier.hardware})</span>
+                  <span className="text-[10px] text-slate-600 dark:text-slate-400">({tier.hardware})</span>
                 </div>
                 <span className="font-bold text-slate-700 dark:text-slate-300">
                   {tier.latencyMs} ms

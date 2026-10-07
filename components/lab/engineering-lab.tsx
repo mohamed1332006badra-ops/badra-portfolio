@@ -22,7 +22,7 @@ export function EngineeringLab() {
   };
 
   return (
-    <section id="lab" className="py-24 border-t border-slate-200/60 dark:border-slate-800/60 bg-slate-50/70 dark:bg-[#0c0e14]">
+    <section id="lab" className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-slate-50/80 dark:bg-[#0c0e14]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
@@ -51,13 +51,13 @@ export function EngineeringLab() {
                 className={`flex flex-col text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
                   isSelected
                     ? "bg-white dark:bg-slate-900 border-blue-500 shadow-md ring-1 ring-blue-500/20"
-                    : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                    : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md"
                 }`}
               >
                 <div className="flex items-center justify-between w-full mb-2">
                   <div className="flex items-center gap-2">
                     {getExperimentIcon(exp.type)}
-                    <span className="font-mono text-[10px] uppercase font-bold text-slate-400">
+                    <span className="font-mono text-[10px] uppercase font-bold text-slate-600 dark:text-slate-400">
                       {exp.badge}
                     </span>
                   </div>
@@ -68,7 +68,7 @@ export function EngineeringLab() {
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
                   {language === "en" ? exp.title.en : exp.title.ar}
                 </h3>
-                <p className="text-xs text-slate-500 line-clamp-2">
+                <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
                   {language === "en" ? exp.description.en : exp.description.ar}
                 </p>
               </button>
@@ -77,7 +77,7 @@ export function EngineeringLab() {
         </div>
 
         {/* Active Sandbox Viewer */}
-        <div className="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl overflow-hidden p-2 sm:p-4">
+        <div className="bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-md overflow-hidden p-2 sm:p-4">
           {activeExperiment === "rate-limiter" && <RateLimiterSim />}
           {activeExperiment === "rag-pipeline" && <RagPipelineSim />}
           {activeExperiment === "latency-cache" && <LatencyCacheSim />}

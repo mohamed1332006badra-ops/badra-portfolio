@@ -80,7 +80,7 @@ export function ContactModal({
           <h3 className="text-xl font-bold text-slate-900 dark:text-white">
             {language === "en" ? "Inquiry Sent Successfully" : "تم إرسال استفسارك بنجاح"}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">
             {language === "en"
               ? "Mohamed Ahmed Badra will review your project requirements and get in touch within 24 hours."
               : "سيقوم محمد أحمد بدرة بمراجعة متطلبات المشروع والتواصل معك خلال 24 ساعة."}

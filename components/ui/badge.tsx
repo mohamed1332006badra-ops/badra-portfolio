@@ -25,7 +25,7 @@ export function Badge({
     purple:
       "bg-purple-50 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800/60",
     outline:
-      "bg-transparent text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700",
+      "bg-transparent text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700",
   };
 
   return (

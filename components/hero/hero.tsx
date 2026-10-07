@@ -39,7 +39,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper }: HeroProps) {
             <span className="block text-slate-800 dark:text-slate-100">
               {language === "en" ? "Full-Stack Developer" : "مطور برمجيات شامل"}
             </span>
-            <span className="block text-slate-500 dark:text-slate-400 font-normal">
+            <span className="block text-slate-600 dark:text-slate-400 font-normal">
               {language === "en" ? "AI Engineer · Product Builder" : "مهندس ذكاء اصطناعي · صانع منتجات"}
             </span>
           </h1>
@@ -82,7 +82,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper }: HeroProps) {
           </div>
 
           {/* Core Engineering Disciplines */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200/80 dark:border-white/10 text-xs font-mono text-slate-600 dark:text-slate-400">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-200 dark:border-white/10 text-xs font-mono text-slate-600 dark:text-slate-400">
             <div className="flex items-center gap-2">
               <Code className="w-4 h-4 text-blue-500 shrink-0" />
               <span>{language === "en" ? "Strict TypeScript" : "أمان نوعي صارم"}</span>

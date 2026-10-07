@@ -86,7 +86,7 @@ export function CommandPalette({
       id: "about",
       title: { en: "About Mohamed Badra & Engineering Philosophy", ar: "عن محمد بدرة والفلسفة الهندسية" },
       category: { en: "Navigation", ar: "التنقل" },
-      icon: <User className="w-4 h-4 text-slate-400" />,
+      icon: <User className="w-4 h-4 text-slate-500 dark:text-slate-400" />,
       action: () => navigateTo("#about"),
     },
     {
@@ -175,8 +175,8 @@ export function CommandPalette({
 
       <div className="relative w-full max-w-xl bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 text-slate-900 dark:text-slate-100">
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-slate-200/60 dark:border-slate-800/60 gap-3">
-          <Search className="w-5 h-5 text-slate-400 shrink-0" />
+        <div className="flex items-center px-4 py-3.5 border-b border-slate-200 dark:border-slate-800/60 gap-3">
+          <Search className="w-5 h-5 text-slate-500 dark:text-slate-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -192,7 +192,7 @@ export function CommandPalette({
             }
             className="w-full bg-transparent border-none outline-none text-sm placeholder:text-slate-400 text-slate-900 dark:text-white"
           />
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400">
+          <kbd className="hidden sm:inline-flex items-center gap-0.5 text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-white/5">
             ESC
           </kbd>
         </div>
@@ -200,7 +200,7 @@ export function CommandPalette({
         {/* Command list */}
         <div className="max-h-80 overflow-y-auto p-2">
           {filteredCommands.length === 0 ? (
-            <div className="py-8 text-center text-sm text-slate-500">
+            <div className="py-8 text-center text-sm text-slate-600 dark:text-slate-400">
               {language === "en" ? "No matching commands found." : "لا توجد نتائج مطابقة."}
             </div>
           ) : (
@@ -224,7 +224,7 @@ export function CommandPalette({
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-slate-400">
+                    <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 font-medium">
                       {language === "en" ? cmd.category.en : cmd.category.ar}
                     </span>
                     {isSelected && (
@@ -238,7 +238,7 @@ export function CommandPalette({
         </div>
 
         {/* Footer shortcuts */}
-        <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-[#141722]/60 border-t border-slate-100 dark:border-white/5 text-[11px] text-slate-500">
+        <div className="flex items-center justify-between px-4 py-2 bg-slate-50/80 dark:bg-[#141722]/60 border-t border-slate-200 dark:border-white/5 text-[11px] text-slate-600 dark:text-slate-400 font-medium">
           <div className="flex items-center gap-3">
             <span>↑↓ {language === "en" ? "Navigate" : "تنقل"}</span>
             <span>↵ {language === "en" ? "Select" : "اختيار"}</span>
