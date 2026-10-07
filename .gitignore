@@ -43,3 +43,6 @@ next-env.d.ts
 
 # audit reports
 lighthouse-*.json
+
+.vercel
+.env*
