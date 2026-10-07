@@ -182,9 +182,9 @@ export function ArchitectureVisualizer() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200/60 dark:border-white/5">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-            <h4 className="text-sm font-semibold text-slate-900 dark:text-white">
+            <h2 className="text-sm font-semibold text-slate-900 dark:text-white">
               {language === "en" ? selectedNodeData.name.en : selectedNodeData.name.ar}
-            </h4>
+            </h2>
           </div>
           <div className="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
             <span>Protocol: <span className="text-slate-800 dark:text-slate-200">{selectedNodeData.protocol}</span></span>

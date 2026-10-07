@@ -232,10 +232,11 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                     placeholder="+1 (555) 000-0000"
                   />
                   <div>
-                    <label className="text-xs font-medium text-slate-700 dark:text-slate-300 block mb-1.5">
+                    <label htmlFor="target-budget-tier" className="text-xs font-medium text-slate-700 dark:text-slate-300 block mb-1.5">
                       {language === "en" ? "Target Budget Tier" : "الميزانية المتوقعة"}
                     </label>
                     <select
+                      id="target-budget-tier"
                       value={formData.budgetRange}
                       onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
                       className="w-full px-3.5 py-2.5 text-sm rounded-md bg-white dark:bg-[#141722] border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white"

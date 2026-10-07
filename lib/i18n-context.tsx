@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import { Language, LocalizedString, LocalizedArray } from "./types";
 
 interface I18nContextType {
@@ -14,7 +14,17 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-function getInitialLanguage(): Language {
+function subscribeLang(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("badra-lang-change", callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener("badra-lang-change", callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function getLangClient(): Language {
   if (typeof window === "undefined") return "en";
   try {
     const saved = localStorage.getItem("badra_lang") as Language | null;
@@ -27,26 +37,33 @@ function getInitialLanguage(): Language {
   return "en";
 }
 
+function getLangServer(): Language {
+  return "en";
+}
+
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+  const language = useSyncExternalStore(subscribeLang, getLangClient, getLangServer);
 
   useEffect(() => {
     const dir = language === "ar" ? "rtl" : "ltr";
     document.documentElement.setAttribute("lang", language);
     document.documentElement.setAttribute("dir", dir);
-    try {
-      localStorage.setItem("badra_lang", language);
-    } catch {
-      // Ignore
-    }
   }, [language]);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
+    try {
+      localStorage.setItem("badra_lang", lang);
+    } catch {
+      // Ignore
+    }
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("badra-lang-change"));
+    }
   };
 
   const toggleLanguage = () => {
-    setLanguageState((prev) => (prev === "en" ? "ar" : "en"));
+    const nextLang: Language = language === "en" ? "ar" : "en";
+    setLanguage(nextLang);
   };
 
   const t = (val: LocalizedString | undefined): string => {

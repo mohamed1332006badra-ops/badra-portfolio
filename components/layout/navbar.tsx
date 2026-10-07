@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useSyncExternalStore } from "react";
 import { Terminal, Globe, Moon, Sun, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 import { Button } from "@/components/ui/button";
+
+const emptySubscribe = () => () => {};
 
 interface NavbarProps {
   onOpenCommandPalette: () => void;
@@ -17,6 +19,7 @@ export function Navbar({
   onOpenAiScoper,
   onOpenContactModal,
 }: NavbarProps) {
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const { language, toggleLanguage } = useI18n();
   const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -55,7 +58,7 @@ export function Navbar({
           >
             <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] group-hover:scale-125 transition-transform" />
             <span className="text-xl font-mono tracking-wider font-extrabold">BADRA</span>
-            <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-white/5">
+            <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">
               2030
             </span>
           </a>
@@ -66,7 +69,7 @@ export function Navbar({
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                className="px-3 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white rounded-md hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
               >
                 {language === "en" ? link.label.en : link.label.ar}
               </a>
@@ -78,8 +81,8 @@ export function Navbar({
             {/* Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}
-              aria-label="Open Command Center"
-              className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 rounded-md transition-colors"
+              aria-label="Command Palette ⌘K"
+              className="hidden sm:flex items-center gap-2 px-2.5 py-1.5 text-xs font-mono text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 rounded-md transition-colors"
             >
               <Terminal className="w-3.5 h-3.5 text-blue-500" />
               <span>⌘K</span>
@@ -89,7 +92,7 @@ export function Navbar({
             <button
               onClick={onOpenAiScoper}
               title={language === "en" ? "AI Scoper: 'Tell me what you want to build'" : "مساعد التخطيط الذكي"}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-md transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-md transition-colors"
             >
               <Sparkles className="w-3.5 h-3.5 animate-pulse" />
               <span className="hidden lg:inline">
@@ -100,20 +103,24 @@ export function Navbar({
             {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
-              aria-label="Toggle language"
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors flex items-center gap-1 text-xs font-medium"
+              aria-label={language === "en" ? "Switch language to Arabic عربي" : "Switch language to English EN"}
+              className="p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors flex items-center gap-1 text-xs font-medium"
             >
               <Globe className="w-4 h-4" />
-              <span>{language === "en" ? "عربي" : "EN"}</span>
+              <span>{mounted ? (language === "en" ? "عربي" : "EN") : "عربي"}</span>
             </button>
 
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors"
+              className="p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors"
             >
-              {theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-600" />}
+              {mounted ? (
+                theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-600" />
+              ) : (
+                <Sun className="w-4 h-4 text-amber-400" />
+              )}
             </button>
 
             {/* Primary Action Button */}

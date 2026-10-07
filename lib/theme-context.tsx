@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 import { Theme } from "./types";
 
 interface ThemeContextType {
@@ -11,19 +11,33 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-function getInitialTheme(): Theme {
+function subscribeTheme(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("badra-theme-change", callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener("badra-theme-change", callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+function getThemeClient(): Theme {
   if (typeof window === "undefined") return "dark";
   try {
-    const saved = localStorage.getItem("badra_theme") as Theme | null;
-    if (saved === "light" || saved === "dark") return saved;
+    const val = localStorage.getItem("badra_theme");
+    if (val === "light" || val === "dark") return val;
   } catch {
     // Ignore error
   }
   return "dark";
 }
 
+function getThemeServer(): Theme {
+  return "dark";
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeClient, getThemeServer);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -31,19 +45,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    try {
-      localStorage.setItem("badra_theme", theme);
-    } catch {
-      // Ignore
-    }
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
+    try {
+      localStorage.setItem("badra_theme", newTheme);
+    } catch {
+      // Ignore
+    }
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("badra-theme-change"));
+    }
   };
 
   const toggleTheme = () => {
-    setThemeState((prev) => (prev === "dark" ? "light" : "dark"));
+    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
   };
 
   return (
