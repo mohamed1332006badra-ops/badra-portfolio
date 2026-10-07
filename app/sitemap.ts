@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://badra.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://badra.dev";
   const currentDate = new Date().toISOString();
 
   return [
