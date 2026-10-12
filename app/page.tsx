@@ -13,11 +13,13 @@ import { Footer } from "@/components/layout/footer";
 import { CommandPalette } from "@/components/layout/command-palette";
 import { AiScoperModal } from "@/components/ai/ai-scoper-modal";
 import { ContactModal } from "@/components/contact/contact-modal";
+import { ResumeModal } from "@/components/resume/resume-modal";
 
 export default function HomePage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [aiScoperOpen, setAiScoperOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const [selectedServiceForInquiry, setSelectedServiceForInquiry] = useState<string>("");
   const [inquiryDescription, setInquiryDescription] = useState<string>("");
 
@@ -49,6 +51,7 @@ export default function HomePage() {
       <Navbar
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
         onOpenAiScoper={() => setAiScoperOpen(true)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
         onOpenContactModal={() => {
           setSelectedServiceForInquiry("");
           setInquiryDescription("");
@@ -62,6 +65,7 @@ export default function HomePage() {
         <Hero
           onOpenContactModal={() => setContactModalOpen(true)}
           onOpenAiScoper={() => setAiScoperOpen(true)}
+          onOpenResumeModal={() => setResumeModalOpen(true)}
         />
 
         {/* 01 // Engineering Proof Matrix */}
@@ -87,7 +91,10 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
+      <Footer
+        onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+      />
 
       {/* Global Command Center (⌘K) */}
       <CommandPalette
@@ -95,6 +102,7 @@ export default function HomePage() {
         onClose={() => setCommandPaletteOpen(false)}
         onOpenAiScoper={() => setAiScoperOpen(true)}
         onOpenContactModal={() => setContactModalOpen(true)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
       />
 
       {/* AI Project Scoper Modal */}
@@ -111,6 +119,12 @@ export default function HomePage() {
         onClose={() => setContactModalOpen(false)}
         initialService={selectedServiceForInquiry}
         initialDescription={inquiryDescription}
+      />
+
+      {/* ATS-Compliant Interactive Resume Modal & Dynamic PDF Exporter */}
+      <ResumeModal
+        isOpen={resumeModalOpen}
+        onClose={() => setResumeModalOpen(false)}
       />
     </div>
   );

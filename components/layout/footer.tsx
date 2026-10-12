@@ -3,15 +3,16 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
-import { Terminal, MessageSquare, ArrowUp } from "lucide-react";
+import { Terminal, MessageSquare, ArrowUp, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
 import { StatusBar } from "@/components/layout/status-bar";
 
 interface FooterProps {
   onOpenCommandPalette: () => void;
+  onOpenResumeModal?: () => void;
 }
 
-export function Footer({ onOpenCommandPalette }: FooterProps) {
+export function Footer({ onOpenCommandPalette, onOpenResumeModal }: FooterProps) {
   const { language } = useI18n();
 
   const scrollToTop = () => {
@@ -38,6 +39,16 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
 
           {/* Social Links & Controls */}
           <div className="flex flex-wrap items-center gap-3">
+            {onOpenResumeModal && (
+              <button
+                type="button"
+                onClick={onOpenResumeModal}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-xs font-medium text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors cursor-pointer"
+              >
+                <FileText className="w-3.5 h-3.5 text-emerald-500" />
+                <span>{language === "en" ? "Resume" : "السيرة الذاتية"}</span>
+              </button>
+            )}
 
             <button
               onClick={onOpenCommandPalette}

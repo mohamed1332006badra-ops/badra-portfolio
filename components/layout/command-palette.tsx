@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, CornerDownLeft } from "lucide-react";
+import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, CornerDownLeft, FileText } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 
@@ -19,6 +19,7 @@ interface CommandPaletteProps {
   onClose: () => void;
   onOpenAiScoper: () => void;
   onOpenContactModal: () => void;
+  onOpenResumeModal: () => void;
 }
 
 export function CommandPalette({
@@ -26,6 +27,7 @@ export function CommandPalette({
   onClose,
   onOpenAiScoper,
   onOpenContactModal,
+  onOpenResumeModal,
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -48,6 +50,19 @@ export function CommandPalette({
   };
 
   const commands: CommandItem[] = [
+    {
+      id: "resume",
+      title: {
+        en: "badra --resume · View Engineering Resume & Export PDF",
+        ar: "badra --resume · عرض السيرة الذاتية الهندسية وتصدير PDF",
+      },
+      category: { en: "Engineering", ar: "هندسة" },
+      icon: <FileText className="w-4 h-4 text-emerald-400" />,
+      action: () => {
+        onClose();
+        onOpenResumeModal();
+      },
+    },
     {
       id: "ai-assistant",
       title: {

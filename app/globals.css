@@ -125,3 +125,133 @@
 .animate-pulse-subtle {
   animation: pulseGlow 4s ease-in-out infinite;
 }
+
+/* ==========================================================================
+   ATS-Compliant Print Stylesheet for Resume PDF Exporter
+   ========================================================================== */
+@media print {
+  @page {
+    margin: 12mm;
+    size: A4 portrait;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt;
+    line-height: 1.4;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide navigation, footers, background grids, page sections, toolbar, and dialog backdrops */
+  header,
+  footer,
+  main,
+  nav,
+  button,
+  .tech-grid-bg,
+  .print-hidden,
+  .no-print,
+  [data-print-hide="true"],
+  [role="dialog"] > div:first-child {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Reset outer modal wrappers into standard unclipped document flow */
+  [role="dialog"] {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    z-index: auto !important;
+  }
+
+  [role="dialog"] > div {
+    position: static !important;
+    overflow: visible !important;
+    max-height: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Printable Resume ATS Canvas */
+  #printable-resume {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #printable-resume * {
+    color: #000000 !important;
+    background-color: transparent !important;
+    border-color: #000000 !important;
+  }
+
+  #printable-resume header {
+    display: block !important;
+    visibility: visible !important;
+    border-bottom: 2px solid #000000 !important;
+    margin-bottom: 12pt !important;
+    padding-bottom: 8pt !important;
+  }
+
+  #printable-resume section {
+    display: block !important;
+    visibility: visible !important;
+    margin-bottom: 11pt !important;
+  }
+
+  #printable-resume a {
+    text-decoration: none !important;
+    color: #000000 !important;
+  }
+
+  #printable-resume a[href^="http"]::after {
+    content: "" !important;
+  }
+
+  /* Prevent page-breaks in the middle of sections or job entries */
+  .resume-section,
+  .resume-entry {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+

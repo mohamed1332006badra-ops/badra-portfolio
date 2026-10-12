@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useSyncExternalStore } from "react";
-import { Terminal, Globe, Moon, Sun, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { Terminal, Globe, Moon, Sun, Menu, X, ArrowUpRight, Sparkles, FileText } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 import { Button } from "@/components/ui/button";
@@ -12,12 +12,14 @@ interface NavbarProps {
   onOpenCommandPalette: () => void;
   onOpenAiScoper: () => void;
   onOpenContactModal: () => void;
+  onOpenResumeModal: () => void;
 }
 
 export function Navbar({
   onOpenCommandPalette,
   onOpenAiScoper,
   onOpenContactModal,
+  onOpenResumeModal,
 }: NavbarProps) {
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const { language, toggleLanguage } = useI18n();
@@ -87,6 +89,19 @@ export function Navbar({
             >
               <Terminal className="w-3.5 h-3.5 text-blue-500" />
               <span>⌘K</span>
+            </button>
+
+            {/* Engineering Resume Trigger */}
+            <button
+              onClick={onOpenResumeModal}
+              title={language === "en" ? "Engineering Resume & ATS PDF" : "السيرة الذاتية وتصدير PDF"}
+              aria-label={language === "en" ? "Engineering Resume" : "السيرة الذاتية"}
+              className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-md transition-colors shrink-0 cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5 shrink-0" />
+              <span className="hidden sm:inline">
+                {language === "en" ? "Resume" : "السيرة الذاتية"}
+              </span>
             </button>
 
             {/* AI Scoper Quick Trigger */}
@@ -175,6 +190,20 @@ export function Navbar({
                   <span>{language === "en" ? "Command Palette" : "لوحة الأوامر السريعة"}</span>
                 </div>
                 <span className="font-mono text-xs text-slate-600 dark:text-slate-400 font-semibold">⌘K</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenResumeModal();
+                }}
+                className="flex items-center justify-between px-3 py-2.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-sm font-medium text-emerald-700 dark:text-emerald-300"
+              >
+                <div className="flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-emerald-500" />
+                  <span>{language === "en" ? "Resume (ATS / PDF)" : "السيرة الذاتية (ATS / PDF)"}</span>
+                </div>
+                <ArrowUpRight className="w-4 h-4" />
               </button>
 
               <button

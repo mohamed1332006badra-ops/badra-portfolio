@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Sparkles, CheckCircle2, Shield, Code, Cpu } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Shield, Code, Cpu, FileText } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Button } from "@/components/ui/button";
@@ -10,9 +10,10 @@ import { ArchitectureVisualizer } from "./architecture-visualizer";
 interface HeroProps {
   onOpenContactModal: () => void;
   onOpenAiScoper: () => void;
+  onOpenResumeModal?: () => void;
 }
 
-export function Hero({ onOpenContactModal, onOpenAiScoper }: HeroProps) {
+export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: HeroProps) {
   const { language, direction } = useI18n();
 
   return (
@@ -71,6 +72,17 @@ export function Hero({ onOpenContactModal, onOpenAiScoper }: HeroProps) {
             >
               {language === "en" ? "Start a Project" : "ابدأ مشروعك"}
             </Button>
+
+            {onOpenResumeModal && (
+              <button
+                type="button"
+                onClick={onOpenResumeModal}
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-emerald-500" />
+                <span>{language === "en" ? "Resume / ATS PDF" : "السيرة الذاتية / PDF"}</span>
+              </button>
+            )}
 
             <button
               onClick={onOpenAiScoper}
