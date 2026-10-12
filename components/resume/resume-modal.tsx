@@ -167,17 +167,17 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             }}
           >
             {/* 1. HEADER / CONTACT BLOCK */}
-            <header className="border-b-2 border-black pb-4 mb-5 text-center">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-black mb-1.5">
+            <header className="border-b-2 border-black pb-4 mb-5 text-center print:pb-1.5 print:mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-black mb-1.5 print:text-xl print:mb-0.5">
                 {isAr ? data.profile.name.ar : data.profile.name.en}
               </h1>
 
-              <p className="text-sm sm:text-base font-semibold text-neutral-800 mb-3 tracking-wide">
+              <p className="text-sm sm:text-base font-semibold text-neutral-800 mb-3 tracking-wide print:text-xs print:mb-1">
                 {isAr ? data.profile.title.ar : data.profile.title.en}
               </p>
 
               {/* Contact Information Row */}
-              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-neutral-800 font-medium">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-neutral-800 font-medium print:gap-x-2 print:gap-y-0.5 print:text-[8pt]">
                 <span>{isAr ? data.profile.location.ar : data.profile.location.en}</span>
                 <span className="text-neutral-400">•</span>
                 <a
@@ -217,21 +217,21 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </header>
 
             {/* 2. PROFESSIONAL SUMMARY */}
-            <section className="mb-5 resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2">
+            <section className="mb-5 resume-section print:mb-2">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2 print:pb-0.5 print:mb-1">
                 {isAr ? "الملخص المهني" : "PROFESSIONAL SUMMARY"}
               </h2>
-              <p className="text-xs sm:text-[13px] leading-relaxed text-neutral-900 text-justify">
+              <p className="text-xs sm:text-[13px] leading-relaxed text-neutral-900 text-justify print:text-[8pt] print:leading-snug">
                 {isAr ? data.summary.ar : data.summary.en}
               </p>
             </section>
 
             {/* 3. CORE TECHNICAL SKILLS */}
-            <section className="mb-5 resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2">
+            <section className="mb-5 resume-section print:mb-2">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2 print:pb-0.5 print:mb-1">
                 {isAr ? "المهارات التقنية والمعمارية" : "CORE TECHNICAL SKILLS"}
               </h2>
-              <div className="space-y-1.5 text-xs sm:text-[13px]">
+              <div className="space-y-1.5 text-xs sm:text-[13px] print:space-y-0.5 print:text-[8pt]">
                 {data.skills.map((skillGroup, idx) => (
                   <div key={idx} className="flex flex-col sm:flex-row sm:gap-2 leading-relaxed">
                     <span className="font-bold text-black min-w-[210px] shrink-0">
@@ -246,26 +246,26 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </section>
 
             {/* 4. PROFESSIONAL EXPERIENCE */}
-            <section className="mb-5 resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2">
+            <section className="mb-5 resume-section print:mb-2">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2 print:pb-0.5 print:mb-1">
                 {isAr ? "الخبرات المهنية" : "PROFESSIONAL EXPERIENCE"}
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-4 print:space-y-1.5">
                 {data.experience.map((exp, idx) => (
                   <div key={idx} className="resume-entry">
                     {/* Role & Company Header */}
-                    <div className="flex flex-wrap items-baseline justify-between gap-1 mb-1">
+                    <div className="flex flex-wrap items-baseline justify-between gap-1 mb-1 print:mb-0.5">
                       <div>
-                        <span className="font-bold text-xs sm:text-sm text-black">
+                        <span className="font-bold text-xs sm:text-sm text-black print:text-[8.5pt]">
                           {isAr ? exp.role.ar : exp.role.en}
                         </span>
                         <span className="text-neutral-600 mx-1.5">|</span>
-                        <span className="font-semibold text-xs sm:text-sm text-neutral-900">
+                        <span className="font-semibold text-xs sm:text-sm text-neutral-900 print:text-[8.5pt]">
                           {exp.company}
                         </span>
                       </div>
-                      <div className="text-xs text-neutral-700 font-medium font-mono">
+                      <div className="text-xs text-neutral-700 font-medium font-mono print:text-[7.5pt]">
                         <span>{isAr ? exp.location.ar : exp.location.en}</span>
                         <span className="mx-1">•</span>
                         <span>{isAr ? exp.period.ar : exp.period.en}</span>
@@ -273,7 +273,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     </div>
 
                     {/* Bullet Highlights */}
-                    <ul className="list-disc list-outside ps-4 sm:ps-5 space-y-1 text-xs sm:text-[12.5px] leading-relaxed text-neutral-900">
+                    <ul className="list-disc list-outside ps-4 sm:ps-5 space-y-1 text-xs sm:text-[12.5px] leading-relaxed text-neutral-900 print:ps-3.5 print:space-y-0.5 print:text-[7.5pt] print:leading-snug">
                       {(isAr ? exp.highlights.ar : exp.highlights.en).map((bullet, bIdx) => (
                         <li key={bIdx} className="text-justify">
                           {bullet}
@@ -286,20 +286,20 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </section>
 
             {/* 5. SELECTED PRODUCTION PROJECTS */}
-            <section className="mb-5 resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2">
+            <section className="mb-5 resume-section print:mb-2">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2 print:pb-0.5 print:mb-1">
                 {isAr ? "أبرز المشاريع الإنتاجية المعتمدة" : "SELECTED PRODUCTION PROJECTS"}
               </h2>
 
-              <div className="space-y-3">
+              <div className="space-y-3 print:space-y-1">
                 {data.projects.map((proj, idx) => (
                   <div key={idx} className="resume-entry">
-                    <div className="flex flex-wrap items-baseline justify-between gap-1 mb-0.5">
+                    <div className="flex flex-wrap items-baseline justify-between gap-1 mb-0.5 print:mb-0">
                       <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-xs sm:text-sm text-black">
+                        <span className="font-bold text-xs sm:text-sm text-black print:text-[8.5pt]">
                           {proj.title}
                         </span>
-                        <span className="text-neutral-500 text-xs">
+                        <span className="text-neutral-500 text-xs print:text-[7.5pt]">
                           (
                           <a
                             href={proj.url}
@@ -312,12 +312,12 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                           )
                         </span>
                       </div>
-                      <span className="text-[11px] font-mono text-neutral-600">
+                      <span className="text-[11px] font-mono text-neutral-600 print:text-[7pt]">
                         {proj.technologies.slice(0, 4).join(" • ")}
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-[12px] leading-relaxed text-neutral-800 text-justify">
+                    <p className="text-xs sm:text-[12px] leading-relaxed text-neutral-800 text-justify print:text-[7.5pt] print:leading-snug">
                       {isAr ? proj.description.ar : proj.description.en}
                     </p>
                   </div>
@@ -326,27 +326,27 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </section>
 
             {/* 6. EDUCATION & CREDENTIALS */}
-            <section className="mb-4 resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2">
+            <section className="mb-4 resume-section print:mb-1.5">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-2 print:pb-0.5 print:mb-1">
                 {isAr ? "التعليم والمؤهلات" : "EDUCATION & CREDENTIALS"}
               </h2>
 
-              <div className="space-y-2">
+              <div className="space-y-2 print:space-y-1">
                 {data.education.map((edu, idx) => (
                   <div key={idx} className="resume-entry">
                     <div className="flex flex-wrap items-baseline justify-between gap-1">
-                      <span className="font-bold text-xs sm:text-sm text-black">
+                      <span className="font-bold text-xs sm:text-sm text-black print:text-[8.5pt]">
                         {isAr ? edu.degree.ar : edu.degree.en}
                       </span>
-                      <span className="text-xs text-neutral-700 font-mono">
+                      <span className="text-xs text-neutral-700 font-mono print:text-[7.5pt]">
                         {isAr ? edu.period.ar : edu.period.en}
                       </span>
                     </div>
-                    <p className="text-xs text-neutral-800">
+                    <p className="text-xs text-neutral-800 print:text-[7.5pt]">
                       {isAr ? edu.institution.ar : edu.institution.en}
                     </p>
                     {edu.details && (
-                      <p className="text-[11.5px] text-neutral-700 mt-0.5">
+                      <p className="text-[11.5px] text-neutral-700 mt-0.5 print:text-[7pt] print:mt-0">
                         {isAr ? edu.details.ar : edu.details.en}
                       </p>
                     )}
@@ -356,8 +356,8 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </section>
 
             {/* 7. LANGUAGES */}
-            <section className="resume-section">
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-1.5">
+            <section className="resume-section print:mb-0">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-black border-b border-black pb-1 mb-1.5 print:pb-0.5 print:mb-0.5">
                 {isAr ? "اللغات" : "LANGUAGES"}
               </h2>
               <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-neutral-800">

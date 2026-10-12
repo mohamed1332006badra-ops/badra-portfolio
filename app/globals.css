@@ -127,11 +127,11 @@
 }
 
 /* ==========================================================================
-   ATS-Compliant Print Stylesheet for Resume PDF Exporter
+   ATS-Compliant Print Stylesheet for Resume PDF Exporter (Single-Page Fit)
    ========================================================================== */
 @media print {
   @page {
-    margin: 12mm;
+    margin: 8mm 10mm;
     size: A4 portrait;
   }
 
@@ -147,8 +147,8 @@
   body {
     background-color: #ffffff !important;
     color: #000000 !important;
-    font-size: 10pt;
-    line-height: 1.4;
+    font-size: 8.5pt !important;
+    line-height: 1.25 !important;
     overflow: visible !important;
     height: auto !important;
     min-height: 100% !important;
@@ -216,6 +216,8 @@
     color: #000000 !important;
     border: none !important;
     box-shadow: none !important;
+    font-size: 8.5pt !important;
+    line-height: 1.25 !important;
   }
 
   #printable-resume * {
@@ -227,15 +229,53 @@
   #printable-resume header {
     display: block !important;
     visibility: visible !important;
-    border-bottom: 2px solid #000000 !important;
-    margin-bottom: 12pt !important;
-    padding-bottom: 8pt !important;
+    border-bottom: 1.5px solid #000000 !important;
+    margin-bottom: 5pt !important;
+    padding-bottom: 3pt !important;
+  }
+
+  #printable-resume header h1 {
+    font-size: 15pt !important;
+    margin-bottom: 1pt !important;
+    line-height: 1.1 !important;
+  }
+
+  #printable-resume header p {
+    font-size: 8.5pt !important;
+    margin-bottom: 2pt !important;
+    line-height: 1.2 !important;
   }
 
   #printable-resume section {
     display: block !important;
     visibility: visible !important;
-    margin-bottom: 11pt !important;
+    margin-bottom: 4.5pt !important;
+  }
+
+  #printable-resume h2 {
+    font-size: 9pt !important;
+    font-weight: 800 !important;
+    margin-bottom: 1.5pt !important;
+    padding-bottom: 1pt !important;
+    border-bottom: 1px solid #000000 !important;
+    line-height: 1.15 !important;
+  }
+
+  #printable-resume p,
+  #printable-resume li,
+  #printable-resume span {
+    font-size: 8pt !important;
+    line-height: 1.22 !important;
+  }
+
+  #printable-resume ul {
+    margin-top: 1pt !important;
+    margin-bottom: 1pt !important;
+    padding-inline-start: 12pt !important;
+  }
+
+  #printable-resume li {
+    margin-bottom: 0.5pt !important;
   }
 
   #printable-resume a {
@@ -247,7 +287,28 @@
     content: "" !important;
   }
 
-  /* Prevent page-breaks in the middle of sections or job entries */
+  /* Compact spacing overrides for single-page cohesion */
+  #printable-resume .space-y-4 > * + * {
+    margin-top: 2.5pt !important;
+  }
+
+  #printable-resume .space-y-3 > * + * {
+    margin-top: 2pt !important;
+  }
+
+  #printable-resume .space-y-2 > * + * {
+    margin-top: 1.5pt !important;
+  }
+
+  #printable-resume .space-y-1\.5 > * + * {
+    margin-top: 1pt !important;
+  }
+
+  #printable-resume .space-y-1 > * + * {
+    margin-top: 0.8pt !important;
+  }
+
+  /* Prevent awkward page-breaks across entries */
   .resume-section,
   .resume-entry {
     break-inside: avoid !important;

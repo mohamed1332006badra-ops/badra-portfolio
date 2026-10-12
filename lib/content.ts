@@ -24,8 +24,6 @@ export const SITE_METADATA = {
     github: "https://github.com/mohamed1332006badra-ops",
     linkedin: "https://linkedin.com/in/mohamed1332006badra",
     whatsapp: "https://wa.me/201016731179",
-    tiktok: "https://www.tiktok.com/@mohamed1332006badra",
-    facebook: "https://www.facebook.com/mohamed1332006badra",
     phone: "+201016731179",
   },
 };

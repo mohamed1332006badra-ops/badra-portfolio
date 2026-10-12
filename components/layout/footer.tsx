@@ -4,7 +4,7 @@ import React from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Terminal, ArrowUp, FileText } from "lucide-react";
-import { GithubIcon, LinkedinIcon, WhatsAppIcon, TikTokIcon, FacebookIcon } from "@/components/ui/icons";
+import { GithubIcon, LinkedinIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { StatusBar } from "@/components/layout/status-bar";
 import { GitHubActivity } from "@/components/telemetry/github-activity";
 
@@ -100,27 +100,6 @@ export function Footer({
               <LinkedinIcon className="w-4 h-4" />
             </a>
 
-            <a
-              href={SITE_METADATA.contact.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok Profile"
-              title="TikTok"
-              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-pink-500 transition-colors"
-            >
-              <TikTokIcon className="w-4 h-4" />
-            </a>
-
-            <a
-              href={SITE_METADATA.contact.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook Profile"
-              title="Facebook"
-              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-blue-700 dark:text-blue-400 hover:border-blue-600 transition-colors"
-            >
-              <FacebookIcon className="w-4 h-4" />
-            </a>
 
             <button
               onClick={scrollToTop}

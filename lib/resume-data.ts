@@ -8,8 +8,6 @@ export interface ResumeProfile {
   portfolio: { label: string; url: string };
   linkedin: { label: string; url: string };
   whatsapp: { label: string; url: string };
-  tiktok?: { label: string; url: string };
-  facebook?: { label: string; url: string };
 }
 
 export interface ResumeSkillCategory {
@@ -81,14 +79,6 @@ export const RESUME_DATA: ResumeData = {
     whatsapp: {
       label: "wa.me/201016731179",
       url: "https://wa.me/201016731179",
-    },
-    tiktok: {
-      label: "tiktok.com/@mohamed1332006badra",
-      url: "https://www.tiktok.com/@mohamed1332006badra",
-    },
-    facebook: {
-      label: "facebook.com/mohamed1332006badra",
-      url: "https://www.facebook.com/mohamed1332006badra",
     },
   },
 
