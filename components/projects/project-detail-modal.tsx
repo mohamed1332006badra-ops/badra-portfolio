@@ -126,12 +126,16 @@ export function ProjectDetailModal({
                 </Button>
               </a>
             )}
-            {project.demoUrl && (
-              <a href={project.demoUrl}>
+            {project.demoUrl ? (
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                 <Button variant="secondary" size="sm" icon={<ExternalLink className="w-4 h-4" />}>
                   {language === "en" ? "Interactive Sandbox" : "المحاكاة التفاعلية"}
                 </Button>
               </a>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 font-medium select-none">
+                <span>{language === "en" ? "[ Enterprise Production / Private Showcase ]" : "[ إنتاج مؤسسي / متاح بعرض خاص ]"}</span>
+              </span>
             )}
           </div>
 

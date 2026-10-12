@@ -62,6 +62,10 @@ export interface CaseStudy {
   technicalChallenges: TechnicalChallenge[];
   metricsOrOutcome: LocalizedString;
   lessonsLearned: LocalizedString;
+  databaseSchema?: LocalizedString;
+  apiContracts?: LocalizedString;
+  techStack?: string[];
+  mockupGallery?: string[];
 }
 
 export interface EngineeringProofItem {

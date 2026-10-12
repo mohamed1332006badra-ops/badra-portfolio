@@ -15,7 +15,8 @@ import {
   Truck,
   TrendingUp,
   FileCheck2,
-  ExternalLink
+  ExternalLink,
+  ShieldCheck
 } from "lucide-react";
 
 interface ProjectCardProps {
@@ -79,8 +80,17 @@ export function ProjectCard({
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
               </div>
               <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-slate-950 border border-slate-800 text-[11px] font-mono text-slate-400 truncate max-w-[220px] sm:max-w-[320px]">
-                <span className="text-emerald-400">https://</span>
-                <span className="truncate">{project.slug}.badra.systems</span>
+                {project.demoUrl ? (
+                  <>
+                    <span className="text-emerald-400">https://</span>
+                    <span className="truncate">{project.demoUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-blue-400">enterprise://</span>
+                    <span className="truncate">{project.slug}.internal</span>
+                  </>
+                )}
               </div>
               <div className="w-10" />
             </div>
@@ -98,24 +108,45 @@ export function ProjectCard({
 
               {/* Hover Quick Action Overlay */}
               <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 p-4">
-                <button
-                  type="button"
-                  onClick={() => onOpenLivePreview(project)}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-lg transition-transform hover:scale-105 cursor-pointer"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>{language === "en" ? "Live Sandbox" : "المعاينة الحية"}</span>
-                </button>
-                {project.demoUrl && (
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-mono text-xs font-medium border border-slate-700 shadow-lg transition-colors"
-                  >
-                    <span>{language === "en" ? "Direct URL" : "زيارة الموقع"}</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                {project.demoUrl ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => onOpenLivePreview(project)}
+                      className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-lg transition-transform hover:scale-105 cursor-pointer"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>{language === "en" ? "Live Sandbox" : "المعاينة الحية"}</span>
+                    </button>
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-mono text-xs font-medium border border-slate-700 shadow-lg transition-colors"
+                    >
+                      <span>{language === "en" ? "Direct URL" : "زيارة الموقع"}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => onOpenCaseStudy(project.id)}
+                      className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-lg transition-transform hover:scale-105 cursor-pointer"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>{language === "en" ? "Deep-Dive Case Study" : "دراسة الحالة"}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onInspectArchitecture(project)}
+                      className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-mono text-xs font-medium border border-slate-700 shadow-lg transition-colors cursor-pointer"
+                    >
+                      <Layers className="w-3.5 h-3.5" />
+                      <span>{language === "en" ? "Architecture" : "المعمارية"}</span>
+                    </button>
+                  </>
                 )}
               </div>
             </div>
@@ -279,15 +310,26 @@ export function ProjectCard({
             <span>{language === "en" ? "Architecture" : "المعمارية"}</span>
           </Button>
 
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => onOpenLivePreview(project)}
-            className="text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40"
-          >
-            <Play className="w-3.5 h-3.5 mr-1" />
-            <span>{language === "en" ? "Live Sandbox" : "معاينة حية"}</span>
-          </Button>
+          {project.demoUrl ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => onOpenLivePreview(project)}
+              className="text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40"
+            >
+              <Play className="w-3.5 h-3.5 mr-1" />
+              <span>{language === "en" ? "Live Sandbox" : "معاينة حية"}</span>
+            </Button>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 font-medium select-none">
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
+              <span>
+                {language === "en"
+                  ? "[ Enterprise Production / Private Showcase ]"
+                  : "[ إنتاج مؤسسي / متاح بعرض خاص ]"}
+              </span>
+            </span>
+          )}
         </div>
 
         {project.hasCaseStudy && (
