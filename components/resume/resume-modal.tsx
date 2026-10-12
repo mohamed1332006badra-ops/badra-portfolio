@@ -181,10 +181,12 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <span>{isAr ? data.profile.location.ar : data.profile.location.en}</span>
                 <span className="text-neutral-400">•</span>
                 <a
-                  href={`tel:${data.profile.phone.replace(/\s+/g, "")}`}
+                  href={data.profile.whatsapp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:underline text-black font-semibold"
                 >
-                  {data.profile.phone}
+                  WhatsApp: {data.profile.phone}
                 </a>
                 <span className="text-neutral-400">•</span>
                 <a

@@ -5,7 +5,8 @@ import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageSquare, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from "lucide-react";
+import { Mail, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/icons";
 
 interface ContactSectionProps {
   initialDescription?: string;
@@ -119,12 +120,12 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                   className="flex items-center gap-3 p-3 rounded-lg bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800/60 shadow-xs hover:border-emerald-500 transition-colors group"
                 >
                   <div className="p-2 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400">
-                    <MessageSquare className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">WhatsApp / Instant Message</span>
                     <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-500">
-                      Direct WhatsApp Chat
+                      +20 1016731179 (Direct WhatsApp)
                     </span>
                   </div>
                 </a>
@@ -270,16 +271,32 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                   </div>
                 )}
 
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  loading={loading}
-                  className="w-full"
-                  icon={<Send className="w-4 h-4" />}
-                >
-                  {language === "en" ? "Transmit Project Inquiry" : "إرسال تفاصيل المشروع"}
-                </Button>
+                <div className="flex flex-col sm:flex-row items-center gap-3 pt-1">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    loading={loading}
+                    className="w-full sm:flex-1"
+                    icon={<Send className="w-4 h-4" />}
+                  >
+                    {language === "en" ? "Transmit Project Inquiry" : "إرسال تفاصيل المشروع"}
+                  </Button>
+
+                  <a
+                    href={`https://wa.me/201016731179?text=${encodeURIComponent(
+                      language === "ar"
+                        ? "مرحباً أستاذ محمد، أود مناقشة تفاصيل مشروع برمجي معكم"
+                        : "Hello Mohamed, I would like to discuss a software project with you"
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-sm transition-colors shrink-0"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
+                    <span>{language === "en" ? "Chat on WhatsApp" : "محادثة فورية عبر واتساب"}</span>
+                  </a>
+                </div>
               </form>
             )}
           </div>

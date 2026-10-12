@@ -14,6 +14,7 @@ import { CommandPalette } from "@/components/layout/command-palette";
 import { AiScoperModal } from "@/components/ai/ai-scoper-modal";
 import { ContactModal } from "@/components/contact/contact-modal";
 import { ResumeModal } from "@/components/resume/resume-modal";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 
 export default function HomePage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
@@ -126,6 +127,9 @@ export default function HomePage() {
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}
       />
+
+      {/* Floating Direct WhatsApp CTA */}
+      <WhatsAppFloat />
     </div>
   );
 }

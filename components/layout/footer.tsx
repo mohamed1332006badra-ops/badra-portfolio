@@ -3,8 +3,8 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
-import { Terminal, MessageSquare, ArrowUp, FileText } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import { Terminal, ArrowUp, FileText } from "lucide-react";
+import { GithubIcon, LinkedinIcon, WhatsAppIcon, TikTokIcon, FacebookIcon } from "@/components/ui/icons";
 import { StatusBar } from "@/components/layout/status-bar";
 
 interface FooterProps {
@@ -38,7 +38,7 @@ export function Footer({ onOpenCommandPalette, onOpenResumeModal }: FooterProps)
           </div>
 
           {/* Social Links & Controls */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
             {onOpenResumeModal && (
               <button
                 type="button"
@@ -59,11 +59,23 @@ export function Footer({ onOpenCommandPalette, onOpenResumeModal }: FooterProps)
             </button>
 
             <a
+              href={SITE_METADATA.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Direct Message"
+              title="WhatsApp: +20 1016731179"
+              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:border-emerald-500 transition-colors"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+            </a>
+
+            <a
               href={SITE_METADATA.contact.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs hover:text-slate-900 dark:hover:text-white transition-colors"
+              title="GitHub: mohamed1332006badra-ops"
+              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-blue-500 transition-colors"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
@@ -73,19 +85,32 @@ export function Footer({ onOpenCommandPalette, onOpenResumeModal }: FooterProps)
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs hover:text-slate-900 dark:hover:text-white transition-colors"
+              title="LinkedIn"
+              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-blue-600 dark:text-blue-400 hover:border-blue-500 transition-colors"
             >
               <LinkedinIcon className="w-4 h-4" />
             </a>
 
             <a
-              href={SITE_METADATA.contact.whatsapp}
+              href={SITE_METADATA.contact.tiktok}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp Message"
-              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs hover:text-emerald-500 transition-colors"
+              aria-label="TikTok Profile"
+              title="TikTok"
+              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white hover:border-pink-500 transition-colors"
             >
-              <MessageSquare className="w-4 h-4" />
+              <TikTokIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={SITE_METADATA.contact.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook Profile"
+              title="Facebook"
+              className="p-2 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-blue-700 dark:text-blue-400 hover:border-blue-600 transition-colors"
+            >
+              <FacebookIcon className="w-4 h-4" />
             </a>
 
             <button

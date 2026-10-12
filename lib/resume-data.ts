@@ -7,6 +7,9 @@ export interface ResumeProfile {
   github: { label: string; url: string };
   portfolio: { label: string; url: string };
   linkedin: { label: string; url: string };
+  whatsapp: { label: string; url: string };
+  tiktok?: { label: string; url: string };
+  facebook?: { label: string; url: string };
 }
 
 export interface ResumeSkillCategory {
@@ -74,6 +77,18 @@ export const RESUME_DATA: ResumeData = {
     linkedin: {
       label: "linkedin.com/in/mohamed1332006badra",
       url: "https://linkedin.com/in/mohamed1332006badra",
+    },
+    whatsapp: {
+      label: "wa.me/201016731179",
+      url: "https://wa.me/201016731179",
+    },
+    tiktok: {
+      label: "tiktok.com/@mohamed1332006badra",
+      url: "https://www.tiktok.com/@mohamed1332006badra",
+    },
+    facebook: {
+      label: "facebook.com/mohamed1332006badra",
+      url: "https://www.facebook.com/mohamed1332006badra",
     },
   },
 
@@ -171,22 +186,22 @@ export const RESUME_DATA: ResumeData = {
 
   projects: [
     {
-      title: "BADRA AI",
-      url: "https://badra-ai.vercel.app",
+      title: "BADRA AI Platform",
+      url: "https://badra-ai.vercel.app/",
       displayUrl: "badra-ai.vercel.app",
       description: {
         en: "High-performance AI SaaS platform featuring real-time SSE token streaming, prompt orchestration, deterministic fallback mechanisms, and sub-100ms first-token response times.",
         ar: "منصة ذكاء اصطناعي سحابية متقدمة تتميز بتدفق الرموز اللحظي عبر SSE، وإدارة الأوامر الذكية، وآليات استرجاع بديلة مع سرعة استجابة أولية تقل عن 100ms.",
       },
-      technologies: ["Next.js 16", "React 19", "TypeScript", "FastAPI", "SSE Streaming", "Tailwind CSS"],
+      technologies: ["Next.js 16", "React 19", "TypeScript", "SSE Streaming", "Tailwind CSS v4", "FastAPI"],
     },
     {
       title: "PULSECRM",
       url: "https://pulsecrm-theta.vercel.app",
       displayUrl: "pulsecrm-theta.vercel.app",
       description: {
-        en: "Enterprise multi-tenant CRM engine with Supabase Row-Level Security (RLS), role-based access control (RBAC), real-time sales telemetry, and automated customer interaction pipelines.",
-        ar: "نظام إدارة علاقات عملاء مؤسسي متعدد المستأجرين مع أمان صارم عبر Supabase RLS، وإدارة الصلاحيات (RBAC)، ومتابعة المبيعات والعمليات لحظياً.",
+        en: "Enterprise multi-tenant CRM engine with Supabase Row-Level Security (RLS), role-based access control (RBAC), interactive Kanban pipeline, and live telemetry analytics.",
+        ar: "نظام إدارة علاقات عملاء مؤسسي متعدد المستأجرين مع أمان صارم عبر Supabase RLS، وإدارة الصلاحيات (RBAC)، ولوحات كانبان للمبيعات ومتابعة العمليات لحظياً.",
       },
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "RLS Security", "Tailwind CSS"],
     },
@@ -205,20 +220,50 @@ export const RESUME_DATA: ResumeData = {
       url: "https://store-kuwait.vercel.app",
       displayUrl: "store-kuwait.vercel.app",
       description: {
-        en: "High-concurrency B2B/B2C construction e-commerce engine with real-time stock sync, multi-currency pricing, bilingual checkout flow, and optimized SEO catalog indexation.",
-        ar: "منصة تجارة إلكترونية متطورة لمواد البناء (B2B/B2C) مع تزامن فوري للمخزون، وتعدد العملات، وإتمام طلبات ثنائي اللغة، وأرشفة SEO محسنة.",
+        en: "High-concurrency B2B/B2C construction e-commerce engine with real-time stock sync, materials quantity calculator, multi-currency pricing, and bilingual checkout flow.",
+        ar: "منصة تجارة إلكترونية متطورة لمواد البناء (B2B/B2C) مع حاسبة ذكية للكميات، وتزامن فوري للمخزون، وتعدد العملات، وإتمام طلبات مخصص للسوق الكويتي.",
       },
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Commerce APIs", "Tailwind CSS"],
+      technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Commerce APIs", "Tailwind CSS"],
     },
     {
-      title: "Interactive Systems Suite",
+      title: "MAJD PARTS Automotive",
       url: "https://badra-portfolio.vercel.app",
       displayUrl: "badra-portfolio.vercel.app",
       description: {
-        en: "Production-grade interactive web systems including an algorithmic Memory Game, Egypt Tourism Portal, and Arab Family Cinema platform with zero layout shift and fluid micro-animations.",
-        ar: "مجموعة أنظمة ويب تفاعلية متقدمة تشمل لعبة ذاكرة خوارزمية، وبوابة سياحة مصرية، ومنصة سينما عائلية عربية مع استقرار واجهات مطلق وحركات سلسة.",
+        en: "Automotive spare parts digital commerce platform featuring vehicle compatibility filtering, VIN lookups, inventory synchronization, and fast query execution.",
+        ar: "منصة تجارة رقمية متخصصة لقطع غيار السيارات مع فلاتر توافق المركبات، والتحقق من أرقام الهياكل، وتزامن المخزون اللحظي.",
       },
-      technologies: ["React", "TypeScript", "Audio/Canvas APIs", "Tailwind CSS", "Vercel"],
+      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Vehicle Compatibility", "Tailwind CSS"],
+    },
+    {
+      title: "Egypt Tourism & Tour Sales",
+      url: "https://badra-portfolio.vercel.app",
+      displayUrl: "badra-portfolio.vercel.app",
+      description: {
+        en: "Dynamic destination booking engine and travel guides portal featuring interactive cultural itineraries, real-time ticket sales logic, and fluid responsive design.",
+        ar: "بوابة حجز سياحي وجولات إلكترونية متكاملة تتميز بمسارات رحلات تفاعلية، ومنظومة حجز تذاكر فورية، وتصميم متجاوب فائق السرعة.",
+      },
+      technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Booking Flow", "Tailwind CSS"],
+    },
+    {
+      title: "Arab Family Cinema Platform",
+      url: "https://badra-portfolio.vercel.app",
+      displayUrl: "badra-portfolio.vercel.app",
+      description: {
+        en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography, responsive streaming architecture, and content curation.",
+        ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي مع واجهة مستخدم عربية أصيلة، وبنية تدفق وسائط سريعة ومستقرة.",
+      },
+      technologies: ["React", "TypeScript", "Video Player Architecture", "RTL Curation", "Tailwind CSS"],
+    },
+    {
+      title: "Interactive Systems: Memory Game",
+      url: "https://badra-portfolio.vercel.app",
+      displayUrl: "badra-portfolio.vercel.app",
+      description: {
+        en: "High-performance client-side interactive game demonstrating robust state management, DOM performance optimization, and audio/canvas interaction with zero layout shifts.",
+        ar: "نظام تفاعلي متقدم يبرهن على إدارة الحالة اللحظية، وتحسين عمليات DOM، وخوارزميات التفاعل الصفرية واستقرار الواجهات المطلق.",
+      },
+      technologies: ["React 19", "TypeScript", "State Machines", "Web Audio API", "Tailwind CSS"],
     },
   ],
 
