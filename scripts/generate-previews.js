@@ -18,7 +18,8 @@ function escapeXml(unsafe) {
 const projects = [
   {
     name: 'badra-ai.webp',
-    title: 'BADRA AI Copilot & Real-Time Multi-Model Streaming SaaS',
+    title: '01: BADRA AI Copilot & Real-Time Multi-Model Streaming SaaS',
+    url: 'https://badra-ai.vercel.app/console',
     mockup: `
       <!-- Left Sidebar: Channels & Models -->
       <rect x="0" y="48" width="220" height="672" fill="#0c0e17" />
@@ -120,7 +121,8 @@ const projects = [
   },
   {
     name: 'pulsecrm.webp',
-    title: 'PULSECRM Multi-Tenant Platform & Kanban Telemetry Engine',
+    title: '02: PULSECRM — Enterprise Multi-Tenant Pipeline & Telemetry',
+    url: 'https://pulsecrm-theta.vercel.app/pipeline',
     mockup: `
       <!-- Left CRM Sidebar -->
       <rect x="0" y="48" width="210" height="672" fill="#090d16" />
@@ -219,7 +221,8 @@ const projects = [
   },
   {
     name: 'aurumgulf.webp',
-    title: 'Aurum Gulf Market Telemetry & Real-Time Trading Terminal',
+    title: '03: Aurum Gulf — Precious Metals Real-Time Trading Terminal',
+    url: 'https://aurumgulf.vercel.app/terminal',
     mockup: `
       <!-- Top Live Bullion Ticker Banner -->
       <rect x="0" y="48" width="1280" height="44" fill="#171206" stroke="#854d0e" stroke-width="1" />
@@ -333,7 +336,8 @@ const projects = [
   },
   {
     name: 'gulf-store.webp',
-    title: 'Gulf Building Materials Industrial Commerce & Calculator Engine',
+    title: '04: Gulf Building Materials — Industrial Commerce & Volumetric Engine',
+    url: 'https://store-kuwait.vercel.app/calculator',
     mockup: `
       <!-- Top Shuwaikh Spot Index Ticker -->
       <rect x="0" y="48" width="1280" height="42" fill="#1c1917" stroke="#44403c" stroke-width="1" />
@@ -402,7 +406,8 @@ const projects = [
   },
   {
     name: 'majd-parts.webp',
-    title: 'MAJD PARTS Automotive Platform & VIN Compatibility Matrix',
+    title: '05: MAJD PARTS — Automotive Commerce & VIN Compatibility Matrix',
+    url: 'https://majd-parts.internal/vin-search',
     mockup: `
       <!-- VIN Lookup Bar Header -->
       <g transform="translate(24, 64)">
@@ -476,7 +481,8 @@ const projects = [
   },
   {
     name: 'egypt-tour.webp',
-    title: 'Egypt Tourism & Tour Sales Engine with Interactive Itinerary',
+    title: '06: Egypt Tourism — Cultural Itinerary & Luxury Tour Sales Engine',
+    url: 'https://egypt-tourism.internal/itinerary',
     mockup: `
       <!-- Luxury Hero Banner with Giza Pyramids & Nile Palette -->
       <g transform="translate(24, 64)">
@@ -549,7 +555,8 @@ const projects = [
   },
   {
     name: 'arab-cinema.webp',
-    title: 'Arab Family Cinema Platform & Adaptive HLS Streaming',
+    title: '07: Arab Family Cinema — Purposeful Cinematic Media & RTL Streaming Platform',
+    url: 'https://arab-cinema.internal/streaming',
     mockup: `
       <!-- Video Player Viewport (Left / Center) -->
       <g transform="translate(24, 64)">
@@ -604,7 +611,8 @@ const projects = [
   },
   {
     name: 'memory-game.webp',
-    title: 'Interactive Systems: Algorithmic Memory Game & DOM State Engine',
+    title: '08: Memory Game — Algorithmic State Machine & 60 FPS DOM Engine',
+    url: 'https://memory-game.internal/state-engine',
     mockup: `
       <!-- Top State Engine & Metric Bar -->
       <g transform="translate(24, 64)">
@@ -721,7 +729,7 @@ async function run() {
         <circle cx="64" cy="22" r="6" fill="#10b981" />
 
         <rect x="100" y="9" width="580" height="26" rx="6" fill="#020617" stroke="#1e293b" />
-        <text x="120" y="26" fill="#94a3b8" font-size="12" font-family="monospace">https://production-preview.badra.systems/${escapeXml(p.name.replace('.webp', ''))}</text>
+        <text x="120" y="26" fill="#94a3b8" font-size="12" font-family="monospace">${escapeXml(p.url || `https://production-preview.badra.systems/${p.name.replace('.webp', '')}`)}</text>
 
         <text x="1256" y="27" fill="#64748b" font-size="12" font-family="monospace" text-anchor="end">${escapeXml(p.title)}</text>
 
@@ -737,7 +745,7 @@ async function run() {
 
     const dest = path.join(outputDir, p.name);
     await sharp(Buffer.from(svg))
-      .webp({ quality: 92 })
+      .webp({ quality: 95 })
       .toFile(dest);
     console.log(`Generated: ${p.name}`);
   }

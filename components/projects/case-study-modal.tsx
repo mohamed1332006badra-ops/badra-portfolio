@@ -65,10 +65,21 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
           {project && (
             <div className="flex items-center gap-2">
               {project.demoUrl ? (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>{language === "en" ? "Live Hosted Production" : "إنتاج حي متصل"}</span>
-                </span>
+                <>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>{language === "en" ? "Live Hosted Production" : "إنتاج حي متصل"}</span>
+                  </span>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-xs transition-transform hover:scale-105"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>{language === "en" ? "Launch Platform" : "فتح المنصة الحية"}</span>
+                  </a>
+                </>
               ) : (
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/30">
                   <ShieldCheck className="w-3 h-3 text-blue-500" />

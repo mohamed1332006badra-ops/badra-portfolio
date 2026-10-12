@@ -7,14 +7,12 @@ import { useI18n } from "@/lib/i18n-context";
 import { ProjectCard } from "./project-card";
 import { ProjectDetailModal } from "./project-detail-modal";
 import { CaseStudyModal } from "./case-study-modal";
-import { LivePreviewDrawer } from "./live-preview-drawer";
 
 export function ProjectsSection() {
   const { language } = useI18n();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
-  const [livePreviewProject, setLivePreviewProject] = useState<Project | null>(null);
 
   const filterTabs = [
     { id: "all", label: { en: "All Projects", ar: "جميع المشاريع" } },
@@ -81,7 +79,6 @@ export function ProjectsSection() {
               project={project}
               onInspectArchitecture={(p) => setSelectedProject(p)}
               onOpenCaseStudy={handleOpenCaseStudy}
-              onOpenLivePreview={(p) => setLivePreviewProject(p)}
             />
           ))}
         </div>
@@ -99,12 +96,6 @@ export function ProjectsSection() {
         caseStudy={selectedCaseStudy}
         isOpen={!!selectedCaseStudy}
         onClose={() => setSelectedCaseStudy(null)}
-      />
-
-      <LivePreviewDrawer
-        project={livePreviewProject}
-        isOpen={!!livePreviewProject}
-        onClose={() => setLivePreviewProject(null)}
       />
     </section>
   );
