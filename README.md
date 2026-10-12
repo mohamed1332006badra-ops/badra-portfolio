@@ -23,7 +23,7 @@
   * *Token Bucket Rate Limiter Simulation* (Burst allowance, token regeneration, and backpressure simulation).
 * **Architecture Visualizer**: Dynamic interactive model illustrating high-throughput client/edge/AI backend topologies with latency budgets and traffic flow simulation.
 * **Production Case Studies**: Exhaustive technical teardowns featuring context, core problems, technical trade-offs, architecture decisions, and measured outcomes.
-* **AI Project Scoper**: Interactive architectural scoping tool providing deliverable roadmaps, tech stack recommendations, risk analyses, and exploratory technical questions.
+* **AI Project Scoper**: Interactive architectural scoping tool with real-time Server-Sent Events (SSE) token streaming, providing deliverable roadmaps, tech stack recommendations, risk analyses, and exploratory technical questions.
 * **Native Bilingual UX (English & Arabic)**: First-class Right-to-Left (RTL) support utilizing CSS logical properties, bidirectional typography (`IBM Plex Sans Arabic` + `Geist`), and persistent locale management.
 * **Keyboard Command Center (`⌘K`)**: Quick navigation, theme toggling, locale switching, and direct action triggers.
 * **Accessible & High-Performance**: 100/100 Best Practices, 100/100 SEO, 96/100 Accessibility, 99/100 Desktop Performance on Chromium Lighthouse.

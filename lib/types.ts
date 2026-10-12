@@ -106,7 +106,14 @@ export interface AiProjectScopeRequest {
   prompt: string;
   projectType?: string;
   targetTimeline?: string;
+  language?: Language;
 }
+
+export type AiScopeStreamEvent =
+  | { type: 'status'; message: string }
+  | { type: 'token'; token: string }
+  | { type: 'complete'; result: AiProjectScopeResult }
+  | { type: 'error'; message: string };
 
 export interface AiProjectScopeResult {
   summary: string;
@@ -124,3 +131,4 @@ export interface AiProjectScopeResult {
   technicalRisks: string[];
   suggestedQuestions: string[];
 }
+
