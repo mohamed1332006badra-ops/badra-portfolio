@@ -5,6 +5,7 @@ import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Terminal, MessageSquare, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import { StatusBar } from "@/components/layout/status-bar";
 
 interface FooterProps {
   onOpenCommandPalette: () => void;
@@ -18,9 +19,12 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800/60 bg-slate-50/80 dark:bg-[#08090d] py-14 text-slate-600 dark:text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-10 border-b border-slate-200 dark:border-slate-800/60 gap-6">
+    <footer className="border-t border-slate-200 dark:border-slate-800/60 bg-slate-50/80 dark:bg-[#08090d] py-12 text-slate-600 dark:text-slate-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        {/* Observability Telemetry Status Bar */}
+        <StatusBar />
+
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-slate-200 dark:border-slate-800/60 gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2 font-bold text-slate-900 dark:text-white">
               <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
@@ -32,12 +36,8 @@ export function Footer({ onOpenCommandPalette }: FooterProps) {
             </p>
           </div>
 
-          {/* Social Links & System Health */}
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>{language === "en" ? "Systems Operational" : "جميع الأنظمة تعمل بكفاءة"}</span>
-            </div>
+          {/* Social Links & Controls */}
+          <div className="flex flex-wrap items-center gap-3">
 
             <button
               onClick={onOpenCommandPalette}

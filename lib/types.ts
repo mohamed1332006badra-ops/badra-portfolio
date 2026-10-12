@@ -115,6 +115,13 @@ export type AiScopeStreamEvent =
   | { type: 'complete'; result: AiProjectScopeResult }
   | { type: 'error'; message: string };
 
+export interface HealthCheckResponse {
+  status: 'operational' | 'degraded';
+  timestamp: number;
+  framework: string;
+  edgeRegion: string;
+}
+
 export interface AiProjectScopeResult {
   summary: string;
   recommendedArchitecture: {
