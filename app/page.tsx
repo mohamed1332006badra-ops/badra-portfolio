@@ -14,22 +14,37 @@ import { CommandPalette } from "@/components/layout/command-palette";
 import { AiScoperModal } from "@/components/ai/ai-scoper-modal";
 import { ContactModal } from "@/components/contact/contact-modal";
 import { ResumeModal } from "@/components/resume/resume-modal";
+import { TerminalModal } from "@/components/terminal/terminal-modal";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 
 export default function HomePage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+  const [terminalOpen, setTerminalOpen] = useState(false);
   const [aiScoperOpen, setAiScoperOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const [selectedServiceForInquiry, setSelectedServiceForInquiry] = useState<string>("");
   const [inquiryDescription, setInquiryDescription] = useState<string>("");
 
-  // Global Keyboard shortcut listener for ⌘K and Ctrl+K
+  // Global Keyboard shortcut listener for ⌘K (Command Palette) and ` / Ctrl+` (Developer CLI)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const activeEl = document.activeElement;
+      const isInput = activeEl instanceof HTMLInputElement || activeEl instanceof HTMLTextAreaElement;
+
+      // ⌘K or Ctrl+K for Command Palette
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setCommandPaletteOpen((prev) => !prev);
+      }
+
+      // Backtick (`) or Ctrl+` for Developer Terminal
+      if (!isInput && e.key === "`") {
+        e.preventDefault();
+        setTerminalOpen((prev) => !prev);
+      } else if ((e.metaKey || e.ctrlKey) && e.key === "`") {
+        e.preventDefault();
+        setTerminalOpen((prev) => !prev);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -51,6 +66,7 @@ export default function HomePage() {
       {/* Global Navigation Bar */}
       <Navbar
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+        onOpenTerminal={() => setTerminalOpen(true)}
         onOpenAiScoper={() => setAiScoperOpen(true)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
         onOpenContactModal={() => {
@@ -91,9 +107,10 @@ export default function HomePage() {
         />
       </main>
 
-      {/* Footer */}
+      {/* Footer with Observability Telemetry & GitHub Stream */}
       <Footer
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
+        onOpenTerminal={() => setTerminalOpen(true)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
       />
 
@@ -101,8 +118,16 @@ export default function HomePage() {
       <CommandPalette
         isOpen={commandPaletteOpen}
         onClose={() => setCommandPaletteOpen(false)}
+        onOpenTerminal={() => setTerminalOpen(true)}
         onOpenAiScoper={() => setAiScoperOpen(true)}
         onOpenContactModal={() => setContactModalOpen(true)}
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+      />
+
+      {/* Developer Retro-Modern CLI Modal (badra-shell v1.0.0) */}
+      <TerminalModal
+        isOpen={terminalOpen}
+        onClose={() => setTerminalOpen(false)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
       />
 

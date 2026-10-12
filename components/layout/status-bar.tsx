@@ -3,9 +3,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { HealthCheckResponse } from "@/lib/types";
-import { Activity, RefreshCw, Globe, Cpu, ShieldCheck } from "lucide-react";
+import { Activity, RefreshCw, Globe, Cpu, ShieldCheck, Terminal } from "lucide-react";
+interface StatusBarProps {
+  onOpenTerminal?: () => void;
+}
 
-export function StatusBar() {
+export function StatusBar({ onOpenTerminal }: StatusBarProps = {}) {
   const { language } = useI18n();
   const [telemetry, setTelemetry] = useState<HealthCheckResponse | null>(null);
   const [latency, setLatency] = useState<number | null>(null);
@@ -123,6 +126,19 @@ export function StatusBar() {
               <span className="text-slate-400 dark:text-slate-500 ms-1">(Turbopack)</span>
             </span>
           </div>
+
+          {/* Developer CLI Terminal Trigger */}
+          {onOpenTerminal && (
+            <button
+              type="button"
+              onClick={onOpenTerminal}
+              className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-900 text-emerald-400 hover:text-emerald-300 border border-slate-700 hover:border-emerald-500 transition-colors cursor-pointer"
+              title={language === "en" ? "Launch badra-shell CLI (`)" : "تشغيل الطرفية badra-shell (`)"}
+            >
+              <Terminal className="w-3 h-3" />
+              <span>badra --cli</span>
+            </button>
+          )}
         </div>
       </div>
     </div>

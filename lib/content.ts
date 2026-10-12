@@ -50,6 +50,12 @@ export const PROJECTS: Project[] = [
     featured: true,
     status: "production",
     technologies: ["Next.js 16", "React 19", "TypeScript", "SSE Streaming", "Tailwind CSS v4", "FastAPI", "Turbopack"],
+    image: "/projects/badra-ai.webp",
+    telemetryBadges: [
+      { en: "SSE Streaming: Active", ar: "تدفق SSE: نشط" },
+      { en: "Multi-Model Router", ar: "توجيه النماذج المتعددة" },
+      { en: "TTFT: <45ms", ar: "زمن الرمز الأول: <45ms" },
+    ],
     problem: {
       en: "Traditional chat platforms suffer from high initial TTFB (Time to First Byte) latency and abrupt UI freezes when handling high-concurrency LLM generation streams.",
       ar: "منصات المحادثة التقليدية تعاني من تأخر الاستجابة الأولية وتجمد الواجهة أثناء تدفق المخرجات المعقدة من النماذج اللغوية في أوقات الذروة.",
@@ -93,6 +99,12 @@ export const PROJECTS: Project[] = [
     featured: true,
     status: "production",
     technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "RLS Security", "Tailwind CSS", "Kanban DND"],
+    image: "/projects/pulsecrm.webp",
+    telemetryBadges: [
+      { en: "Supabase RLS: Enforced", ar: "أمان RLS: مفعل صارماً" },
+      { en: "Multi-Tenant Isolation", ar: "عزل مطلق للمستأجرين" },
+      { en: "Query P95: <25ms", ar: "زمن الاستعلام P95: <25ms" },
+    ],
     problem: {
       en: "Enterprise organizations require multi-tenant isolation, real-time sales telemetry, and role-based permissions without expensive monolithic server overhead.",
       ar: "تحتاج المؤسسات إلى عزل بيانات العملاء في بيئة متعددة المستأجرين مع متابعة المبيعات لحظياً وإدارة الصلاحيات دون استنزاف الموارد.",
@@ -136,6 +148,12 @@ export const PROJECTS: Project[] = [
     featured: true,
     status: "production",
     technologies: ["React 19", "TypeScript", "Real-Time APIs", "Financial Telemetry", "Tailwind CSS", "Analytical Charts"],
+    image: "/projects/aurumgulf.webp",
+    telemetryBadges: [
+      { en: "Spot Index: Synced", ar: "مؤشر الأسعار: متزامن" },
+      { en: "Gulf Forex: Sub-second", ar: "صرف العملات: أجزاء ثانية" },
+      { en: "Chart FPS: 60fps", ar: "معدل الرسوم: 60 إطار/ث" },
+    ],
     problem: {
       en: "Volatile precious metal markets in the Gulf region demand instant spot-price refreshes and multi-currency conversions without page reloads or UI stuttering.",
       ar: "تقلبات أسعار المعادن الثمينة في الأسواق الخليجية تتطلب تحديثات سعرية فورية وتحويل عملات متعدد دون إعادة تحميل الصفحة أو بطء الواجهات.",
@@ -165,39 +183,46 @@ export const PROJECTS: Project[] = [
     slug: "gulf-building-materials",
     title: {
       en: "Gulf Building Materials Engine",
-      ar: "منصة مواد بناء الخليج للتجارة والمقاولات",
+      ar: "محرك تجارة مواد بناء الخليج",
     },
     tagline: {
-      en: "High-concurrency B2B/B2C construction commerce platform with materials calculator for Kuwait market.",
-      ar: "منصة تجارة إلكترونية متطورة لمواد البناء مع حاسبة ذكية للكميات مخصصة للسوق الكويتي.",
+      en: "Enterprise B2B/B2C Industrial Commerce Platform & Automated Structural Materials Calculator",
+      ar: "منصة تجارة صناعية B2B/B2C ومحرك حساب كميات الخرسانة والحديد ومواد البناء الإنشائية",
     },
     category: "fullstack",
     categoryLabel: {
-      en: "B2B/B2C Commerce & Logistics",
-      ar: "التجارة واللوجستيات B2B/B2C",
+      en: "Enterprise Industrial Commerce & Logistics",
+      ar: "التجارة الصناعية واللوجستيات المؤسسية",
     },
     featured: true,
     status: "production",
-    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Materials Calculator", "Tailwind CSS"],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "RLS Security", "Materials Calculator", "Tailwind CSS"],
+    image: "/projects/gulf-store.webp",
+    telemetryBadges: [
+      { en: "Structural Calculator: Active", ar: "حاسبة الأحمال الإنشائية: نشطة" },
+      { en: "Shuwaikh Spot Price: Synced", ar: "سعر الشويخ الفوري: متزامن" },
+      { en: "Edge Latency: <80ms", ar: "زمن استجابة الحافة: <80ms" },
+    ],
+    simulationType: "materials-calculator",
     problem: {
-      en: "Construction procurement is traditionally fragmented, requiring complex mathematical volume estimation and currency management for cross-border projects.",
-      ar: "شراء وتوريد مواد البناء في قطاع المقاولات يعاني من تعقيد حساب الكميات واختلاف العملات وصعوبة إدارة الطلبات الكبيرة عبر الإنترنت.",
+      en: "Construction procurement is traditionally fragmented, requiring complex mathematical volume estimation ($m^3$, rebar ratios, truck dispatch) and currency management for high-stakes contractor orders.",
+      ar: "توريد مواد البناء يعاني من تعقيد حسابات الأحجام والخرسانة المسلحة ($m^3$) ونسب أطنان حديد التسليح وتخطيط شاحنات النقل وإدارة فواتير المقاولين الضخمة.",
     },
     solution: {
-      en: "Engineered a specialized construction e-commerce engine with built-in materials quantity calculator, multi-currency support, and optimized bilingual checkout flow.",
-      ar: "هندسة منصة تجارة إلكترونية متخصصة لمواد البناء تتضمن حاسبة ذكية لكميات الخرسانة والحديد والتشطيبات، مع إتمام طلبات ثنائي اللغة للسوق الكويتي.",
+      en: "Engineered an enterprise B2B heavy industry platform featuring a dynamic structural calculator, live Shuwaikh spot price sync, tiered contractor bulk discounts, and sub-80ms edge lookup.",
+      ar: "هندسة منصة تجارة صناعية B2B بمحرك حساب كميات متكامل (حجم الخرسانة، أطنان الحديد، أسطول النقل، هوامش الهدر)، ومزامنة مباشرة مع مؤشر سوق الشويخ، وتخفيضات كمية تعاقدية مؤتمتة.",
     },
     architecture: {
-      en: "Next.js App Router with ISR catalog pages, Supabase PostgreSQL relational schema, and client-side instant volume algorithms.",
-      ar: "معمارية Next.js متقدمة مع صفحات منتجات متجددة ذاتياً وقاعدة بيانات Supabase وخوارزميات حساب كميات لحظية في المتصفح.",
+      en: "Next.js App Router with ISR catalog caching, Supabase PostgreSQL with strict RLS isolation, client-side volumetric state algorithms, and instant PDF quotation dispatch.",
+      ar: "معمارية Next.js متقدمة مع تخزين مؤقت للكتالوج، وقاعدة بيانات Supabase PostgreSQL مع عزل أمني صارم عبر RLS، وخوارزميات حساب هندسية فورية في المتصفح.",
     },
     challenges: {
-      en: "Accurately calculating volumetric requirements across differing commercial metric units with zero browser latency.",
-      ar: "الحساب الرياضي الدقيق لاحتياجات مشاريع البناء عبر وحدات قياس تجارية مختلفة بدون أي تأخير للمستخدم.",
+      en: "Accurately computing volumetric concrete requirements, rebar tensile ratios, and truck dispatch capacities in real-time with zero layout shift or computational lag.",
+      ar: "الحساب الرياضي الدقيق لاحتياجات مشاريع البناء عبر وحدات قياس تجارية مختلفة وأوزان الشاحنات بدون أي تأخير للمستخدم أو اهتزاز في الصفحة.",
     },
     outcome: {
-      en: "Streamlined order placement workflow, reducing quote turnaround time from days to instantaneous digital checkout.",
-      ar: "تقليل زمن طلب عروض الأسعار وحساب الكميات من أيام إلى إتمام رقمي فوري في دقائق معدودة.",
+      en: "Reduced contractor quote turnaround from days to instantaneous digital generation, with automated bulk tiers and sub-80ms edge queries.",
+      ar: "تقليص زمن إعداد عروض الأسعار الهندسية من أيام إلى توليد فوري موثق مع احتساب آلي لخصومات الكميات في أقل من 80ms.",
     },
     hasCaseStudy: true,
     demoUrl: "https://store-kuwait.vercel.app",
@@ -222,6 +247,12 @@ export const PROJECTS: Project[] = [
     featured: false,
     status: "production",
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Compatibility Engine", "Tailwind CSS"],
+    image: "/projects/majd-parts.webp",
+    telemetryBadges: [
+      { en: "VIN Compatibility: Verified", ar: "توافق رقم الهيكل: موثق" },
+      { en: "OEM Cross-Index", ar: "فهرسة القطع الأصلية والبديلة" },
+      { en: "Search P99: 18ms", ar: "زمن البحث: 18ms" },
+    ],
     problem: {
       en: "High return rates in auto parts commerce due to customers ordering incompatible components for specific vehicle models and years.",
       ar: "ارتفاع معدلات إرجاع قطع الغيار نتيجة شراء قطع غير متوافقة مع موديلات وسنوات تصنيع سيارات العملاء.",
@@ -265,6 +296,12 @@ export const PROJECTS: Project[] = [
     featured: false,
     status: "production",
     technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Booking Flow", "Tailwind CSS"],
+    image: "/projects/egypt-tour.webp",
+    telemetryBadges: [
+      { en: "Itinerary Engine: Real-Time", ar: "محرك المسارات: فوري" },
+      { en: "Multi-Currency Ready", ar: "جاهزية متعددة العملات" },
+      { en: "LCP: 0.8s", ar: "سرعة تحميل المحتوى: 0.8s" },
+    ],
     problem: {
       en: "Travelers struggle with fragmented booking flows and poorly visualized schedules when exploring Egyptian historical landmarks.",
       ar: "صعوبة تخطيط وحجز الجولات السياحية في مصر بسبب تشتت المواقع وضعف عرض المسارات والبرامج الزمنية للرحلات.",
@@ -308,6 +345,12 @@ export const PROJECTS: Project[] = [
     featured: false,
     status: "production",
     technologies: ["React", "TypeScript", "Video Player Architecture", "RTL Curation", "Tailwind CSS"],
+    image: "/projects/arab-cinema.webp",
+    telemetryBadges: [
+      { en: "RTL Typography: Curated", ar: "تصميم عربي RTL أصيل" },
+      { en: "Ad-Free Family Mode", ar: "بيئة عائلية خالية من الإعلانات" },
+      { en: "Buffer-Free HLS", ar: "بث فوري مستقر" },
+    ],
     problem: {
       en: "Mainstream streaming services often lack purposeful family-curated filters and treat Arabic typographic alignment as an afterthought.",
       ar: "افتقار منصات العرض الشائعة لتصنيفات محتوى عائلية ملائمة وضعف الاعتناء بجماليات الخطوط والتصميم العربي الأصيل.",
@@ -351,6 +394,12 @@ export const PROJECTS: Project[] = [
     featured: false,
     status: "production",
     technologies: ["React 19", "TypeScript", "State Machines", "Web Audio API", "Tailwind CSS"],
+    image: "/projects/memory-game.webp",
+    telemetryBadges: [
+      { en: "DOM Optimization: 60 FPS", ar: "تحسين DOM: 60 إطار/ثانية" },
+      { en: "State Machine: Atomic", ar: "آلة حالات ذرية" },
+      { en: "Memory: <1MB Footprint", ar: "استهلاك الذاكرة: <1MB" },
+    ],
     problem: {
       en: "Complex client-side interactive card states often suffer from event race conditions, animation lag, and audio desynchronization.",
       ar: "التطبيقات التفاعلية المعقدة في المتصفح غالباً ما تعاني من تضارب الأحداث وتأخر الحركات وعدم تزامن المؤثرات الصوتية.",

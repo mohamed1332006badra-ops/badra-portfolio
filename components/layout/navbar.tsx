@@ -13,6 +13,7 @@ interface NavbarProps {
   onOpenAiScoper: () => void;
   onOpenContactModal: () => void;
   onOpenResumeModal: () => void;
+  onOpenTerminal?: () => void;
 }
 
 export function Navbar({
@@ -20,6 +21,7 @@ export function Navbar({
   onOpenAiScoper,
   onOpenContactModal,
   onOpenResumeModal,
+  onOpenTerminal,
 }: NavbarProps) {
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const { language, toggleLanguage } = useI18n();
@@ -80,6 +82,19 @@ export function Navbar({
 
           {/* Right Action Tools */}
           <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2 shrink-0">
+            {/* Developer CLI Trigger */}
+            {onOpenTerminal && (
+              <button
+                onClick={onOpenTerminal}
+                aria-label="Developer CLI (`)"
+                title={language === "en" ? "Developer Terminal CLI (` or Ctrl+`)" : "الطرفية البرمجية (`)"}
+                className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-md transition-colors cursor-pointer"
+              >
+                <Terminal className="w-3.5 h-3.5 text-emerald-500" />
+                <span className="hidden sm:inline font-semibold">CLI</span>
+              </button>
+            )}
+
             {/* Command Palette Trigger */}
             <button
               onClick={onOpenCommandPalette}

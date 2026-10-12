@@ -29,6 +29,9 @@ export interface Project {
   demoUrl?: string;
   repoUrl?: string;
   hasCaseStudy: boolean;
+  image?: string;
+  telemetryBadges?: { en: string; ar: string }[];
+  simulationType?: 'materials-calculator' | 'none';
 }
 
 export interface ArchitectureStep {

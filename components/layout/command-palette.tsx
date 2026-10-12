@@ -20,6 +20,7 @@ interface CommandPaletteProps {
   onOpenAiScoper: () => void;
   onOpenContactModal: () => void;
   onOpenResumeModal: () => void;
+  onOpenTerminal?: () => void;
 }
 
 export function CommandPalette({
@@ -28,6 +29,7 @@ export function CommandPalette({
   onOpenAiScoper,
   onOpenContactModal,
   onOpenResumeModal,
+  onOpenTerminal,
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -50,6 +52,20 @@ export function CommandPalette({
   };
 
   const commands: CommandItem[] = [
+    {
+      id: "cli",
+      title: {
+        en: "badra --cli · Launch Interactive Developer Terminal (badra-shell)",
+        ar: "badra --cli · تشغيل الطرفية البرمجية للمطورين",
+      },
+      category: { en: "Developer Tools", ar: "أدوات المطورين" },
+      icon: <Terminal className="w-4 h-4 text-emerald-400" />,
+      shortcut: "`",
+      action: () => {
+        onClose();
+        if (onOpenTerminal) onOpenTerminal();
+      },
+    },
     {
       id: "resume",
       title: {
