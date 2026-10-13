@@ -1,17 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Project, CaseStudy } from "@/lib/types";
+import { CaseStudy } from "@/lib/types";
 import { PROJECTS, CASE_STUDIES } from "@/lib/content";
 import { useI18n } from "@/lib/i18n-context";
 import { ProjectCard } from "./project-card";
-import { ProjectDetailModal } from "./project-detail-modal";
 import { CaseStudyModal } from "./case-study-modal";
 
 export function ProjectsSection() {
   const { language } = useI18n();
   const [activeFilter, setActiveFilter] = useState<string>("all");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
 
   const filterTabs = [
@@ -77,21 +75,13 @@ export function ProjectsSection() {
             <ProjectCard
               key={project.id}
               project={project}
-              onInspectArchitecture={(p) => setSelectedProject(p)}
               onOpenCaseStudy={handleOpenCaseStudy}
             />
           ))}
         </div>
       </div>
 
-      {/* Modals & Sandboxes */}
-      <ProjectDetailModal
-        project={selectedProject}
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onOpenCaseStudy={handleOpenCaseStudy}
-      />
-
+      {/* Unified World-Class Case Study Architecture Modal */}
       <CaseStudyModal
         caseStudy={selectedCaseStudy}
         isOpen={!!selectedCaseStudy}
