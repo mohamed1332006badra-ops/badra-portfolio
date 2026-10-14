@@ -111,7 +111,7 @@ export function TerminalModal({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
               <div><span className="text-amber-300 font-semibold">help, ?</span> : Display this command manual</div>
               <div><span className="text-amber-300 font-semibold">skills</span> : Full-stack technical competency matrix</div>
-              <div><span className="text-amber-300 font-semibold">projects</span> : List all 8 verified production projects</div>
+              <div><span className="text-amber-300 font-semibold">projects</span> : List verified production systems</div>
               <div><span className="text-amber-300 font-semibold">open &lt;slug&gt;</span> : Launch live sandbox or demo URL</div>
               <div><span className="text-amber-300 font-semibold">ping</span> : Measure live edge round-trip latency (ms)</div>
               <div><span className="text-amber-300 font-semibold">resume</span> : View ATS Engineering Resume &amp; PDF export</div>
@@ -170,7 +170,7 @@ export function TerminalModal({
       case "projects":
         output = (
           <div className="space-y-1.5 text-xs py-1">
-            <div className="text-cyan-400 font-bold mb-1">PRODUCTION REGISTERED SYSTEMS (8):</div>
+            <div className="text-cyan-400 font-bold mb-1">VERIFIED PRODUCTION SYSTEMS ({PROJECTS.length}):</div>
             {PROJECTS.map((p, idx) => (
               <div key={p.id} className="flex flex-wrap items-center gap-2 text-slate-300">
                 <span className="text-slate-500 font-mono">{idx + 1}.</span>

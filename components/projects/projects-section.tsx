@@ -13,11 +13,10 @@ export function ProjectsSection() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
 
   const filterTabs = [
-    { id: "all", label: { en: "All Projects", ar: "جميع المشاريع" } },
-    { id: "ai", label: { en: "AI & Retrieval (RAG)", ar: "الذكاء الاصطناعي و RAG" } },
-    { id: "fullstack", label: { en: "Full-Stack & Commerce", ar: "الويب والتجارة" } },
-    { id: "systems", label: { en: "Systems & Real-Time", ar: "الأنظمة والمقاييس الحية" } },
-    { id: "web", label: { en: "Web & Developer Tools", ar: "أدوات الويب والمطورين" } },
+    { id: "all", label: { en: "All Systems", ar: "جميع الأنظمة" } },
+    { id: "ai", label: { en: "AI & Real-Time Streaming", ar: "الذكاء الاصطناعي والتدفق اللحظي" } },
+    { id: "crm", label: { en: "Enterprise SaaS & CRM", ar: "برمجيات المؤسسات وإدارة العلاقات" } },
+    { id: "fintech", label: { en: "Fintech & B2B Commerce", ar: "التكنولوجيا المالية والتجارة الصناعية" } },
   ];
 
   const filteredProjects = activeFilter === "all"

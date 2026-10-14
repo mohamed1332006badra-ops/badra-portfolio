@@ -43,8 +43,8 @@ export function ProjectCard({
           </Badge>
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 uppercase font-medium">
-              STATUS: {project.status}
+            <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 font-semibold tracking-wide">
+              {language === "en" ? "STATUS: PRODUCTION" : "الحالة: إنتاج حي"}
             </span>
           </div>
         </div>
@@ -58,7 +58,7 @@ export function ProjectCard({
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500/90 shadow-[0_0_6px_rgba(245,158,11,0.4)]" />
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/90 shadow-[0_0_6px_rgba(16,185,129,0.4)]" />
             </div>
-            <div className="flex items-center gap-1 px-3 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-[11px] font-mono text-slate-300 truncate max-w-[240px] sm:max-w-[340px]">
+            <div className="flex items-center gap-1 px-3 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-[11px] font-mono text-slate-300 truncate max-w-[240px] sm:max-w-[340px]" dir="ltr">
               <span className="text-emerald-400 font-semibold">https://</span>
               <span className="truncate">{cleanDomain}</span>
             </div>
@@ -75,7 +75,7 @@ export function ProjectCard({
               }
             }}
             title={language === "en" ? `Launch ${cleanDomain} in new tab` : `فتح ${cleanDomain} في علامة تبويب جديدة`}
-            className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950 shadow-2xl cursor-pointer group/preview"
+            className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 shadow-2xl cursor-pointer group/preview"
           >
             {project.image ? (
               <Image

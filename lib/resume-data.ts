@@ -215,46 +215,6 @@ export const RESUME_DATA: ResumeData = {
       },
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Commerce APIs", "Tailwind CSS"],
     },
-    {
-      title: "MAJD PARTS Automotive",
-      url: "https://badra-portfolio.vercel.app",
-      displayUrl: "badra-portfolio.vercel.app",
-      description: {
-        en: "Automotive spare parts digital commerce platform featuring vehicle compatibility filtering, VIN lookups, inventory synchronization, and fast query execution.",
-        ar: "منصة تجارة رقمية متخصصة لقطع غيار السيارات مع فلاتر توافق المركبات، والتحقق من أرقام الهياكل، وتزامن المخزون اللحظي.",
-      },
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Vehicle Compatibility", "Tailwind CSS"],
-    },
-    {
-      title: "Egypt Tourism & Tour Sales",
-      url: "https://badra-portfolio.vercel.app",
-      displayUrl: "badra-portfolio.vercel.app",
-      description: {
-        en: "Dynamic destination booking engine and travel guides portal featuring interactive cultural itineraries, real-time ticket sales logic, and fluid responsive design.",
-        ar: "بوابة حجز سياحي وجولات إلكترونية متكاملة تتميز بمسارات رحلات تفاعلية، ومنظومة حجز تذاكر فورية، وتصميم متجاوب فائق السرعة.",
-      },
-      technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Booking Flow", "Tailwind CSS"],
-    },
-    {
-      title: "Iron Family Cinema Platform (سينما الأسرة الحديدية)",
-      url: "https://badra-portfolio.vercel.app/demos/cinema",
-      displayUrl: "badra-portfolio.vercel.app/demos/cinema",
-      description: {
-        en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography, responsive streaming architecture, and content curation.",
-        ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي (سينما الأسرة الحديدية) مع واجهة مستخدم عربية أصيلة، وبنية تدفق وسائط سريعة ومستقرة.",
-      },
-      technologies: ["React", "TypeScript", "Video Player Architecture", "RTL Curation", "Tailwind CSS"],
-    },
-    {
-      title: "Interactive Systems: Algorithmic Memory Game",
-      url: "https://badra-portfolio.vercel.app/demos/memory-game",
-      displayUrl: "badra-portfolio.vercel.app/demos/memory-game",
-      description: {
-        en: "High-performance client-side interactive game demonstrating robust state management, DOM performance optimization, and audio/canvas interaction with zero layout shifts.",
-        ar: "نظام تفاعلي متقدم يبرهن على إدارة الحالة اللحظية، وتحسين عمليات DOM، وخوارزميات التفاعل الصفرية واستقرار الواجهات المطلق.",
-      },
-      technologies: ["React 19", "TypeScript", "State Machines", "Web Audio API", "Tailwind CSS"],
-    },
   ],
 
   education: [

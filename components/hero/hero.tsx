@@ -121,13 +121,13 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
           <div className="pt-2 sm:pt-0 sm:px-4 first:px-0">
             <div className="flex items-center gap-1.5 text-blue-600 dark:text-cyan-400 text-xs font-mono font-semibold mb-1">
               <Cpu className="w-3.5 h-3.5" />
-              <span>{language === "en" ? "Architected" : "الأنظمة المنفذة"}</span>
+              <span>{language === "en" ? "Production-Verified" : "الأنظمة الموثقة"}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-              8+
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight" dir="ltr">
+              100%
             </div>
             <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
-              {language === "en" ? "Production Systems" : "أنظمة إنتاجية حية"}
+              {language === "en" ? "Live Flagship Systems" : "أنظمة إنتاجية حية متصلة"}
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
               <Zap className="w-3.5 h-3.5" />
               <span>{language === "en" ? "Latency" : "زمن الاستجابة"}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight" dir="ltr">
               &lt;50ms
             </div>
             <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
@@ -151,7 +151,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
               <Activity className="w-3.5 h-3.5" />
               <span>{language === "en" ? "Availability" : "معدل الجاهزية"}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight" dir="ltr">
               99.98%
             </div>
             <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
@@ -165,7 +165,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
               <CheckCheck className="w-3.5 h-3.5" />
               <span>{language === "en" ? "Reliability" : "الموثوقية"}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight" dir="ltr">
               100%
             </div>
             <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">

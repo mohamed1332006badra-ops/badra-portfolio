@@ -16,7 +16,7 @@ export interface Project {
   slug: string;
   title: LocalizedString;
   tagline: LocalizedString;
-  category: 'fullstack' | 'ai' | 'systems' | 'web';
+  category: 'ai' | 'crm' | 'fintech' | 'fullstack' | 'systems' | 'web';
   categoryLabel: LocalizedString;
   featured: boolean;
   technologies: string[];
