@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Sparkles, CheckCircle2, Shield, Code, Cpu, FileText } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Shield, Code, Cpu, FileText, Zap, Activity, CheckCheck } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { ArchitectureVisualizer } from "./architecture-visualizer";
+import { TechStackMarquee } from "@/components/ui/brand-logos";
 
 interface HeroProps {
   onOpenContactModal: () => void;
@@ -17,7 +18,7 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
   const { language, direction } = useI18n();
 
   return (
-    <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden tech-grid-bg">
+    <section className="relative pt-12 pb-12 md:pt-20 md:pb-16 overflow-hidden tech-grid-bg">
       {/* Subtle background ambient gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-[350px] h-[250px] bg-purple-500/10 dark:bg-purple-600/10 blur-[100px] rounded-full pointer-events-none" />
@@ -114,10 +115,74 @@ export function Hero({ onOpenContactModal, onOpenAiScoper, onOpenResumeModal }: 
           </div>
         </div>
 
+        {/* Live Engineering Impact Bar */}
+        <div className="mt-12 p-4 sm:p-5 rounded-2xl border border-slate-200/90 dark:border-slate-800/90 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md shadow-lg grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 dark:divide-slate-800/80 [dir=rtl]:sm:divide-x-reverse">
+          {/* Metric 1 */}
+          <div className="pt-2 sm:pt-0 sm:px-4 first:px-0">
+            <div className="flex items-center gap-1.5 text-blue-600 dark:text-cyan-400 text-xs font-mono font-semibold mb-1">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>{language === "en" ? "Architected" : "الأنظمة المنفذة"}</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+              8+
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
+              {language === "en" ? "Production Systems" : "أنظمة إنتاجية حية"}
+            </div>
+          </div>
+
+          {/* Metric 2 */}
+          <div className="pt-2 sm:pt-0 sm:px-4">
+            <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-semibold mb-1">
+              <Zap className="w-3.5 h-3.5" />
+              <span>{language === "en" ? "Latency" : "زمن الاستجابة"}</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+              &lt;50ms
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
+              {language === "en" ? "Edge API Response" : "استجابة الحافة السحابية"}
+            </div>
+          </div>
+
+          {/* Metric 3 */}
+          <div className="pt-2 sm:pt-0 sm:px-4">
+            <div className="flex items-center gap-1.5 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-semibold mb-1">
+              <Activity className="w-3.5 h-3.5" />
+              <span>{language === "en" ? "Availability" : "معدل الجاهزية"}</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+              99.98%
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
+              {language === "en" ? "Production Uptime" : "استقرار تشغيلي موثق"}
+            </div>
+          </div>
+
+          {/* Metric 4 */}
+          <div className="pt-2 sm:pt-0 sm:px-4">
+            <div className="flex items-center gap-1.5 text-purple-600 dark:text-purple-400 text-xs font-mono font-semibold mb-1">
+              <CheckCheck className="w-3.5 h-3.5" />
+              <span>{language === "en" ? "Reliability" : "الموثوقية"}</span>
+            </div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
+              100%
+            </div>
+            <div className="text-[11px] text-slate-600 dark:text-slate-400 font-mono mt-0.5">
+              {language === "en" ? "Type-Safe End-to-End" : "أمان نوعي شامل"}
+            </div>
+          </div>
+        </div>
+
         {/* Hero Interactive Visualization */}
-        <div className="mt-14 lg:mt-16">
+        <div className="mt-12 lg:mt-14">
           <ArchitectureVisualizer />
         </div>
+      </div>
+
+      {/* Infinite Animated Tech Stack Marquee */}
+      <div className="mt-12">
+        <TechStackMarquee />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { AmbientBackground } from "@/components/layout/ambient-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,9 +84,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative">
         <Providers>
-          {children}
+          <AmbientBackground />
+          <div className="relative z-10 flex flex-col min-h-screen">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

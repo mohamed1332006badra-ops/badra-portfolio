@@ -236,19 +236,19 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Booking Flow", "Tailwind CSS"],
     },
     {
-      title: "Arab Family Cinema Platform",
-      url: "https://badra-portfolio.vercel.app",
-      displayUrl: "badra-portfolio.vercel.app",
+      title: "Iron Family Cinema Platform (سينما الأسرة الحديدية)",
+      url: "https://badra-portfolio.vercel.app/demos/cinema",
+      displayUrl: "badra-portfolio.vercel.app/demos/cinema",
       description: {
         en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography, responsive streaming architecture, and content curation.",
-        ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي مع واجهة مستخدم عربية أصيلة، وبنية تدفق وسائط سريعة ومستقرة.",
+        ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي (سينما الأسرة الحديدية) مع واجهة مستخدم عربية أصيلة، وبنية تدفق وسائط سريعة ومستقرة.",
       },
       technologies: ["React", "TypeScript", "Video Player Architecture", "RTL Curation", "Tailwind CSS"],
     },
     {
-      title: "Interactive Systems: Memory Game",
-      url: "https://badra-portfolio.vercel.app",
-      displayUrl: "badra-portfolio.vercel.app",
+      title: "Interactive Systems: Algorithmic Memory Game",
+      url: "https://badra-portfolio.vercel.app/demos/memory-game",
+      displayUrl: "badra-portfolio.vercel.app/demos/memory-game",
       description: {
         en: "High-performance client-side interactive game demonstrating robust state management, DOM performance optimization, and audio/canvas interaction with zero layout shifts.",
         ar: "نظام تفاعلي متقدم يبرهن على إدارة الحالة اللحظية، وتحسين عمليات DOM، وخوارزميات التفاعل الصفرية واستقرار الواجهات المطلق.",

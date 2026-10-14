@@ -7,6 +7,7 @@ import { Terminal, ArrowUp, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { StatusBar } from "@/components/layout/status-bar";
 import { GitHubActivity } from "@/components/telemetry/github-activity";
+import { BadraTechLogo } from "@/components/ui/brand-logos";
 
 interface FooterProps {
   onOpenCommandPalette: () => void;
@@ -36,10 +37,8 @@ export function Footer({
 
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-slate-200 dark:border-slate-800/60 gap-6">
           <div>
-            <div className="flex items-center gap-2 mb-2 font-bold text-slate-900 dark:text-white">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-              <span className="font-mono text-lg tracking-wider">BADRA</span>
-              <span className="text-xs font-mono text-slate-600 dark:text-slate-400 font-semibold">· 2030</span>
+            <div className="mb-2">
+              <BadraTechLogo className="w-8 h-8" showText={true} subtitle="2030" />
             </div>
             <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 max-w-md">
               {language === "en" ? SITE_METADATA.coreStatement.en : SITE_METADATA.coreStatement.ar}

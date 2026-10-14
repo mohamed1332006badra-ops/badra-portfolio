@@ -272,7 +272,7 @@ export const PROJECTS: Project[] = [
       ar: "خفض نسبة طلب القطع غير المتوافقة بشكل ملحوظ وزيادة ثقة المشترين في دقة النتائج.",
     },
     hasCaseStudy: true,
-    demoUrl: "/demos/majd-parts",
+    demoUrl: "https://badra-portfolio.vercel.app/demos/majd-parts",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
@@ -321,19 +321,19 @@ export const PROJECTS: Project[] = [
       ar: "تجربة مستخدم فائقة السلاسة على الهواتف مع ثبات بصري كامل وسرعة تحميل تقل عن ثانية واحدة.",
     },
     hasCaseStudy: true,
-    demoUrl: "/demos/egypt-tourism",
+    demoUrl: "https://badra-portfolio.vercel.app/demos/egypt-tourism",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
     id: "arab-family-cinema",
     slug: "arab-family-cinema",
     title: {
-      en: "Arab Family Cinema Platform",
-      ar: "منصة سينما الأسرة العربية الهادفة",
+      en: "Iron Family Cinema Platform (سينما الأسرة الحديدية)",
+      ar: "منصة سينما الأسرة الحديدية (Iron Family Cinema)",
     },
     tagline: {
-      en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography.",
-      ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي بتجربة مستخدم عربية أصيلة.",
+      en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography and zero ads.",
+      ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي (سينما الأسرة الحديدية) بتجربة مستخدم عربية أصيلة.",
     },
     category: "web",
     categoryLabel: {
@@ -370,7 +370,7 @@ export const PROJECTS: Project[] = [
       ar: "منصة رقمية هادفة وموثوقة نالت استحسان العائلات لسلامة محتواها وسرعتها وأناقة تصميمها.",
     },
     hasCaseStudy: true,
-    demoUrl: "/demos/cinema",
+    demoUrl: "https://badra-portfolio.vercel.app/demos/cinema",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
@@ -419,7 +419,7 @@ export const PROJECTS: Project[] = [
       ar: "أداء نقي 60 إطاراً في الثانية دون أي تقطيع، واستجابة صوتية فورية على كافة المتصفحات الحديثة.",
     },
     hasCaseStudy: true,
-    demoUrl: "/demos/memory-game",
+    demoUrl: "https://badra-portfolio.vercel.app/demos/memory-game",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
 ];

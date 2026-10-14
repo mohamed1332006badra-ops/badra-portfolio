@@ -221,10 +221,10 @@ export default function CinemaDemoPage() {
               </div>
               <div>
                 <span className="font-extrabold text-sm sm:text-base tracking-tight text-white block">
-                  {lang === "ar" ? "سينما الأسرة العربية" : "Arab Family Cinema"}
+                  {lang === "ar" ? "سينما الأسرة الحديدية" : "Iron Family Cinema"}
                 </span>
                 <span className="text-[10px] font-mono text-rose-400 block -mt-1">
-                  100% Curated & Family Safe
+                  Iron Family Streaming · 100% Curated & Safe
                 </span>
               </div>
             </div>

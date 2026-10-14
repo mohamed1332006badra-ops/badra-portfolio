@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle, Layers, Code2, Server, Cpu, Database, Cloud } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { ENGINEERING_PROOFS } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
+import { TechLogo } from "@/components/ui/brand-logos";
 
 export function EngineeringProof() {
   const { language } = useI18n();
@@ -22,17 +23,6 @@ export function EngineeringProof() {
   const filteredItems = filter === "all"
     ? ENGINEERING_PROOFS
     : ENGINEERING_PROOFS.filter((item) => item.category === filter);
-
-  const getCategoryIcon = (cat: string) => {
-    switch (cat) {
-      case "frontend": return <Code2 className="w-4 h-4 text-blue-400" />;
-      case "backend": return <Server className="w-4 h-4 text-amber-400" />;
-      case "ai": return <Cpu className="w-4 h-4 text-purple-400" />;
-      case "database": return <Database className="w-4 h-4 text-cyan-400" />;
-      case "infra": return <Cloud className="w-4 h-4 text-emerald-400" />;
-      default: return <Layers className="w-4 h-4 text-slate-500 dark:text-slate-400" />;
-    }
-  };
 
   const getProjectRefName = (name: string, lang: "en" | "ar") => {
     if (lang === "en") return name;
@@ -89,15 +79,15 @@ export function EngineeringProof() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="group flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-200"
+              className="group flex flex-col justify-between rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 sm:p-6 shadow-sm hover:shadow-lg hover:border-blue-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 card-spotlight-border"
             >
               <div>
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200 dark:border-slate-800/60">
-                  <div className="flex items-center gap-2">
-                    <div className="p-1.5 rounded-md bg-slate-100 dark:bg-white/5">
-                      {getCategoryIcon(item.category)}
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800/90 flex items-center justify-center p-1.5 border border-slate-200 dark:border-slate-700/80 shrink-0 group-hover:scale-110 transition-transform">
+                      <TechLogo name={item.technology} className="w-5 h-5" />
                     </div>
-                    <span className="font-mono text-sm font-bold text-slate-900 dark:text-white">
+                    <span className="font-mono text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
                       {item.technology}
                     </span>
                   </div>

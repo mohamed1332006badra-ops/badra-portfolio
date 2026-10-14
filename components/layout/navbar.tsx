@@ -5,6 +5,7 @@ import { Terminal, Globe, Moon, Sun, Menu, X, ArrowUpRight, Sparkles, FileText }
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 import { Button } from "@/components/ui/button";
+import { BadraTechLogo } from "@/components/ui/brand-logos";
 
 const emptySubscribe = () => () => {};
 
@@ -58,13 +59,9 @@ export function Navbar({
           {/* Brand Logo */}
           <a
             href="#"
-            className="flex items-center gap-2.5 font-bold tracking-tight text-slate-900 dark:text-white group shrink-0"
+            className="flex items-center gap-2 font-bold tracking-tight text-slate-900 dark:text-white group shrink-0"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)] group-hover:scale-125 transition-transform" />
-            <span className="text-xl font-mono tracking-wider font-extrabold">BADRA</span>
-            <span className="hidden sm:inline-block text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/5">
-              2030
-            </span>
+            <BadraTechLogo className="w-8 h-8" showText={true} subtitle="2030" />
           </a>
 
           {/* Desktop Nav Links */}
