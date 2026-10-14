@@ -31,37 +31,45 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "BADRA — Mohamed Ahmed Badra | Full-Stack Developer · AI Engineer",
-  description: "Personal engineering product of Mohamed Ahmed Badra. Full-Stack Developer, AI Engineer, and Digital Product Builder. I build digital products that solve real problems.",
+  title: "BADRA — Mohamed Ahmed Badra | Full-Stack Developer · AI Systems Architect",
+  description: "Personal engineering portfolio of Mohamed Ahmed Badra. Full-Stack Developer, AI Systems Architect, and Digital Product Builder. Building high-throughput production systems, multi-tenant SaaS, and real-time AI engines.",
   keywords: [
     "Mohamed Ahmed Badra",
     "BADRA",
     "Full-Stack Developer",
-    "AI Engineer",
+    "AI Systems Architect",
     "Software Architecture",
-    "Next.js",
+    "Next.js 16",
     "TypeScript",
+    "Supabase PostgreSQL",
     "FastAPI",
     "RAG",
     "Vector Search",
-    "Digital Product Builder",
+    "Enterprise SaaS",
   ],
   authors: [{ name: "Mohamed Ahmed Badra" }],
   creator: "Mohamed Ahmed Badra",
-  metadataBase: new URL("https://badra.dev"),
+  metadataBase: new URL("https://badra-portfolio.vercel.app"),
+  alternates: {
+    canonical: "https://badra-portfolio.vercel.app",
+    languages: {
+      "en-US": "https://badra-portfolio.vercel.app",
+      "ar-EG": "https://badra-portfolio.vercel.app",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     alternateLocale: ["ar_EG", "ar_SA"],
-    url: "https://badra.dev",
+    url: "https://badra-portfolio.vercel.app",
     siteName: "BADRA — Mohamed Ahmed Badra",
-    title: "BADRA — Mohamed Ahmed Badra | Full-Stack Developer · AI Engineer",
-    description: "I build digital products that solve real problems. Engineering, systems, and product development.",
+    title: "BADRA — Mohamed Ahmed Badra | Full-Stack Developer · AI Systems Architect",
+    description: "Building digital products that solve real problems. High-throughput production systems, multi-tenant SaaS platforms, and real-time AI engines.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BADRA — Mohamed Ahmed Badra",
-    description: "I build digital products that solve real problems. Full-Stack Developer · AI Engineer.",
+    title: "BADRA — Mohamed Ahmed Badra | Full-Stack Developer · AI Systems Architect",
+    description: "Personal engineering portfolio of Mohamed Ahmed Badra. High-throughput production systems, multi-tenant SaaS, and real-time AI engines.",
   },
 };
 

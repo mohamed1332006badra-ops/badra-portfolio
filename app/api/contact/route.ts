@@ -42,10 +42,12 @@ export async function POST(req: NextRequest) {
     };
 
     // Safe server-side processing (can send to Telegram, Resend, Supabase, or internal webhook)
-    console.log(`[Contact Submission] Received inquiry from: ${sanitizedSubmission.name} <${sanitizedSubmission.email}> | Type: ${sanitizedSubmission.projectType}`);
+    const refId = `BDR-${new Date().getFullYear()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+    console.log(`[Contact Submission] Ref: ${refId} | From: ${sanitizedSubmission.name} <${sanitizedSubmission.email}> | Type: ${sanitizedSubmission.projectType}`);
 
     return NextResponse.json({
       success: true,
+      referenceId: refId,
       message: "Your project inquiry has been received successfully. Mohamed will respond within 24 hours.",
     });
   } catch (error) {

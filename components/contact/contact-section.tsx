@@ -5,7 +5,19 @@ import { useI18n } from "@/lib/i18n-context";
 import { SITE_METADATA } from "@/lib/content";
 import { Input, Textarea } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, CheckCircle2, AlertCircle, Clock, ShieldCheck } from "lucide-react";
+import {
+  Mail,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  ShieldCheck,
+  Copy,
+  Check,
+  FileCode2,
+  ExternalLink,
+  RotateCcw,
+} from "lucide-react";
 import { WhatsAppIcon } from "@/components/ui/icons";
 
 interface ContactSectionProps {
@@ -13,7 +25,10 @@ interface ContactSectionProps {
   initialService?: string;
 }
 
-export function ContactSection({ initialDescription = "", initialService = "" }: ContactSectionProps) {
+export function ContactSection({
+  initialDescription = "",
+  initialService = "",
+}: ContactSectionProps) {
   const { language } = useI18n();
 
   const [formData, setFormData] = useState({
@@ -26,6 +41,9 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
     description: initialDescription,
   });
 
+  const [submittedData, setSubmittedData] = useState<typeof formData | null>(null);
+  const [referenceId, setReferenceId] = useState<string>("");
+  const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -62,16 +80,91 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
         throw new Error(data.error || "Failed to submit inquiry.");
       }
 
+      const generatedRef =
+        data.referenceId ||
+        `BDR-${new Date().getFullYear()}-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
+
+      setReferenceId(generatedRef);
+      setSubmittedData({ ...formData });
       setSuccess(true);
     } catch (err: unknown) {
-      setErrorMessage(err instanceof Error ? err.message : "Failed to connect to server. Please try again.");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Failed to connect to server. Please try again."
+      );
     } finally {
       setLoading(false);
     }
   };
 
+  const constructBriefText = () => {
+    if (!submittedData) return "";
+    if (language === "ar") {
+      return `*ملخص طلب مشروع هندسي*
+----------------------------------------
+*الرقم المرجعي:* ${referenceId}
+*اسم العميل:* ${submittedData.name}
+*البريد الإلكتروني:* ${submittedData.email}
+*الهاتف / واتساب:* ${submittedData.phoneOrWhatsApp || "غير محدد"}
+*تصنيف المشروع:* ${submittedData.projectType}
+*الميزانية المتوقعة:* ${submittedData.budgetRange}
+*الجدول الزمني:* ${submittedData.timeline}
+----------------------------------------
+*نبذة عن المشروع والأهداف:*
+${submittedData.description}
+----------------------------------------
+مرسل عبر: https://badra-portfolio.vercel.app`;
+    }
+
+    return `*Project Inquiry Brief*
+----------------------------------------
+*Reference ID:* ${referenceId}
+*Client Name:* ${submittedData.name}
+*Email:* ${submittedData.email}
+*Phone/WhatsApp:* ${submittedData.phoneOrWhatsApp || "N/A"}
+*Project Category:* ${submittedData.projectType}
+*Target Budget:* ${submittedData.budgetRange}
+*Timeline:* ${submittedData.timeline}
+----------------------------------------
+*Project Overview & Goals:*
+${submittedData.description}
+----------------------------------------
+Dispatched via: https://badra-portfolio.vercel.app`;
+  };
+
+  const handleCopyBrief = async () => {
+    const text = constructBriefText();
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch (err) {
+      console.error("Clipboard copy failed", err);
+    }
+  };
+
+  const handleReset = () => {
+    setSuccess(false);
+    setSubmittedData(null);
+    setReferenceId("");
+    setCopied(false);
+    setFormData({
+      name: "",
+      email: "",
+      phoneOrWhatsApp: "",
+      projectType: "Web Application",
+      budgetRange: "$5,000 - $15,000",
+      timeline: "4 - 8 Weeks",
+      description: "",
+    });
+  };
+
   return (
-    <section id="contact" className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
+    <section
+      id="contact"
+      className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-[#08090d]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-14">
@@ -80,7 +173,9 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
             <span>{language === "en" ? "Start a Project / Inquiry" : "بدء مشروع / استفسار"}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {language === "en" ? "Let's Engineer Something Exceptional" : "لنبدأ في هندسة شيء استثنائي"}
+            {language === "en"
+              ? "Let's Engineer Something Exceptional"
+              : "لنبدأ في هندسة شيء استثنائي"}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
             {language === "en"
@@ -106,7 +201,9 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">Email</span>
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">
+                      Email
+                    </span>
                     <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue-500">
                       {SITE_METADATA.contact.email}
                     </span>
@@ -123,7 +220,9 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                     <WhatsAppIcon className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">WhatsApp / Instant Message</span>
+                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">
+                      WhatsApp / Instant Message
+                    </span>
                     <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-500">
                       +20 1016731179 (Direct WhatsApp)
                     </span>
@@ -135,11 +234,19 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
               <div className="pt-4 border-t border-slate-200 dark:border-slate-800/60 space-y-2.5 text-xs text-slate-700 dark:text-slate-400 font-mono">
                 <div className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-blue-500 shrink-0" />
-                  <span>{language === "en" ? "Response within 24 hours guaranteed" : "رد مؤكد خلال 24 ساعة"}</span>
+                  <span>
+                    {language === "en"
+                      ? "Response within 24 hours guaranteed"
+                      : "رد مؤكد خلال 24 ساعة"}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                  <span>{language === "en" ? "Strict NDA & IP confidentiality" : "سرية تامة لحقوق الملكية الفكرية"}</span>
+                  <span>
+                    {language === "en"
+                      ? "Strict NDA & IP confidentiality"
+                      : "سرية تامة لحقوق الملكية الفكرية"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -147,40 +254,136 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
 
           {/* Form right column */}
           <div className="lg:col-span-7">
-            {success ? (
-              <div className="p-8 sm:p-10 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/50 dark:border-emerald-800/40 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6" />
+            {success && submittedData ? (
+              <div className="p-6 sm:p-8 rounded-xl bg-slate-50/90 dark:bg-slate-900/80 border border-emerald-500/40 dark:border-emerald-500/30 shadow-lg space-y-6">
+                {/* Status Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                        {language === "en"
+                          ? "Inquiry Transmitted to Queue"
+                          : "تم استلام تفاصيل المشروع وتأكيد الطلب"}
+                      </h3>
+                      <p className="text-xs text-slate-600 dark:text-slate-400">
+                        {language === "en"
+                          ? "SLA: Mohamed will personally review requirements and respond within 24h"
+                          : "التزام زمني: مراجعة معمارية والرد خلال 24 ساعة كحد أقصى"}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 font-mono text-xs font-semibold text-emerald-800 dark:text-emerald-300 self-start sm:self-auto">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>REF: {referenceId}</span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  {language === "en" ? "Inquiry Dispatched Successfully" : "تم إرسال استفسارك بنجاح"}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 max-w-md mx-auto">
-                  {language === "en"
-                    ? "Thank you for reaching out. Mohamed Ahmed Badra will review your requirements and respond with architectural suggestions shortly."
-                    : "شكراً لتواصلك. سيقوم محمد أحمد بدرة بمراجعة متطلباتك والرد عليك بالمقترحات المعمارية في أقرب وقت."}
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    setSuccess(false);
-                    setFormData({
-                      name: "",
-                      email: "",
-                      phoneOrWhatsApp: "",
-                      projectType: "Web Application",
-                      budgetRange: "$5,000 - $15,000",
-                      timeline: "4 - 8 Weeks",
-                      description: "",
-                    });
-                  }}
-                >
-                  {language === "en" ? "Send Another Message" : "إرسال رسالة أخرى"}
-                </Button>
+
+                {/* Structured JSON Payload / Architectural Summary Preview */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5 font-semibold uppercase tracking-wider">
+                      <FileCode2 className="w-3.5 h-3.5 text-blue-500" />
+                      {language === "en" ? "Structured Inquiry Payload" : "ملخص الطلب المعماري"}
+                    </span>
+                    <span>JSON / ARCH-V1</span>
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800 leading-relaxed shadow-inner">
+                    <pre className="whitespace-pre-wrap">
+{JSON.stringify(
+  {
+    reference_id: referenceId,
+    client: submittedData.name,
+    email: submittedData.email,
+    category: submittedData.projectType,
+    target_budget: submittedData.budgetRange,
+    timeline: submittedData.timeline,
+    phone: submittedData.phoneOrWhatsApp || "N/A",
+    status: "QUEUED_FOR_ARCHITECTURAL_REVIEW",
+    guaranteed_sla: "< 24 Hours",
+  },
+  null,
+  2
+)}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* Direct High-Conversion Routing Actions */}
+                <div className="space-y-3 pt-2">
+                  <a
+                    href={`https://wa.me/201016731179?text=${encodeURIComponent(constructBriefText())}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg text-sm font-bold bg-gradient-to-tr from-[#128C7E] via-[#25D366] to-[#25D366] hover:brightness-105 text-white shadow-[0_8px_25px_rgba(37,211,102,0.35)] transition-all cursor-pointer"
+                  >
+                    <WhatsAppIcon className="w-5 h-5 shrink-0 fill-current" />
+                    <span>
+                      {language === "en"
+                        ? "Send Formatted Brief via WhatsApp Directly"
+                        : "إرسال ملخص الطلب عبر واتساب مباشرة"}
+                    </span>
+                    <ExternalLink className="w-4 h-4 ml-1 opacity-80" />
+                  </a>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={handleCopyBrief}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-blue-500 text-slate-800 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="w-4 h-4 text-emerald-500" />
+                          <span className="text-emerald-600 dark:text-emerald-400">
+                            {language === "en" ? "Brief Copied to Clipboard!" : "تم نسخ الملخص بنجاح!"}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-slate-500" />
+                          <span>{language === "en" ? "Copy Formatted Brief" : "نسخ ملخص المشروع"}</span>
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={`mailto:${SITE_METADATA.contact.email}?subject=${encodeURIComponent(
+                        `Project Inquiry [${referenceId}]: ${submittedData.name} - ${submittedData.projectType}`
+                      )}&body=${encodeURIComponent(constructBriefText())}`}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-blue-500 text-slate-800 dark:text-slate-200 shadow-xs transition-colors cursor-pointer"
+                    >
+                      <Mail className="w-4 h-4 text-blue-500" />
+                      <span>{language === "en" ? "Send via Email Direct" : "إرسال عبر البريد الإلكتروني"}</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Reset / New message button */}
+                <div className="pt-2 text-center border-t border-slate-200 dark:border-slate-800">
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>
+                      {language === "en"
+                        ? "Submit Another Project Inquiry"
+                        : "تعديل أو إرسال استفسار جديد"}
+                    </span>
+                  </button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+              <form
+                onSubmit={handleSubmit}
+                className="p-6 sm:p-8 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5"
+              >
                 {/* Project Type Selector */}
                 <div>
                   <label className="text-xs font-semibold uppercase font-mono text-slate-700 dark:text-slate-400 block mb-2">
@@ -227,13 +430,22 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Input
-                    label={language === "en" ? "WhatsApp / Phone (Optional)" : "واتساب / الهاتف (اختياري)"}
+                    label={
+                      language === "en"
+                        ? "WhatsApp / Phone (Optional)"
+                        : "واتساب / الهاتف (اختياري)"
+                    }
                     value={formData.phoneOrWhatsApp}
-                    onChange={(e) => setFormData({ ...formData, phoneOrWhatsApp: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phoneOrWhatsApp: e.target.value })
+                    }
                     placeholder="+1 (555) 000-0000"
                   />
                   <div>
-                    <label htmlFor="target-budget-tier" className="text-xs font-medium text-slate-700 dark:text-slate-300 block mb-1.5">
+                    <label
+                      htmlFor="target-budget-tier"
+                      className="text-xs font-medium text-slate-700 dark:text-slate-300 block mb-1.5"
+                    >
                       {language === "en" ? "Target Budget Tier" : "الميزانية المتوقعة"}
                     </label>
                     <select
@@ -252,7 +464,11 @@ export function ContactSection({ initialDescription = "", initialService = "" }:
                 </div>
 
                 <Textarea
-                  label={language === "en" ? "Project Overview & Goals *" : "نبذة عن المشروع والأهداف *"}
+                  label={
+                    language === "en"
+                      ? "Project Overview & Goals *"
+                      : "نبذة عن المشروع والأهداف *"
+                  }
                   rows={4}
                   required
                   value={formData.description}
