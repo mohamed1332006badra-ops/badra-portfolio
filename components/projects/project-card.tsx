@@ -27,7 +27,9 @@ export function ProjectCard({
   const { language, direction } = useI18n();
 
   const cleanDomain = project.demoUrl
-    ? project.demoUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+    ? project.demoUrl.startsWith("http")
+      ? project.demoUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")
+      : `badra-portfolio.vercel.app${project.demoUrl}`
     : `${project.slug}.badra.systems`;
 
   return (
@@ -44,7 +46,13 @@ export function ProjectCard({
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 font-semibold tracking-wide">
-              {language === "en" ? "STATUS: PRODUCTION" : "الحالة: إنتاج حي"}
+              {language === "en"
+                ? project.status === "production"
+                  ? "STATUS: PRODUCTION"
+                  : "STATUS: INTERACTIVE LIVE"
+                : project.status === "production"
+                ? "الحالة: إنتاج حي"
+                : "الحالة: نظام تفاعلي حي"}
             </span>
           </div>
         </div>
@@ -85,7 +93,7 @@ export function ProjectCard({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={92}
                 priority={project.featured}
-                className="object-cover object-top transition-transform duration-500 ease-out group-hover/preview:scale-[1.04]"
+                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 group-hover/preview:scale-105"
               />
             ) : (
               <div className="w-full h-full bg-slate-900 flex items-center justify-center text-xs font-mono text-slate-500">
@@ -187,7 +195,15 @@ export function ProjectCard({
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer hover:scale-[1.02] text-center"
           >
-            <span>{language === "en" ? "Launch Live Platform" : "فتح المنصة الحية"}</span>
+            <span>
+              {language === "en"
+                ? project.demoUrl.startsWith("http")
+                  ? "Launch Live Platform"
+                  : "Launch Interactive System"
+                : project.demoUrl.startsWith("http")
+                ? "فتح المنصة الحية"
+                : "تشغيل النظام التفاعلي"}
+            </span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         )}

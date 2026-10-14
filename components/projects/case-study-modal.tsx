@@ -365,13 +365,94 @@ CREATE TABLE b2b_quotations (
   created_at    TIMESTAMPTZ DEFAULT NOW()
 );`;
 
-    default:
-      return `-- Verified Production Database Schema
-CREATE TABLE platform_telemetry (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  event_name  VARCHAR(64) NOT NULL,
-  created_at  TIMESTAMPTZ DEFAULT NOW()
+    case "majd-parts":
+      return `-- Automotive Compatibility Engine & Inverted Fitment Graph
+CREATE TABLE vehicle_matrix (
+  vin_pattern   VARCHAR(17) PRIMARY KEY,
+  make          VARCHAR(64) NOT NULL,
+  model         VARCHAR(64) NOT NULL,
+  year_start    INT NOT NULL,
+  year_end      INT NOT NULL,
+  engine_code   VARCHAR(32) NOT NULL,
+  transmission  VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE oem_spare_parts (
+  part_id       UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  oem_number    VARCHAR(64) UNIQUE NOT NULL,
+  category      VARCHAR(32) NOT NULL,
+  brand         VARCHAR(64) NOT NULL,
+  price_kwd     NUMERIC(10, 3) NOT NULL
+);
+
+CREATE TABLE fitment_associations (
+  vin_pattern   VARCHAR(17) REFERENCES vehicle_matrix(vin_pattern),
+  part_id       UUID REFERENCES oem_spare_parts(part_id),
+  fit_verified  BOOLEAN DEFAULT TRUE,
+  PRIMARY KEY (vin_pattern, part_id)
 );`;
+
+    case "egypt-tourism":
+      return `-- Cultural Tour Expeditions & Live Capacity Booking Schema
+CREATE TABLE expedition_packages (
+  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  slug          VARCHAR(64) UNIQUE NOT NULL,
+  title_en      VARCHAR(128) NOT NULL,
+  title_ar      VARCHAR(128) NOT NULL,
+  duration_days INT NOT NULL,
+  base_usd      NUMERIC(10, 2) NOT NULL
+);
+
+CREATE TABLE daily_itineraries (
+  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  expedition_id UUID REFERENCES expedition_packages(id),
+  day_number    INT NOT NULL,
+  landmark      VARCHAR(128) NOT NULL,
+  guide_type    VARCHAR(64) DEFAULT 'Senior Egyptologist'
+);
+
+CREATE TABLE currency_live_matrix (
+  code          VARCHAR(4) PRIMARY KEY,
+  rate_to_usd   NUMERIC(10, 4) NOT NULL,
+  synced_at     TIMESTAMPTZ DEFAULT NOW()
+);`;
+
+    case "arab-family-cinema":
+      return `-- Family-Safe Cultural Cinema Streaming Platform Schema
+CREATE TABLE cinematic_titles (
+  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title_ar      VARCHAR(255) NOT NULL,
+  title_en      VARCHAR(255) NOT NULL,
+  genre         VARCHAR(32) NOT NULL,
+  age_rating    VARCHAR(8) CHECK (age_rating IN ('all', '7+', '12+')),
+  duration_secs INT NOT NULL,
+  ad_free_mode  BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE hls_renditions (
+  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title_id      UUID REFERENCES cinematic_titles(id),
+  resolution    VARCHAR(16) NOT NULL,
+  bandwidth_bps INT NOT NULL,
+  stream_url    TEXT NOT NULL
+);`;
+
+    case "interactive-memory-game":
+      return `-- High-Speed In-Memory State Machine Interface
+interface GameStateMachine {
+  status: 'IDLE' | 'SELECTING' | 'EVALUATING' | 'MATCHED' | 'VICTORY';
+  activeGrid: 4 | 6;
+  cardCount: 16 | 36;
+  firstFlippedIndex: number | null;
+  movesCounter: number;
+  matchedPairs: number;
+  comboStreak: number;
+  flipLockMutex: boolean;
+  heapFootprintKb: number;
+  renderFps: number;
+}`;
+
+    default:
       return `-- Database Schema Configuration
 CREATE TABLE records (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -466,8 +547,68 @@ Content-Type: application/json
   "instant_proforma_available": true
 }`;
 
+    case "majd-parts":
+      return `POST /api/v1/vin/verify HTTP/1.1
+Host: badra.portfolio/demos/majd-parts
+Content-Type: application/json
+
+{
+  "chassis_vin": "WBA3R1C58KA123456"
+}
+
+-- Response: 200 OK (Sub-20ms Engine Response)
+{
+  "verified": true,
+  "vehicle": "BMW 330i M-Sport (G20)",
+  "engine": "2.0L TwinPower Turbo B48",
+  "transmission": "8-Speed Steptronic Sport",
+  "stock_hub": "Shuwaikh Central - 14 SKUs Ready"
+}`;
+
+    case "egypt-tourism":
+      return `POST /api/v1/tours/instant-quote HTTP/1.1
+Host: badra.portfolio/demos/egypt-tourism
+Content-Type: application/json
+
+{
+  "expedition_slug": "royal-egypt-odyssey",
+  "tier": "royal_vip",
+  "adults": 2,
+  "children": 0,
+  "currency": "USD"
+}
+
+-- Response: 200 OK
+{
+  "quote_id": "EGY-ROYAL-88912",
+  "net_total_usd": 3700,
+  "currency_rates_synced": true,
+  "vip_flight_transfers_included": true
+}`;
+
+    case "arab-family-cinema":
+      return `GET /api/v1/cinema/stream/film-01/manifest.m3u8 HTTP/1.1
+Host: badra.portfolio/demos/cinema
+Accept: application/vnd.apple.mpegurl
+
+-- Response: 200 OK (Adaptive HLS Master Manifest)
+#EXTM3U
+#EXT-X-VERSION:6
+#EXT-X-STREAM-INF:BANDWIDTH=24500000,RESOLUTION=3840x2160,CODECS="avc1.640033,mp4a.40.2"
+renditions/4k_hdr.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=8500000,RESOLUTION=1920x1080
+renditions/1080p.m3u8`;
+
+    case "interactive-memory-game":
+      return `// Browser Native Synthesizer & State Machine API
+synthesizeAudioTone(frequencyHz: 523.25, durationSeconds: 0.18, type: 'triangle'): void;
+
+executeAtomicTransition(
+  currentState: StateMachineStatus,
+  action: 'CARD_FLIP' | 'EVALUATE' | 'CONFIRM_MATCH'
+): StateMachineStatus;`;
+
     default:
-      return `GET /api/v1/health HTTP/1.1\n-- Response: 200 OK\n{ "status": "operational" }`;
       return `GET /api/v1/health HTTP/1.1\n-- Response: 200 OK\n{ "status": "operational" }`;
   }
 }

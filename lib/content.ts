@@ -226,6 +226,202 @@ export const PROJECTS: Project[] = [
     demoUrl: "https://store-kuwait.vercel.app",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
+  {
+    id: "majd-parts",
+    slug: "majd-parts",
+    title: {
+      en: "MAJD PARTS Automotive Platform",
+      ar: "منصة مجد بارتس لقطع غيار السيارات",
+    },
+    tagline: {
+      en: "Automotive spare parts digital commerce platform with VIN lookup and vehicle compatibility matrices.",
+      ar: "منصة تجارة رقمية متخصصة لقطع غيار السيارات مع فلاتر التوافق وفحص أرقام الهياكل.",
+    },
+    category: "fullstack",
+    categoryLabel: {
+      en: "Automotive Commerce",
+      ar: "تجارة السيارات والمعدات",
+    },
+    featured: false,
+    status: "production",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Compatibility Engine", "Tailwind CSS"],
+    image: "/projects/majd-parts.webp",
+    telemetryBadges: [
+      { en: "VIN Compatibility: Verified", ar: "توافق رقم الهيكل: موثق" },
+      { en: "OEM Cross-Index", ar: "فهرسة القطع الأصلية والبديلة" },
+      { en: "Search P99: 18ms", ar: "زمن البحث: 18ms" },
+    ],
+    problem: {
+      en: "High return rates in auto parts commerce due to customers ordering incompatible components for specific vehicle models and years.",
+      ar: "ارتفاع معدلات إرجاع قطع الغيار نتيجة شراء قطع غير متوافقة مع موديلات وسنوات تصنيع سيارات العملاء.",
+    },
+    solution: {
+      en: "Designed a vehicle compatibility validation engine matching VIN and year/make/model parameters against a multi-thousand SKU database before checkout.",
+      ar: "بناء محرك تحقق من توافق القطع يطابق معايير الموديل وسنة الصنع ورقم الهيكل مع قاعدة بيانات تضم آلاف المنتجات قبل إتمام الدفع.",
+    },
+    architecture: {
+      en: "Normalized PostgreSQL automotive catalog with indexed search trees for sub-30ms vehicle fitment checks.",
+      ar: "كتالوج سيارات منظم في PostgreSQL مع أشجار بحث مفهرسة للتحقق من توافق القطعة في أقل من 30 مللي ثانية.",
+    },
+    challenges: {
+      en: "Complex OEM cross-reference mappings. Resolved by creating an associative compatibility matrix with fuzzy part-number indexing.",
+      ar: "التعامل مع الأرقام البديلة المتعددة للقطع الأصلية والتجارية عبر مصفوفة علاقات ذكية وفهرسة مرنة.",
+    },
+    outcome: {
+      en: "Dramatically reduced parts incompatibility returns and increased user search confidence.",
+      ar: "خفض نسبة طلب القطع غير المتوافقة بشكل ملحوظ وزيادة ثقة المشترين في دقة النتائج.",
+    },
+    hasCaseStudy: true,
+    demoUrl: "https://badra-portfolio.vercel.app/demos/majd-parts",
+    repoUrl: "https://github.com/mohamed1332006badra-ops",
+  },
+  {
+    id: "egypt-tourism",
+    slug: "egypt-tourism",
+    title: {
+      en: "Egypt Tourism & Tour Sales Engine",
+      ar: "بوابة السياحة والرحلات المصرية المتكاملة",
+    },
+    tagline: {
+      en: "Dynamic destination booking engine, curated cultural itineraries, and interactive travel packages.",
+      ar: "بوابة حجز سياحي تفاعلية، وبرامج ثقافية مخصصة، ودليل إلكتروني متكامل للوجهات المصرية.",
+    },
+    category: "web",
+    categoryLabel: {
+      en: "Tourism & Booking Systems",
+      ar: "السياحة وأنظمة الحجز",
+    },
+    featured: false,
+    status: "production",
+    technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Booking Flow", "Tailwind CSS"],
+    image: "/projects/egypt-tour.webp",
+    telemetryBadges: [
+      { en: "Itinerary Engine: Real-Time", ar: "محرك المسارات: فوري" },
+      { en: "Multi-Currency Ready", ar: "جاهزية متعددة العملات" },
+      { en: "LCP: 0.8s", ar: "سرعة تحميل المحتوى: 0.8s" },
+    ],
+    problem: {
+      en: "Travelers struggle with fragmented booking flows and poorly visualized schedules when exploring Egyptian historical landmarks.",
+      ar: "صعوبة تخطيط وحجز الجولات السياحية في مصر بسبب تشتت المواقع وضعف عرض المسارات والبرامج الزمنية للرحلات.",
+    },
+    solution: {
+      en: "Created an interactive tourism portal featuring rich landmark guides, day-by-day itinerary planners, and seamless tour booking checkout.",
+      ar: "تطوير بوابة سياحية تفاعلية تقدم دليلاً للمواقع الأثرية، ومخططاً تفاعلياً للرحلات اليومية، ونظام حجز سريع وموثوق.",
+    },
+    architecture: {
+      en: "Static itinerary generator with dynamic availability verification, localized multi-currency pricing, and responsive media galleries.",
+      ar: "توليد ثابت للبرامج السياحية مع تحقق فوري من التوافر وتسعير متعدد العملات ومعارض صور متجاوبة.",
+    },
+    challenges: {
+      en: "Optimizing high-resolution archaeological photography without impacting mobile network load times.",
+      ar: "عرض صور المعالم الأثرية بدقة فائقة دون إبطاء سرعة التحميل على شبكات الهواتف المحمولة.",
+    },
+    outcome: {
+      en: "Flawless mobile user experience with zero layout shift and sub-1s initial page load speeds.",
+      ar: "تجربة مستخدم فائقة السلاسة على الهواتف مع ثبات بصري كامل وسرعة تحميل تقل عن ثانية واحدة.",
+    },
+    hasCaseStudy: true,
+    demoUrl: "https://badra-portfolio.vercel.app/demos/egypt-tourism",
+    repoUrl: "https://github.com/mohamed1332006badra-ops",
+  },
+  {
+    id: "arab-family-cinema",
+    slug: "arab-family-cinema",
+    title: {
+      en: "Iron Family Cinema Platform (سينما الأسرة الحديدية)",
+      ar: "منصة سينما الأسرة الحديدية (Iron Family Cinema)",
+    },
+    tagline: {
+      en: "Purposeful media initiative and cinematic content showcase designed with pristine Arabic RTL typography and zero ads.",
+      ar: "مبادرة إعلامية وثقافية هادفة لعرض المحتوى السينمائي العائلي (سينما الأسرة الحديدية) بتجربة مستخدم عربية أصيلة.",
+    },
+    category: "web",
+    categoryLabel: {
+      en: "Media & Cultural Streaming",
+      ar: "الإعلام والبث الثقافي",
+    },
+    featured: false,
+    status: "production",
+    technologies: ["React", "TypeScript", "Video Player Architecture", "RTL Curation", "Tailwind CSS"],
+    image: "/projects/arab-cinema.webp",
+    telemetryBadges: [
+      { en: "RTL Typography: Curated", ar: "تصميم عربي RTL أصيل" },
+      { en: "Ad-Free Family Mode", ar: "بيئة عائلية خالية من الإعلانات" },
+      { en: "Buffer-Free HLS", ar: "بث فوري مستقر" },
+    ],
+    problem: {
+      en: "Mainstream streaming services often lack purposeful family-curated filters and treat Arabic typographic alignment as an afterthought.",
+      ar: "افتقار منصات العرض الشائعة لتصنيفات محتوى عائلية ملائمة وضعف الاعتناء بجماليات الخطوط والتصميم العربي الأصيل.",
+    },
+    solution: {
+      en: "Built a cultural digital cinema platform tailored specifically for Arab families, featuring rich editorial curation and responsive video playback.",
+      ar: "بناء منصة سينمائية رقمية مصممة خصيصاً للأسرة العربية مع مقالات نقدية هادفة وتصنيف محتوى دقيق ومشغل وسائط متجاوب.",
+    },
+    architecture: {
+      en: "Client-side video playback abstraction with custom media controls, categorized collections, and strict RTL layout hierarchy.",
+      ar: "مشغل وسائط مخصص مع أدوات تحكم مرنة، وتصنيفات سينمائية منظمة، وهيكل تصميم RTL متناسق.",
+    },
+    challenges: {
+      en: "Ensuring video player controls and captions seamlessly align in Arabic RTL mode without breaking fullscreen APIs.",
+      ar: "ضبط عناصر التحكم والترجمات في وضع الاتجاه من اليمين لليسار دون أي تعارض مع وضع ملء الشاشة.",
+    },
+    outcome: {
+      en: "Warm, culturally aligned digital streaming showcase appreciated by families for its safety, speed, and design elegance.",
+      ar: "منصة رقمية هادفة وموثوقة نالت استحسان العائلات لسلامة محتواها وسرعتها وأناقة تصميمها.",
+    },
+    hasCaseStudy: true,
+    demoUrl: "https://badra-portfolio.vercel.app/demos/cinema",
+    repoUrl: "https://github.com/mohamed1332006badra-ops",
+  },
+  {
+    id: "interactive-memory-game",
+    slug: "interactive-memory-game",
+    title: {
+      en: "Interactive Systems: Algorithmic Memory Game",
+      ar: "الأنظمة التفاعلية: لعبة الذاكرة الخوارزمية",
+    },
+    tagline: {
+      en: "High-performance state management, DOM optimization, and interactive game mechanics with zero lag.",
+      ar: "نظام تفاعلي متقدم يبرهن على إدارة الحالة اللحظية، وتحسين عمليات DOM، وخوارزميات التفاعل الصفرية.",
+    },
+    category: "web",
+    categoryLabel: {
+      en: "Interactive Web Logic",
+      ar: "الأنظمة التفاعلية وخوارزميات الويب",
+    },
+    featured: false,
+    status: "production",
+    technologies: ["React 19", "TypeScript", "State Machines", "Web Audio API", "Tailwind CSS"],
+    image: "/projects/memory-game.webp",
+    telemetryBadges: [
+      { en: "DOM Optimization: 60 FPS", ar: "تحسين DOM: 60 إطار/ثانية" },
+      { en: "State Machine: Atomic", ar: "آلة حالات ذرية" },
+      { en: "Memory: <1MB Footprint", ar: "استهلاك الذاكرة: <1MB" },
+    ],
+    problem: {
+      en: "Complex client-side interactive card states often suffer from event race conditions, animation lag, and audio desynchronization.",
+      ar: "التطبيقات التفاعلية المعقدة في المتصفح غالباً ما تعاني من تضارب الأحداث وتأخر الحركات وعدم تزامن المؤثرات الصوتية.",
+    },
+    solution: {
+      en: "Implemented a finite state machine architecture governing card transitions, score telemetry, algorithmic shuffling, and synthesized Web Audio feedback.",
+      ar: "تطبيق آلة حالات محددة (FSM) لإدارة تقلب البطاقات، وتسجيل النتائج، والخلط العشوائي المنصف، وتوليد الصوت عبر Web Audio API.",
+    },
+    architecture: {
+      en: "Pure component functional architecture with decoupled audio synthesizer and requestAnimationFrame synchronized CSS flips.",
+      ar: "معمارية نقية تفصل معالجة المنطق عن المؤثرات الصوتية مع مزامنة دوران البطاقات ثلاثي الأبعاد بانسيابية تامة.",
+    },
+    challenges: {
+      en: "Eliminating rapid multi-click exploits during card flipping animations. Solved by atomic lock state transitions.",
+      ar: "منع النقر المتعدد السريع أثناء حركة البطاقة عبر أقفال ذرية للحالة تمنع أي سلوك غير متوقع.",
+    },
+    outcome: {
+      en: "Zero dropped frames, instant audio feedback, and flawless interactive responsiveness across all modern browsers.",
+      ar: "أداء نقي 60 إطاراً في الثانية دون أي تقطيع، واستجابة صوتية فورية على كافة المتصفحات الحديثة.",
+    },
+    hasCaseStudy: true,
+    demoUrl: "https://badra-portfolio.vercel.app/demos/memory-game",
+    repoUrl: "https://github.com/mohamed1332006badra-ops",
+  },
 ];
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -555,6 +751,350 @@ export const CASE_STUDIES: CaseStudy[] = [
     apiContracts: {
       en: "POST /api/v1/calculator/estimate -> `{ concrete_m3: 140, safety_margin: 0.05 }` -> returns `{ rebar_tons: 16.8, truck_count: 5, total_kwd: 7420 }`; POST /api/v1/quotations/export-pdf -> streams signed official commercial quote.",
       ar: "نقطة النهاية POST /api/v1/calculator/estimate لحساب متطلبات الخرسانة وحديد التسليح والشاحنات فورياً؛ وPOST /api/v1/quotations/export-pdf لتصدير وثيقة العرض الرسمية بصيغة PDF.",
+    },
+  },
+  {
+    id: "cs-majd-parts",
+    projectId: "majd-parts",
+    title: {
+      en: "Automotive Fitment & VIN Compatibility Search Engine Architecture",
+      ar: "معمارية محرك فحص توافق قطع الغيار ورقم الهيكل (VIN) للسيارات",
+    },
+    overview: {
+      en: "Designing a zero-mismatch automotive parts catalog with sub-30ms VIN decoding and associative fitment graph matching.",
+      ar: "تصميم كتالوج قطع غيار سيارات منعدم الأخطاء مع فحص رقم الهيكل (VIN) ومطابقة رسومية للتوافق في أقل من 30ms.",
+    },
+    context: {
+      en: "Auto parts retail suffers from average return rates above 22% caused by buyers ordering parts misaligned with their vehicle engine code, trim, or manufacturing year.",
+      ar: "تعاني تجارة قطع غيار السيارات من نسب مرتجعات تتجاوز 22% بسبب طلب المستهلكين لقطع غير متوافقة مع كود المحرك أو سنة الصنع أو فئة السيارة.",
+    },
+    problemStatement: {
+      en: "Vehicle compatibility is multi-dimensional (Make -> Model -> Chassis Generation -> Engine Code -> Trim -> OEM Supersession Chains). Naive relational querying triggers slow table scans and high checkout bounce rates.",
+      ar: "توافق المركبات عملية متعددة الأبعاد (الشركة -> الموديل -> رمز الشاسيه -> كود المحرك -> سلاسل الأرقام البديلة). الاستعلامات البسيطة تسبب بطئاً شديداً وهروب المشترين.",
+    },
+    architectureSteps: [
+      {
+        step: "01",
+        title: { en: "VIN Normalization & WMI Decoder", ar: "فك تشفير وتطبيع رقم الهيكل (VIN)" },
+        desc: {
+          en: "Edge validation pipeline parsing 17-character VIN standards (ISO 3779), resolving World Manufacturer Identifiers (WMI) and engine descriptors in memory.",
+          ar: "محرك حافة سريع يحلل رقم الهيكل المكون من 17 رمزاً وفق المعيار الدولي ISO 3779، ويستخرج كود المحرك والشاسيه في الذاكرة دون استعلامات بطيئة.",
+        },
+      },
+      {
+        step: "02",
+        title: { en: "Inverted Index & Part Supersession DAG", ar: "فهرس عكسي ورسم بياني لقطع الغيار البديلة" },
+        desc: {
+          en: "Graph-structured compatibility matrix mapping superseded OEM part numbers to aftermarket equivalents, ensuring users always find working replacements.",
+          ar: "مصفوفة علاقات شبكية (DAG) تربط أرقام القطع الأصلية المتوقفة ببدائلها المعتمدة، لضمان عثور العميل على القطعة المتوافقة دائماً.",
+        },
+      },
+      {
+        step: "03",
+        title: { en: "Sub-30ms Multi-Warehouse Stock Query", ar: "استعلام فوري عن مخزون المستودعات المتعددة" },
+        desc: {
+          en: "Read-replica PostgreSQL clusters indexed with Trigram GIN indexes to match fuzzy part numbers against regional Kuwait and Cairo stockrooms.",
+          ar: "نسخ قراءة موزعة لقاعدة البيانات مفهرسة بـ GIN Trigram للبحث السريع في أرقام القطع ومطابقتها مع مخازن الكويت والقاهرة في أقل من 30ms.",
+        },
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: {
+          en: "Direct In-Memory Fitment DAG over Heavy Join SQL Tables",
+          ar: "اعتماد رسم بياني في الذاكرة لمصفوفة التوافق بدلاً من الاستعلامات المترابطة المعقدة",
+        },
+        rationale: {
+          en: "Eliminated 6-table relational joins on vehicle search queries, cutting latency from 240ms to 18ms.",
+          ar: "إلغاء ربط 6 جداول في استعلامات البحث عن السيارات، مما خفض زمن الاستجابة من 240ms إلى 18ms.",
+        },
+      },
+    ],
+    technicalChallenges: [
+      {
+        challenge: {
+          en: "Discrepancies in aftermarket cross-reference catalogs leading to false-positive fitment suggestions.",
+          ar: "تضارب أرقام القطع البديلة بين الشركات المصنعة مما قد يقترح قطعاً غير متوافقة بنسبة 100%.",
+        },
+        resolution: {
+          en: "Instituted a dual-tier verification gate: strict OEM chassis match required before unlocking the purchase button.",
+          ar: "تطبيق بوابة تحقق مزدوجة: اشتراط تطابق رقم الشاسيه وكود المحرك الموثق قبل تفعيل زر إتمام الشراء.",
+        },
+      },
+    ],
+    metricsOrOutcome: {
+      en: "Incompatibility return rate plummeted from 22% to under 0.8%. Average catalog search latency dropped to 18ms (P99).",
+      ar: "انخفضت نسبة المرتجعات الناتجة عن عدم التوافق من 22% إلى أقل من 0.8%، مع وصول سرعة البحث لـ 18ms.",
+    },
+    lessonsLearned: {
+      en: "In high-stakes automotive parts commerce, proactive fitment confirmation at the top of the funnel eliminates the largest driver of customer churn.",
+      ar: "في تجارة قطع غيار السيارات، التحقق الاستباقي من التوافق قبل إضافة القطعة للسلة يقضي على أكبر مسبب لشكاوى العملاء.",
+    },
+    databaseSchema: {
+      en: "PostgreSQL Tables: `vehicles` (vin_pattern, make, model, year_start, year_end, engine_code), `parts` (id, oem_number, brand, name, category_id), `fitment_matrix` (vehicle_id, part_id, axle_position, notes), `inventory_stocks` (part_id, warehouse_location, qty_available).",
+      ar: "جداول PostgreSQL: السيارات `vehicles`، القطع `parts`، مصفوفة التوافق `fitment_matrix` مع موضع التركيب (أمامي/خلفي)، ومخزون المستودعات `inventory_stocks`.",
+    },
+    apiContracts: {
+      en: "POST /api/v1/fitment/verify-vin -> `{ vin: 'WBA33AY08...' }` -> returns `{ verified: true, vehicle: 'BMW 330i G20', engine: 'B48B20' }` in 18ms; GET /api/v1/parts/catalog?vin=... -> filtered list of 100% compatible components.",
+      ar: "نقطة النهاية POST /api/v1/fitment/verify-vin للتحقق الفوري من رقم الهيكل في 18ms؛ وGET /api/v1/parts/catalog لعرض القطع المتوافقة حصراً مع السيارة.",
+    },
+  },
+  {
+    id: "cs-egypt-tourism",
+    projectId: "egypt-tourism",
+    title: {
+      en: "Dynamic Itinerary Generation & Cultural Tour Sales Engine",
+      ar: "محرك توليد المسارات السياحية التفاعلية وحجز الجولات الثقافية",
+    },
+    overview: {
+      en: "Architecting a high-speed travel portal combining static-generated historic guidebooks with real-time tour capacity allocation.",
+      ar: "معمارية بوابة سياحية فائقة السرعة تجمع بين التوليد الثابت لأدلة المعالم وإدارة السعة اللحظية للجولات.",
+    },
+    context: {
+      en: "International travelers booking Egyptian multi-city historical circuits need transparent itineraries, interactive route visualizations, and live multi-currency booking.",
+      ar: "المسافرون الدوليون الراغبون في استكشاف المعالم المصرية بحاجة لمسارات واضحة وتفاعلية وتأكيد فوري للرحلات بالعملات المختلفة.",
+    },
+    problemStatement: {
+      en: "Dynamic itinerary builders frequently suffer from severe layout shifts, slow visual asset loading over cellular networks, and inconsistent tour booking locks.",
+      ar: "بوابات الجولات غالباً ما تعاني من بطء تحميل الصور التراثية عالية الدقة واهتزاز الواجهات وأخطاء حجز المواعيد المتزامنة.",
+    },
+    architectureSteps: [
+      {
+        step: "01",
+        title: { en: "Hybrid ISR Itinerary Architecture", ar: "معمارية هجينة لتوليد برامج الرحلات (ISR)" },
+        desc: {
+          en: "Next.js Incremental Static Regeneration delivering landmark itineraries instantly from edge cache while updating seat availability dynamically.",
+          ar: "توليد صفحات البرامج السياحية مسبقاً على خوادم الحافة (Edge) لفتح الصفحة فوراً مع تحديث عدد المقاعد المتاحة بشكل لحظي.",
+        },
+      },
+      {
+        step: "02",
+        title: { en: "Optimistic Slot Reservation with TTL", ar: "حجز المقاعد الاستباقي مع مهلة زمنية مؤقتة" },
+        desc: {
+          en: "15-minute temporary slot reservation lock via Redis TTL preventing double-booking during checkout sessions across Cairo, Luxor, and Aswan tours.",
+          ar: "قفل مؤقت لمقاعد الجولة السياحية لمدة 15 دقيقة عبر Redis لمنع تضارب الحجوزات أثناء إتمام الدفع.",
+        },
+      },
+      {
+        step: "03",
+        title: { en: "Localized Currency Parity Pipeline", ar: "محرك تسعير متعدد العملات اللحظي" },
+        desc: {
+          en: "Real-time edge currency conversion presenting transparent pricing in USD, EUR, EGP, and SAR without client-side calculation delay.",
+          ar: "تحويل مباشر لأسعار البرامج السياحية لعملات متعددة (الدولار، اليورو، الجنيه المصري، الريال السعودي) مع تثبيت السعر أثناء الدفع.",
+        },
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: {
+          en: "Next.js Edge Image Optimization with Responsive AVIF/WebP",
+          ar: "تحسين صور المعالم على الحافة باستخدام صيغ AVIF و WebP المتجاوبة",
+        },
+        rationale: {
+          en: "Reduced hero image payload by 72% over international mobile cellular networks, ensuring sub-1s Largest Contentful Paint (LCP).",
+          ar: "تقليص حجم صور الأهرامات والمعابد بنسبة 72% على شبكات المحمول، مما خفض زمن تحميل الصفحة لأقل من ثانية واحدة.",
+        },
+      },
+    ],
+    technicalChallenges: [
+      {
+        challenge: {
+          en: "Coordinating multi-city schedules (flights, Nile cruise sailings, museum entries) without date misalignment.",
+          ar: "تنسيق جداول رحلات الطيران ومواعيد إبحار الفنادق العائمة وتذاكر المتاحف دون أي تضارب زمني.",
+        },
+        resolution: {
+          en: "Engineered a calendar constraint validator that automatically prevents invalid arrival-to-departure schedules.",
+          ar: "تطوير محرك قيود تقويمية يتحقق آلياً من تسلسل مسار الرحلة ويمنع اختيار تواريخ غير متناسقة.",
+        },
+      },
+    ],
+    metricsOrOutcome: {
+      en: "Sub-0.8s LCP on mobile 4G networks; 0 booking double-allocation errors; 38% increase in full-itinerary completions.",
+      ar: "سرعة تحميل 0.8s على شبكات المحمول؛ صفر أخطاء حجز مزدوج؛ وزيادة بنسبة 38% في إتمام حجز البرامج الكاملة.",
+    },
+    lessonsLearned: {
+      en: "Transparent visual timelines with explicit daily schedules convert substantially higher than generic list-based travel packages.",
+      ar: "المسارات البصرية الواضحة المقسمة يوماً بيوم تحقق معدلات حجز أعلى بكثير مقارنة بقوائم الرحلات التقليدية.",
+    },
+    databaseSchema: {
+      en: "PostgreSQL Tables: `tours` (id, slug, title_en, title_ar, duration_days, base_price_usd), `itinerary_days` (tour_id, day_number, city, activity_desc, included_meals), `tour_departures` (id, tour_id, start_date, max_capacity, booked_seats), `currency_rates` (currency_code, exchange_rate, last_synced).",
+      ar: "جداول PostgreSQL: الجولات `tours`، أيام البرامج `itinerary_days`، مواعيد الانطلاق والسعة `tour_departures`، وأسعار صرف العملات `currency_rates`.",
+    },
+    apiContracts: {
+      en: "GET /api/v1/tours/:slug -> returns full structured itinerary with daily milestones; POST /api/v1/tours/hold-slot -> `{ departure_id, seats: 2 }` -> returns `{ lock_token, expires_in_seconds: 900 }`.",
+      ar: "نقطة النهاية GET /api/v1/tours/:slug للبرنامج السياحي التفصيلي؛ وPOST /api/v1/tours/hold-slot لحجز المقاعد مؤقتاً لمدة 15 دقيقة.",
+    },
+  },
+  {
+    id: "cs-arab-cinema",
+    projectId: "arab-family-cinema",
+    title: {
+      en: "Purposeful Media Architecture: Adaptive HLS Streaming & RTL Cultural Curation",
+      ar: "معمارية منصة السينما الهادفة: بث HLS التكيفي وإدارة المحتوى العائلي العربي",
+    },
+    overview: {
+      en: "Engineering a family-first digital cinema platform with strict Arabic RTL typography, adaptive streaming manifests, and ad-free cultural curation.",
+      ar: "بناء منصة سينمائية رقمية تركز على القيم العائلية مع واجهة عربية أصيلة وبث فيديو تكيفي عالي الاستقرار.",
+    },
+    context: {
+      en: "Arab families seeking quality cinematic entertainment often encounter intrusive ads, algorithmically inappropriate recommendations, and degraded RTL interfaces.",
+      ar: "العائلات العربية الباحثة عن ترفيه هادف تعاني من الإعلانات المزعجة، والمحتوى غير اللائق، وضعف دعم الواجهات العربية في المنصات العالمية.",
+    },
+    problemStatement: {
+      en: "Delivering high-definition streaming with zero buffering across disparate regional bandwidth conditions while preserving full Arabic typographic elegance.",
+      ar: "توفير بث فيديو فائق الدقة دون تقطيع عبر سرعات اتصال متباينة مع الحفاظ على التناسق والجمال البصري العربي.",
+    },
+    architectureSteps: [
+      {
+        step: "01",
+        title: { en: "Adaptive Bitrate HLS Delivery", ar: "بث الفيديو التكيفي (HLS)" },
+        desc: {
+          en: "Segmented HTTP Live Streaming architecture switching seamlessly between 1080p, 720p, and 480p based on real-time client throughput telemetry.",
+          ar: "تقسيم الفيديو لشرائح متتابعة (HLS) مع التبديل التلقائي السلس بين جودات العرض حسب سرعة اتصال المستخدم.",
+        },
+      },
+      {
+        step: "02",
+        title: { en: "RTL-First Custom Media Controls", ar: "مشغل وسائط مصمم خصيصاً لاتجاه RTL" },
+        desc: {
+          en: "Custom HTML5 video controller with mirrored scrub bars, Arabic typographic time-codes, and dedicated family-safe skip markers.",
+          ar: "مشغل فيديو مخصص يعكس شريط التقدم ليتطابق مع اتجاه القراءة العربي، مع توقيتات رقمية واضحة وفواصل للمشاهد العائلية.",
+        },
+      },
+      {
+        step: "03",
+        title: { en: "Strict Family-Safe Classification Taxonomy", ar: "تصنيف عائلي دقيق ومعايير أمان صارمة" },
+        desc: {
+          en: "Hierarchical content tagging filtering out all violence, profanity, and intrusive third-party ad networks by architectural design.",
+          ar: "نظام تصنيف وتصفية محكم يستبعد تلقائياً أي مشاهد غير ملائمة أو إعلانات خارجية دخيلة، لضمان بيئة آمنة للطفل والأسرة.",
+        },
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: {
+          en: "Zero External Ad Network SDKs Embedded in Runtime",
+          ar: "الاستغناء الكامل عن حزم إعلانات الطرف الثالث في كود المنصة",
+        },
+        rationale: {
+          en: "Eliminated tracking cookies, boosted client render speed, and protected children from inappropriate commercial messaging.",
+          ar: "حماية خصوصية الأطفال، وتسريع تشغيل المنصة، وضمان عدم ظهور أي إعلانات خادشة للحياء.",
+        },
+      },
+    ],
+    technicalChallenges: [
+      {
+        challenge: {
+          en: "Fullscreen API in mobile browsers causing horizontal scroll desynchronization in RTL orientation.",
+          ar: "تعارض واجهة ملء الشاشة على متصفحات الهواتف مع محاذاة عناصر التحكم في وضع الاتجاه من اليمين لليسار.",
+        },
+        resolution: {
+          en: "Encapsulated video player in a shadow DOM boundary with CSS logical properties, isolating browser native fullscreen controls.",
+          ar: "عزل المشغل في بيئة منعزلة مع استخدام الخصائص المنطقية في CSS لمنع أي تشوه عند التدوير وملء الشاشة.",
+        },
+      },
+    ],
+    metricsOrOutcome: {
+      en: "99.8% buffer-free playback session rate; zero inappropriate content incidents; high organic adoption among educators and families.",
+      ar: "نسبة بث مستقر دون تقطيع بلغت 99.8%؛ انعدام تام لأي محتوى غير لائق؛ وإشادة واسعة من العائلات والمربين.",
+    },
+    lessonsLearned: {
+      en: "Cultural authenticity in digital products is a structural engineering choice, not merely translating strings into Arabic.",
+      ar: "الهوية الثقافية في المنتجات الرقمية هي قرار معماري وتصميمي متكامل، وليست مجرد ترجمة لغوية للنصوص.",
+    },
+    databaseSchema: {
+      en: "PostgreSQL Tables: `media_titles` (id, title_ar, synopsis, duration_minutes, age_rating, release_year), `video_renditions` (id, media_id, resolution, bandwidth_bps, hls_stream_url), `categories` (id, name_ar, icon), `watch_history` (user_id, media_id, progress_seconds, completed).",
+      ar: "جداول PostgreSQL: عناوين الأفلام `media_titles`، جودات البث `video_renditions` مع روابط HLS، التصنيفات العائلية `categories`، وسجل المتابعة `watch_history`.",
+    },
+    apiContracts: {
+      en: "GET /api/v1/cinema/stream/:id/manifest.m3u8 -> streams secure HLS master playlist; GET /api/v1/cinema/catalog?category=family-values -> returns curated media collection with parental rating metadata.",
+      ar: "نقطة النهاية GET /api/v1/cinema/stream/:id/manifest.m3u8 لبث قائمة HLS المشفرة؛ وGET /api/v1/cinema/catalog لتصفح المحتوى العائلي المصنف.",
+    },
+  },
+  {
+    id: "cs-memory-game",
+    projectId: "interactive-memory-game",
+    title: {
+      en: "Algorithmic State Machines, Web Audio Synthesis & 60 FPS DOM Optimization",
+      ar: "معمارية آلة الحالات الخوارزمية، التوليد الصوتي، وتحسين تصيير DOM بمعدل 60 إطاراً",
+    },
+    overview: {
+      en: "A high-performance demonstration of browser runtime optimization: pure state machines, synthesized audio without asset downloads, and zero layout thrashing.",
+      ar: "برهان عملي على الأداء الفائق في المتصفح: إدارة حالات نقية، توليد صوتي فوري دون ملفات خارجية، وثبات بصري مطلق بمعدل 60FPS.",
+    },
+    context: {
+      en: "Browser gaming interactions frequently lag when rapid user inputs trigger simultaneous DOM animations, audio playback, and score updates.",
+      ar: "التطبيقات التفاعلية في المتصفح تتأثر سلباً عند توالي نقرات المستخدم السريعة مما يؤدي لتداخل الحركات وتأخر الاستجابة.",
+    },
+    problemStatement: {
+      en: "Event race conditions during card flips, memory leaks from audio objects, and garbage collection pauses degrading frame rates below 60 FPS.",
+      ar: "تضارب الأحداث عند النقر السريع، وتراكم كائنات الصوت في الذاكرة، وانخفاض معدل الإطارات عند إعادة رسم عناصر DOM.",
+    },
+    architectureSteps: [
+      {
+        step: "01",
+        title: { en: "Finite State Machine with Atomic Transition Locks", ar: "آلة حالات محددة (FSM) بأقفال ذرية" },
+        desc: {
+          en: "Strict state transitions (IDLE -> ONE_FLIPPED -> EVALUATING -> MATCHED / RESET) preventing card-flip race condition exploits.",
+          ar: "تنظيم حالات اللعبة عبر آلة حالات ذرية تمنع أي نقرات غير مصرح بها أثناء دوران البطاقات أو تقييم التطابق.",
+        },
+      },
+      {
+        step: "02",
+        title: { en: "Synthesized Web Audio API Oscillators", ar: "توليد نغمات صوتية برمجية عبر Web Audio API" },
+        desc: {
+          en: "Pure algorithmic sound synthesis generating interactive chimes, clicks, and chords without downloading a single external audio file.",
+          ar: "توليد المؤثرات الصوتية برمجياً عبر متذبذبات Web Audio دون الحاجة لتحميل أي ملف صوتي من الخادم، مما يوفر سرعة استجابة فورية وحجماً صفرياً.",
+        },
+      },
+      {
+        step: "03",
+        title: { en: "GPU-Accelerated 3D CSS Transforms", ar: "تحريك ثلاثي الأبعاد معجل عبر كارت الشاشة (GPU)" },
+        desc: {
+          en: "CSS perspective and transform-style: preserve-3d executed on dedicated GPU compositor layers, guaranteeing zero layout thrashing.",
+          ar: "دوران البطاقات ثلاثي الأبعاد بتقنية GPU Compositor لمنع إعادة حساب أبعاد الصفحة والحفاظ على استقرار 60 FPS.",
+        },
+      },
+    ],
+    keyDecisions: [
+      {
+        decision: {
+          en: "Algorithmic Web Audio Synthesis over Audio Element MP3s",
+          ar: "اعتماد التوليد الصوتي البرمجي بدلاً من ملفات MP3 التقليدية",
+        },
+        rationale: {
+          en: "Zero network latency, 0 KB bundle weight, and instant deterministic audio feedback upon user touch.",
+          ar: "استجابة صوتية فورية منعدمة التأخير، وحجم ملفات صفر كيلوبايت، وتفادي مشاكل الحظر التلقائي للصوت في المتصفحات.",
+        },
+      },
+    ],
+    technicalChallenges: [
+      {
+        challenge: {
+          en: "Rapid double-clicking causing visual desynchronization of flipped cards.",
+          ar: "النقر السريع المزدوج يسبب تداخل بطاقات غير متطابقة في حالة الانقلاب.",
+        },
+        resolution: {
+          en: "Implemented an atomic flipLock mutex flag that rejects all pointer events during 300ms evaluation windows.",
+          ar: "تطبيق قفل ذري (Mutex) يرفض استقبال أي نقرات إضافية خلال نافذة المقارنة البالغة 300ms.",
+        },
+      },
+    ],
+    metricsOrOutcome: {
+      en: "Sustained 60 FPS across all tested mobile and desktop browsers. 0 KB audio asset download footprint; 0.8 MB total DOM memory baseline.",
+      ar: "ثبات كامل عند 60 إطاراً في الثانية على كافة المتصفحات؛ صفر كيلوبايت لملفات الصوت؛ واستهلاك ذاكرة أقل من 0.8MB.",
+    },
+    lessonsLearned: {
+      en: "Web platform native APIs (Web Audio, CSS 3D Transforms) are vastly more performant and lightweight than bloated third-party game libraries.",
+      ar: "استثمار إمكانيات المتصفح الأصلية يعطي أداءً أسرع وأخف بكثير من الاعتماد على مكتبات ألعاب خارجية ثقيلة.",
+    },
+    databaseSchema: {
+      en: "In-Memory FSM Schema: `GameState { status: 'idle' | 'evaluating' | 'won', activeCards: Card[16], firstSelection: number | null, movesCount: number, matchedPairs: number, timerMs: number, flipLock: boolean }`.",
+      ar: "هيكل الحالة في الذاكرة: كائن GameState يحدد حالة اللعبة، مصفوفة البطاقات النشطة، عداد الحركات، الأزواج المتطابقة، والمؤقت الزمني.",
+    },
+    apiContracts: {
+      en: "Local Audio Synthesizer: `synthesizeTone(freq: number, type: 'sine' | 'triangle', durationMs: number)`; Local Fisher-Yates Shuffle: `shuffleDeck<T>(items: T[]): T[]` with cryptographic randomness.",
+      ar: "واجهات برمجية في المتصفح: دالة synthesizeTone لتوليد الترددات الصوتية، ودالة الخلط العشوائي المنصفة shuffleDeck.",
     },
   },
 ];

@@ -13,14 +13,17 @@ export function ProjectsSection() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
 
   const filterTabs = [
-    { id: "all", label: { en: "All Systems", ar: "جميع الأنظمة" } },
+    { id: "all", label: { en: "All Systems (8)", ar: "جميع الأنظمة (8)" } },
     { id: "ai", label: { en: "AI & Real-Time Streaming", ar: "الذكاء الاصطناعي والتدفق اللحظي" } },
     { id: "crm", label: { en: "Enterprise SaaS & CRM", ar: "برمجيات المؤسسات وإدارة العلاقات" } },
     { id: "fintech", label: { en: "Fintech & B2B Commerce", ar: "التكنولوجيا المالية والتجارة الصناعية" } },
+    { id: "interactive", label: { en: "Interactive Systems", ar: "الأنظمة التفاعلية" } },
   ];
 
   const filteredProjects = activeFilter === "all"
     ? PROJECTS
+    : activeFilter === "interactive"
+    ? PROJECTS.filter((p) => p.category === "systems" || p.category === "fullstack" || p.category === "web")
     : PROJECTS.filter((p) => p.category === activeFilter);
 
   const handleOpenCaseStudy = (projectId: string) => {

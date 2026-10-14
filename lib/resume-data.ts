@@ -215,6 +215,46 @@ export const RESUME_DATA: ResumeData = {
       },
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Commerce APIs", "Tailwind CSS"],
     },
+    {
+      title: "MAJD PARTS Automotive",
+      url: "/demos/majd-parts",
+      displayUrl: "badra-portfolio.vercel.app/demos/majd-parts",
+      description: {
+        en: "Automotive spare parts digital commerce platform with VIN lookup and vehicle compatibility matrices.",
+        ar: "منصة تجارة رقمية متخصصة لقطع غيار السيارات مع فلاتر التوافق وفحص أرقام الهياكل.",
+      },
+      technologies: ["Next.js", "TypeScript", "Compatibility Matrix", "PostgreSQL", "Tailwind CSS"],
+    },
+    {
+      title: "Egypt Tour Sales Engine",
+      url: "/demos/egypt-tourism",
+      displayUrl: "badra-portfolio.vercel.app/demos/egypt-tourism",
+      description: {
+        en: "Interactive Egyptian tourism and tour sales portal with curated day-by-day itineraries and multi-currency checkout.",
+        ar: "بوابة حجز وجولات سياحية متكاملة مع برامج يومية تفاعلية ودعم الدفع متعدد العملات.",
+      },
+      technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Tailwind CSS"],
+    },
+    {
+      title: "Arab Family Cinema",
+      url: "/demos/cinema",
+      displayUrl: "badra-portfolio.vercel.app/demos/cinema",
+      description: {
+        en: "Purposeful family cinema streaming platform with RTL Arabic typography, family-safe curation, and adaptive video player.",
+        ar: "منصة بث سينمائي عائلية هادفة مع خطوط عربية مخصصة وتصنيف آمن ومشغل فيديو متكيف.",
+      },
+      technologies: ["Next.js", "TypeScript", "Adaptive Video Streaming", "RTL Arabic", "Tailwind CSS"],
+    },
+    {
+      title: "Algorithmic Memory Game",
+      url: "/demos/memory-game",
+      displayUrl: "badra-portfolio.vercel.app/demos/memory-game",
+      description: {
+        en: "High-performance 60fps algorithmic memory game with finite state machine logic and Web Audio API synthesis.",
+        ar: "لعبة ذاكرة خوارزمية بمعدل 60 إطاراً في الثانية تعتمد على آلة الحالات المنتهية والتوليف الصوتي عبر Web Audio API.",
+      },
+      technologies: ["React", "TypeScript", "Finite State Machine", "Web Audio API", "CSS Animations"],
+    },
   ],
 
   education: [
