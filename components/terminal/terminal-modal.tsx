@@ -294,9 +294,9 @@ export function TerminalModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="terminal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-2 sm:p-4 animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-2 sm:p-4 md:p-6 animate-in fade-in duration-150"
     >
-      <div className="relative flex flex-col w-full max-w-3xl h-[80vh] max-h-[620px] rounded-2xl border border-slate-800 bg-slate-950/95 font-mono shadow-2xl overflow-hidden">
+      <div className="relative flex flex-col w-[95vw] md:w-full max-w-3xl h-[85vh] max-h-[90dvh] md:max-h-[620px] rounded-2xl border border-slate-800 bg-slate-950/95 font-mono shadow-2xl overflow-hidden overscroll-contain">
         {/* Terminal Window Header */}
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-800 bg-slate-900/90 select-none">
           <div className="flex items-center gap-2">

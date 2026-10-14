@@ -69,22 +69,22 @@ export function Modal({
       {/* Modal Dialog */}
       <div
         ref={modalRef}
-        className={`relative w-full ${maxWidthClasses[maxWidth]} bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 my-8 text-slate-900 dark:text-slate-100 ${className}`}
+        className={`relative w-[95vw] md:w-full ${maxWidthClasses[maxWidth]} max-h-[90dvh] bg-white dark:bg-[#0e1017] border border-slate-200 dark:border-slate-800 rounded-xl shadow-2xl overflow-hidden z-10 my-auto text-slate-900 dark:text-slate-100 flex flex-col overscroll-contain ${className}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800/60">
+        <div className="flex items-center justify-between px-4 md:px-6 py-4 border-b border-slate-200 dark:border-slate-800/60 shrink-0">
           <div className="font-semibold text-lg">{title}</div>
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="p-1 rounded-md text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
+            className="p-1 rounded-md text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="px-6 py-6 max-h-[80vh] overflow-y-auto">
+        <div className="p-4 md:p-8 max-h-[90dvh] overflow-y-auto overscroll-contain flex-1">
           {children}
         </div>
       </div>

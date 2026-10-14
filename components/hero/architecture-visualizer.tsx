@@ -124,15 +124,15 @@ export function ArchitectureVisualizer() {
         </div>
       </div>
 
-      {/* Nodes Map Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3 py-6">
+      {/* Nodes Map Grid: Touch-Friendly Smooth Snap Scroll on Mobile */}
+      <div className="flex sm:grid sm:grid-cols-5 overflow-x-auto snap-x no-scrollbar gap-2.5 sm:gap-3 py-6 pb-4 sm:pb-6">
         {nodes.map((node) => {
           const isSelected = node.id === activeNode;
           return (
             <button
               key={node.id}
               onClick={() => setActiveNode(node.id)}
-              className={`flex flex-col items-center text-center p-3 sm:p-4 rounded-lg border transition-all duration-150 cursor-pointer ${
+              className={`shrink-0 w-[140px] sm:w-auto snap-center flex flex-col items-center text-center p-3 sm:p-4 rounded-lg border transition-all duration-150 cursor-pointer ${
                 isSelected
                   ? "bg-blue-500/10 dark:bg-white/10 border-blue-500 dark:border-blue-400 shadow-md ring-1 ring-blue-500/30"
                   : "bg-white dark:bg-[#141722]/50 border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20 shadow-xs"
@@ -186,9 +186,15 @@ export function ArchitectureVisualizer() {
               {language === "en" ? selectedNodeData.name.en : selectedNodeData.name.ar}
             </h2>
           </div>
-          <div className="flex items-center gap-3 text-xs font-mono text-slate-600 dark:text-slate-400">
-            <span>Protocol: <span className="text-slate-800 dark:text-slate-200">{selectedNodeData.protocol}</span></span>
-            <span>Target Latency: <span className="text-emerald-600 dark:text-emerald-400">{selectedNodeData.latency}</span></span>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span>
+              {language === "en" ? "Protocol:" : "البروتوكول:"}{" "}
+              <span className="text-slate-800 dark:text-slate-200" dir="ltr">{selectedNodeData.protocol}</span>
+            </span>
+            <span>
+              {language === "en" ? "Target Latency:" : "الاستجابة المستهدفة:"}{" "}
+              <span className="text-emerald-600 dark:text-emerald-400" dir="ltr">{selectedNodeData.latency}</span>
+            </span>
           </div>
         </div>
         <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mt-2.5 leading-relaxed">

@@ -108,7 +108,7 @@ export function Navbar({
               onClick={onOpenResumeModal}
               title={language === "en" ? "Engineering Resume & ATS PDF" : "السيرة الذاتية وتصدير PDF"}
               aria-label={language === "en" ? "Engineering Resume" : "السيرة الذاتية"}
-              className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-md transition-colors shrink-0 cursor-pointer"
+              className="flex items-center gap-1.5 min-h-[40px] px-2.5 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-lg transition-colors shrink-0 cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5 shrink-0" />
               <span className="hidden sm:inline">
@@ -121,7 +121,7 @@ export function Navbar({
               onClick={onOpenAiScoper}
               title={language === "en" ? "AI Scoper: 'Tell me what you want to build'" : "مساعد التخطيط الذكي"}
               aria-label={language === "en" ? "Scope with AI" : "تخطيط ذكي"}
-              className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 text-xs font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-md transition-colors shrink-0"
+              className="flex items-center gap-1.5 min-h-[40px] px-2.5 py-1.5 text-xs font-medium text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-900/50 rounded-lg transition-colors shrink-0"
             >
               <Sparkles className="w-3.5 h-3.5 animate-pulse shrink-0" />
               <span className="hidden xl:inline">
@@ -133,7 +133,7 @@ export function Navbar({
             <button
               onClick={toggleLanguage}
               aria-label={language === "en" ? "Switch language to Arabic عربي" : "Switch language to English EN"}
-              className="p-1.5 sm:p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors flex items-center gap-1 text-xs font-medium shrink-0"
+              className="min-h-[40px] min-w-[40px] px-2.5 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-medium shrink-0 cursor-pointer"
             >
               <Globe className="w-4 h-4 shrink-0" />
               <span>{mounted ? (language === "en" ? "عربي" : "EN") : "عربي"}</span>
@@ -143,7 +143,7 @@ export function Navbar({
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-1.5 sm:p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition-colors shrink-0"
+              className="min-h-[40px] min-w-[40px] p-2 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center shrink-0 cursor-pointer"
             >
               {mounted ? (
                 theme === "dark" ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-blue-600" />
@@ -157,7 +157,7 @@ export function Navbar({
               variant="primary"
               size="sm"
               onClick={onOpenContactModal}
-              className="hidden md:inline-flex text-xs lg:text-sm px-2.5 lg:px-3.5 py-1.5 whitespace-nowrap shrink-0"
+              className="hidden md:inline-flex min-h-[40px] text-xs lg:text-sm px-2.5 lg:px-3.5 py-1.5 whitespace-nowrap shrink-0"
             >
               {language === "en" ? "Start a Project" : "ابدأ مشروعك"}
             </Button>
@@ -166,7 +166,7 @@ export function Navbar({
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
-              className="md:hidden p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-md"
+              className="md:hidden min-h-[40px] min-w-[40px] flex items-center justify-center p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -182,7 +182,7 @@ export function Navbar({
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md"
+                  className="min-h-[44px] flex items-center px-3.5 py-2.5 text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg"
                 >
                   {language === "en" ? link.label.en : link.label.ar}
                 </a>

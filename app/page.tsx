@@ -62,7 +62,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="flex min-h-screen flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden max-w-[100vw]">
       {/* Global Navigation Bar */}
       <Navbar
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
@@ -77,7 +77,7 @@ export default function HomePage() {
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
         <Hero
           onOpenContactModal={() => setContactModalOpen(true)}

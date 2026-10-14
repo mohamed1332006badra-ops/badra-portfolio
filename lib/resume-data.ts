@@ -24,7 +24,7 @@ export interface ResumeExperience {
 }
 
 export interface ResumeProject {
-  title: string;
+  title: { en: string; ar: string } | string;
   url: string;
   displayUrl: string;
   description: { en: string; ar: string };
@@ -176,7 +176,10 @@ export const RESUME_DATA: ResumeData = {
 
   projects: [
     {
-      title: "BADRA AI Platform",
+      title: {
+        en: "BADRA AI Platform",
+        ar: "منصة بدرة للذكاء الاصطناعي",
+      },
       url: "https://badra-ai.vercel.app/",
       displayUrl: "badra-ai.vercel.app",
       description: {
@@ -186,7 +189,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js 16", "React 19", "TypeScript", "SSE Streaming", "Tailwind CSS v4", "FastAPI"],
     },
     {
-      title: "PULSECRM",
+      title: {
+        en: "PULSECRM",
+        ar: "نظام بالس لإدارة علاقات العملاء",
+      },
       url: "https://pulsecrm-theta.vercel.app",
       displayUrl: "pulsecrm-theta.vercel.app",
       description: {
@@ -196,7 +202,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "RLS Security", "Tailwind CSS"],
     },
     {
-      title: "Aurum Gulf",
+      title: {
+        en: "Aurum Gulf",
+        ar: "أوروم الخليج لأسعار الذهب",
+      },
       url: "https://aurumgulf.vercel.app",
       displayUrl: "aurumgulf.vercel.app",
       description: {
@@ -206,7 +215,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["React 19", "TypeScript", "Financial APIs", "Real-time Telemetry", "Tailwind CSS"],
     },
     {
-      title: "Gulf Building Materials",
+      title: {
+        en: "Gulf Building Materials",
+        ar: "منصة الخليج لمواد البناء",
+      },
       url: "https://store-kuwait.vercel.app",
       displayUrl: "store-kuwait.vercel.app",
       description: {
@@ -216,7 +228,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Commerce APIs", "Tailwind CSS"],
     },
     {
-      title: "MAJD PARTS Automotive",
+      title: {
+        en: "MAJD PARTS Automotive",
+        ar: "مجد بارتس لقطع غيار السيارات",
+      },
       url: "https://majdparts.vercel.app",
       displayUrl: "majdparts.vercel.app",
       description: {
@@ -226,7 +241,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Compatibility Matrix", "PostgreSQL", "Tailwind CSS"],
     },
     {
-      title: "Egypt Tour Sales Engine",
+      title: {
+        en: "Egypt Tour Sales Engine",
+        ar: "محرك حجوزات جولات مصر",
+      },
       url: "https://tourism11project.vercel.app",
       displayUrl: "tourism11project.vercel.app",
       description: {
@@ -236,7 +254,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Interactive Itineraries", "Tailwind CSS"],
     },
     {
-      title: "Arab Family Cinema",
+      title: {
+        en: "Iron Family Cinema",
+        ar: "سينما الأسرة الحديدية",
+      },
       url: "https://arabfamilycinema.vercel.app",
       displayUrl: "arabfamilycinema.vercel.app",
       description: {
@@ -246,7 +267,10 @@ export const RESUME_DATA: ResumeData = {
       technologies: ["Next.js", "TypeScript", "Adaptive Video Streaming", "RTL Arabic", "Tailwind CSS"],
     },
     {
-      title: "Algorithmic Memory Game",
+      title: {
+        en: "Algorithmic Memory Game",
+        ar: "لعبة الذاكرة الخوارزمية",
+      },
       url: "https://mohamed1332006badra-ops.github.io/GAM1/",
       displayUrl: "mohamed1332006badra-ops.github.io/GAM1",
       description: {

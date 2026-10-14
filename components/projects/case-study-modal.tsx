@@ -92,32 +92,34 @@ function SyntaxCodeBlock({
       </div>
 
       {/* Code Content with Line Numbers */}
-      <div className="p-3.5 overflow-x-auto text-[11px] sm:text-xs font-mono leading-relaxed text-slate-200">
-        <table className="border-collapse w-full">
-          <tbody>
-            {lines.map((line, idx) => (
-              <tr key={idx} className="hover:bg-slate-900/40">
-                <td className="pr-4 text-right text-slate-600 select-none align-top w-8 text-[11px]">
-                  {idx + 1}
-                </td>
-                <td className="whitespace-pre font-mono">
-                  {/* Highlight keywords */}
-                  {line.startsWith("--") || line.startsWith("//") ? (
-                    <span className="text-slate-500 italic">{line}</span>
-                  ) : line.includes("CREATE TABLE") || line.includes("PRIMARY KEY") || line.includes("SELECT") || line.includes("POST") || line.includes("GET") || line.includes("PATCH") ? (
-                    <span className="text-purple-400 font-bold">{line}</span>
-                  ) : line.includes("UUID") || line.includes("VARCHAR") || line.includes("TIMESTAMPTZ") || line.includes("INT") || line.includes("JSONB") ? (
-                    <span className="text-cyan-300">{line}</span>
-                  ) : line.includes("HTTP/1.1") || line.includes("200 OK") || line.includes("SSE") ? (
-                    <span className="text-emerald-400">{line}</span>
-                  ) : (
-                    <span className="text-slate-300">{line}</span>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="p-3.5 overflow-x-auto max-w-full">
+        <pre className="overflow-x-auto max-w-full text-[11px] md:text-xs font-mono leading-relaxed text-slate-200">
+          <table className="border-collapse w-full">
+            <tbody>
+              {lines.map((line, idx) => (
+                <tr key={idx} className="hover:bg-slate-900/40">
+                  <td className="pr-4 text-right text-slate-600 select-none align-top w-8 text-[11px]">
+                    {idx + 1}
+                  </td>
+                  <td className="whitespace-pre font-mono">
+                    {/* Highlight keywords */}
+                    {line.startsWith("--") || line.startsWith("//") ? (
+                      <span className="text-slate-500 italic">{line}</span>
+                    ) : line.includes("CREATE TABLE") || line.includes("PRIMARY KEY") || line.includes("SELECT") || line.includes("POST") || line.includes("GET") || line.includes("PATCH") ? (
+                      <span className="text-purple-400 font-bold">{line}</span>
+                    ) : line.includes("UUID") || line.includes("VARCHAR") || line.includes("TIMESTAMPTZ") || line.includes("INT") || line.includes("JSONB") ? (
+                      <span className="text-cyan-300">{line}</span>
+                    ) : line.includes("HTTP/1.1") || line.includes("200 OK") || line.includes("SSE") ? (
+                      <span className="text-emerald-400">{line}</span>
+                    ) : (
+                      <span className="text-slate-300">{line}</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </pre>
       </div>
     </div>
   );
@@ -549,7 +551,7 @@ Content-Type: application/json
 
     case "majd-parts":
       return `POST /api/v1/vin/verify HTTP/1.1
-Host: badra.portfolio/demos/majd-parts
+Host: majdparts.vercel.app
 Content-Type: application/json
 
 {
@@ -567,7 +569,7 @@ Content-Type: application/json
 
     case "egypt-tourism":
       return `POST /api/v1/tours/instant-quote HTTP/1.1
-Host: badra.portfolio/demos/egypt-tourism
+Host: tourism11project.vercel.app
 Content-Type: application/json
 
 {
@@ -588,7 +590,7 @@ Content-Type: application/json
 
     case "arab-family-cinema":
       return `GET /api/v1/cinema/stream/film-01/manifest.m3u8 HTTP/1.1
-Host: badra.portfolio/demos/cinema
+Host: arabfamilycinema.vercel.app
 Accept: application/vnd.apple.mpegurl
 
 -- Response: 200 OK (Adaptive HLS Master Manifest)

@@ -190,13 +190,26 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 <select
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
-                  className="w-full px-3 py-2 text-xs rounded-md bg-white dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-blue-500 focus:outline-hidden focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500 transition-colors"
+                  className="w-full px-3 py-2 text-xs rounded-md bg-white dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-blue-500 focus:outline-hidden focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500 transition-colors cursor-pointer"
                 >
-                  <option value="Full-Stack Web App">Full-Stack Web Application</option>
-                  <option value="AI & RAG System">AI Assistant / RAG Knowledge Pipeline</option>
-                  <option value="E-Commerce Platform">High-Performance E-Commerce</option>
-                  <option value="Real-Time Telemetry">Real-Time Telemetry / Dashboard</option>
-                  <option value="Custom Digital Product">Custom Digital Product (MVP)</option>
+                  <option value="Full-Stack Web App">
+                    {language === "en" ? "Full-Stack Web Application" : "تطبيق ويب متكامل"}
+                  </option>
+                  <option value="AI & RAG System">
+                    {language === "en" ? "AI Assistant / RAG Knowledge Pipeline" : "منصة ذكاء اصطناعي / RAG"}
+                  </option>
+                  <option value="E-Commerce Platform">
+                    {language === "en" ? "High-Performance E-Commerce (B2B/B2C)" : "متجر إلكتروني B2B/B2C"}
+                  </option>
+                  <option value="Enterprise CRM / SaaS">
+                    {language === "en" ? "Enterprise CRM / SaaS Platform" : "نظام مؤسسي CRM / SaaS"}
+                  </option>
+                  <option value="Real-Time Telemetry">
+                    {language === "en" ? "Real-Time Telemetry / Dashboard" : "لوحة تحكم وقياس لحظي"}
+                  </option>
+                  <option value="Custom Digital Product">
+                    {language === "en" ? "Custom Digital Product (MVP)" : "منتج رقمي مخصص (MVP)"}
+                  </option>
                 </select>
               </div>
 

@@ -66,7 +66,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
       {/* Modal Card / Print Wrapper */}
       <div
         ref={modalContentRef}
-        className="relative w-full max-w-5xl my-4 sm:my-6 z-10 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden print:static print:max-w-none print:w-full print:my-0 print:p-0 print:border-none print:shadow-none print:bg-white print:rounded-none"
+        className="relative w-[95vw] md:w-full max-w-5xl max-h-[90dvh] my-auto z-10 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden flex flex-col overscroll-contain print:static print:max-w-none print:w-full print:my-0 print:p-0 print:border-none print:shadow-none print:bg-white print:rounded-none"
       >
         {/* Floating Screen Toolbar (Hidden on Print) */}
         <div
@@ -153,7 +153,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         </div>
 
         {/* Modal Scrollable Container */}
-        <div className="p-3 sm:p-6 md:p-8 bg-slate-950/60 max-h-[82vh] overflow-y-auto print:max-h-none print:p-0 print:overflow-visible print:bg-white">
+        <div className="p-3 sm:p-6 md:p-8 bg-slate-950/60 max-h-[90dvh] overflow-y-auto overscroll-contain flex-1 print:max-h-none print:p-0 print:overflow-visible print:bg-white">
           {/* Printable Resume Document Paper */}
           <article
             id="printable-resume"
@@ -297,7 +297,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                     <div className="flex flex-wrap items-baseline justify-between gap-1 mb-0.5 print:mb-0">
                       <div className="flex items-center gap-1.5">
                         <span className="font-bold text-xs sm:text-sm text-black print:text-[8.5pt]">
-                          {proj.title}
+                          {typeof proj.title === "string" ? proj.title : (isAr ? proj.title.ar : proj.title.en)}
                         </span>
                         <span className="text-neutral-500 text-xs print:text-[7.5pt]">
                           (

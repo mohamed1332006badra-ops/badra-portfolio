@@ -83,7 +83,7 @@ export default function RootLayout({
       lang="en"
       dir="ltr"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${ibmArabic.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} ${ibmArabic.variable} h-full antialiased dark overflow-x-hidden max-w-[100vw]`}
     >
       <head>
         <script
@@ -92,10 +92,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative">
+      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#08090d] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-x-hidden max-w-[100vw]">
         <Providers>
           <AmbientBackground />
-          <div className="relative z-10 flex flex-col min-h-screen">
+          <div className="relative z-10 flex flex-col min-h-screen overflow-x-hidden max-w-[100vw]">
             {children}
           </div>
         </Providers>

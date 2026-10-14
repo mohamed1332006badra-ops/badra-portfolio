@@ -40,15 +40,15 @@ export function EngineeringLab() {
           </p>
         </div>
 
-        {/* Experiment Selector Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+        {/* Experiment Selector Tabs: Touch-Friendly Smooth Snap Scroll on Mobile */}
+        <div className="flex md:grid md:grid-cols-3 overflow-x-auto snap-x no-scrollbar gap-3 mb-8 pb-2 md:pb-0">
           {LAB_EXPERIMENTS.map((exp) => {
             const isSelected = exp.type === activeExperiment;
             return (
               <button
                 key={exp.id}
                 onClick={() => setActiveExperiment(exp.type)}
-                className={`flex flex-col text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
+                className={`min-w-[260px] md:min-w-0 shrink-0 snap-center flex flex-col text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
                   isSelected
                     ? "bg-white dark:bg-slate-900 border-blue-500 shadow-md ring-1 ring-blue-500/20"
                     : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md"

@@ -45,6 +45,8 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -54,6 +56,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   /* RTL font priority */
@@ -177,10 +180,14 @@
 
 .animate-aurora-slow {
   animation: auroraSlow 18s ease-in-out infinite alternate;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .animate-aurora-reverse {
   animation: auroraReverse 22s ease-in-out infinite alternate;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Cyber Beams Keyframes */

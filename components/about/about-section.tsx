@@ -83,13 +83,13 @@ export function AboutSection() {
                   <div className="flex items-center justify-center gap-1.5 mb-0.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span className="font-bold text-xs text-white tracking-wide">
-                      Eng. Mohamed Ahmed Badra
+                      {language === "en" ? "Eng. Mohamed Ahmed Badra" : "م. محمد أحمد بدرة"}
                     </span>
                   </div>
                   <div className="text-[10px] font-mono text-slate-300">
                     {language === "en"
                       ? "Lead Full-Stack & AI Architect"
-                      : "كبير مهندسي البرمجيات والذكاء الاصطناعي"}
+                      : "كبير مهندسي البرمجيات ومعماري الذكاء الاصطناعي"}
                   </div>
                 </div>
               </div>
@@ -139,8 +139,8 @@ export function AboutSection() {
                     : "لا شعارات وهمية لعملاء أو أرقام أرباح مختلقة أو نسب مهارات مضللة. كل معمارية ومشروع موثق هنا يعبر عن واقع هندسي منضبط، مع توضيح المحاكيات بدقة."}
                 </p>
                 <div className="pt-2 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between font-mono text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                  <span>BADRA Engineering Portfolio</span>
-                  <span className="text-blue-500 font-semibold">2026 EDITION</span>
+                  <span>{language === "en" ? "BADRA Engineering Portfolio" : "معرض أعمال بدرة الهندسي"}</span>
+                  <span className="text-blue-500 font-semibold">{language === "en" ? "2026 EDITION" : "إصدار 2026"}</span>
                 </div>
               </div>
             </div>

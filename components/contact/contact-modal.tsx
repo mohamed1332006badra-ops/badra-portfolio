@@ -113,11 +113,29 @@ export function ContactModal({
               value={formData.phoneOrWhatsApp}
               onChange={(e) => setFormData({ ...formData, phoneOrWhatsApp: e.target.value })}
             />
-            <Input
-              label={language === "en" ? "Project Type" : "نوع المشروع"}
-              value={formData.projectType}
-              onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-            />
+            <div>
+              <label className="text-xs font-medium text-slate-700 dark:text-slate-300 block mb-1.5">
+                {language === "en" ? "Project Type" : "نوع المشروع"}
+              </label>
+              <select
+                value={formData.projectType}
+                onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-md bg-white dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:border-blue-600 dark:focus:border-blue-500 focus:outline-hidden focus:ring-1 focus:ring-blue-600 dark:focus:ring-blue-500 transition-colors cursor-pointer"
+              >
+                <option value={language === "en" ? "Full-Stack Web App" : "تطبيق ويب متكامل"}>
+                  {language === "en" ? "Full-Stack Web Application" : "تطبيق ويب متكامل"}
+                </option>
+                <option value={language === "en" ? "AI / RAG Platform" : "منصة ذكاء اصطناعي / RAG"}>
+                  {language === "en" ? "AI Platform / RAG System" : "منصة ذكاء اصطناعي / RAG"}
+                </option>
+                <option value={language === "en" ? "B2B/B2C E-Commerce" : "متجر إلكتروني B2B/B2C"}>
+                  {language === "en" ? "B2B/B2C E-Commerce Engine" : "متجر إلكتروني B2B/B2C"}
+                </option>
+                <option value={language === "en" ? "Enterprise CRM / SaaS" : "نظام مؤسسي CRM / SaaS"}>
+                  {language === "en" ? "Enterprise CRM / SaaS" : "نظام مؤسسي CRM / SaaS"}
+                </option>
+              </select>
+            </div>
           </div>
 
           <Textarea

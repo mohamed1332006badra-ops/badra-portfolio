@@ -17,8 +17,8 @@ export function WhatsAppFloat() {
   return (
     <aside
       aria-label={isAr ? "مساعد التواصل عبر واتساب" : "WhatsApp Quick Contact"}
-      className={`fixed bottom-6 ${
-        direction === "rtl" ? "left-6" : "right-6"
+      className={`fixed bottom-4 md:bottom-6 ${
+        direction === "rtl" ? "left-4 md:left-6" : "right-4 md:right-6"
       } z-50 print:hidden flex items-center group`}
     >
       <a
@@ -26,22 +26,22 @@ export function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={isAr ? "تواصل مباشر عبر واتساب" : "Chat on WhatsApp"}
-        className="relative flex items-center gap-2.5 h-14 pl-3.5 pr-4 rounded-full bg-gradient-to-tr from-[#128C7E] via-[#25D366] to-[#25D366] text-white shadow-[0_8px_30px_rgb(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgb(37,211,102,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/40 select-none cursor-pointer"
+        className="relative flex items-center justify-center md:justify-start gap-2.5 w-12 h-12 md:w-auto md:h-14 p-0 md:pl-3.5 md:pr-4 rounded-full bg-gradient-to-tr from-[#128C7E] via-[#25D366] to-[#25D366] text-white shadow-[0_8px_30px_rgb(37,211,102,0.45)] hover:shadow-[0_12px_40px_rgb(37,211,102,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/40 select-none cursor-pointer"
       >
         {/* WhatsApp Icon */}
-        <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
-          <WhatsAppIcon className="w-7 h-7 text-white drop-shadow-md" />
+        <div className="relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center shrink-0">
+          <WhatsAppIcon className="w-6 h-6 md:w-7 md:h-7 text-white drop-shadow-md" />
         </div>
 
-        {/* Expandable Pill Label */}
-        <span className="font-semibold text-xs tracking-wide whitespace-nowrap text-white drop-shadow-sm font-sans">
+        {/* Expandable Pill Label (Shown on md+ or group-hover) */}
+        <span className="hidden md:inline font-semibold text-xs tracking-wide whitespace-nowrap text-white drop-shadow-sm font-sans">
           {isAr ? "تواصل مباشر عبر واتساب" : "Chat on WhatsApp"}
         </span>
 
         {/* Live Pulsing Online Indicator Dot */}
-        <span className="absolute -top-1 -right-1 flex h-4 w-4">
+        <span className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 flex h-3.5 w-3.5 md:h-4 md:w-4">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-80" />
-          <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-400 border-2 border-white shadow-xs" />
+          <span className="relative inline-flex rounded-full h-3.5 w-3.5 md:h-4 md:w-4 bg-emerald-400 border-2 border-white shadow-xs" />
         </span>
       </a>
     </aside>

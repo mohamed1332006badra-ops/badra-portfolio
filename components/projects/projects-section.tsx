@@ -53,13 +53,13 @@ export function ProjectsSection() {
             </p>
           </div>
 
-          {/* Filter Bar */}
-          <div className="flex flex-wrap gap-1.5 p-1 bg-slate-50/80 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xs">
+          {/* Filter Bar: Horizontal Scroll with Touch Momentum on Mobile */}
+          <div className="flex overflow-x-auto snap-x no-scrollbar max-w-full pb-1 md:pb-0 gap-1.5 p-1 bg-slate-50/80 dark:bg-slate-900/60 rounded-lg border border-slate-200 dark:border-slate-800 shadow-xs">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
+                className={`whitespace-nowrap shrink-0 snap-center px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
                   activeFilter === tab.id
                     ? "bg-blue-600 text-white shadow-xs font-semibold"
                     : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"

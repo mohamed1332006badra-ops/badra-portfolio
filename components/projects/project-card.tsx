@@ -90,9 +90,9 @@ export function ProjectCard({
                 src={project.image}
                 alt={language === "en" ? project.title.en : project.title.ar}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 95vw, (max-width: 1280px) 48vw, 600px"
                 quality={92}
-                priority={project.featured}
+                loading="lazy"
                 className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 group-hover/preview:scale-105"
               />
             ) : (

@@ -175,6 +175,7 @@ export function Hero({
                 alt="Eng. Mohamed Ahmed Badra"
                 fill
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 768px) 112px, 144px"
                 className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
