@@ -217,8 +217,8 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       title: "MAJD PARTS Automotive",
-      url: "/demos/majd-parts",
-      displayUrl: "badra-portfolio.vercel.app/demos/majd-parts",
+      url: "https://majdparts.vercel.app",
+      displayUrl: "majdparts.vercel.app",
       description: {
         en: "Automotive spare parts digital commerce platform with VIN lookup and vehicle compatibility matrices.",
         ar: "منصة تجارة رقمية متخصصة لقطع غيار السيارات مع فلاتر التوافق وفحص أرقام الهياكل.",
@@ -227,8 +227,8 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       title: "Egypt Tour Sales Engine",
-      url: "/demos/egypt-tourism",
-      displayUrl: "badra-portfolio.vercel.app/demos/egypt-tourism",
+      url: "https://tourism11project.vercel.app",
+      displayUrl: "tourism11project.vercel.app",
       description: {
         en: "Interactive Egyptian tourism and tour sales portal with curated day-by-day itineraries and multi-currency checkout.",
         ar: "بوابة حجز وجولات سياحية متكاملة مع برامج يومية تفاعلية ودعم الدفع متعدد العملات.",
@@ -237,8 +237,8 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       title: "Arab Family Cinema",
-      url: "/demos/cinema",
-      displayUrl: "badra-portfolio.vercel.app/demos/cinema",
+      url: "https://arabfamilycinema.vercel.app",
+      displayUrl: "arabfamilycinema.vercel.app",
       description: {
         en: "Purposeful family cinema streaming platform with RTL Arabic typography, family-safe curation, and adaptive video player.",
         ar: "منصة بث سينمائي عائلية هادفة مع خطوط عربية مخصصة وتصنيف آمن ومشغل فيديو متكيف.",
@@ -247,8 +247,8 @@ export const RESUME_DATA: ResumeData = {
     },
     {
       title: "Algorithmic Memory Game",
-      url: "/demos/memory-game",
-      displayUrl: "badra-portfolio.vercel.app/demos/memory-game",
+      url: "https://mohamed1332006badra-ops.github.io/GAM1/",
+      displayUrl: "mohamed1332006badra-ops.github.io/GAM1",
       description: {
         en: "High-performance 60fps algorithmic memory game with finite state machine logic and Web Audio API synthesis.",
         ar: "لعبة ذاكرة خوارزمية بمعدل 60 إطاراً في الثانية تعتمد على آلة الحالات المنتهية والتوليف الصوتي عبر Web Audio API.",

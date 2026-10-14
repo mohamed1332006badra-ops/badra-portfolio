@@ -272,7 +272,7 @@ export const PROJECTS: Project[] = [
       ar: "خفض نسبة طلب القطع غير المتوافقة بشكل ملحوظ وزيادة ثقة المشترين في دقة النتائج.",
     },
     hasCaseStudy: true,
-    demoUrl: "https://badra-portfolio.vercel.app/demos/majd-parts",
+    demoUrl: "https://majdparts.vercel.app",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
@@ -321,7 +321,7 @@ export const PROJECTS: Project[] = [
       ar: "تجربة مستخدم فائقة السلاسة على الهواتف مع ثبات بصري كامل وسرعة تحميل تقل عن ثانية واحدة.",
     },
     hasCaseStudy: true,
-    demoUrl: "https://badra-portfolio.vercel.app/demos/egypt-tourism",
+    demoUrl: "https://tourism11project.vercel.app",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
@@ -370,7 +370,7 @@ export const PROJECTS: Project[] = [
       ar: "منصة رقمية هادفة وموثوقة نالت استحسان العائلات لسلامة محتواها وسرعتها وأناقة تصميمها.",
     },
     hasCaseStudy: true,
-    demoUrl: "https://badra-portfolio.vercel.app/demos/cinema",
+    demoUrl: "https://arabfamilycinema.vercel.app",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
   {
@@ -419,7 +419,7 @@ export const PROJECTS: Project[] = [
       ar: "أداء نقي 60 إطاراً في الثانية دون أي تقطيع، واستجابة صوتية فورية على كافة المتصفحات الحديثة.",
     },
     hasCaseStudy: true,
-    demoUrl: "https://badra-portfolio.vercel.app/demos/memory-game",
+    demoUrl: "https://mohamed1332006badra-ops.github.io/GAM1/",
     repoUrl: "https://github.com/mohamed1332006badra-ops",
   },
 ];

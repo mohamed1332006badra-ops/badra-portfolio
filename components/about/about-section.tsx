@@ -65,14 +65,14 @@ export function AboutSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Portrait Column */}
             <div className="lg:col-span-4 flex flex-col items-center justify-center">
-              <div className="w-64 h-72 md:w-72 md:h-80 rounded-3xl overflow-hidden border border-indigo-500/30 shadow-2xl relative bg-slate-950 group">
+              <div className="w-72 h-80 md:w-80 md:h-96 rounded-3xl overflow-hidden border border-indigo-500/30 shadow-2xl relative bg-slate-950 group">
                 <Image
-                  src="/badra-avatar.jpg"
+                  src="/badra-portrait-crop.webp"
                   alt="Eng. Mohamed Ahmed Badra"
                   fill
-                  sizes="(max-width: 768px) 256px, 288px"
+                  sizes="(max-width: 768px) 288px, 320px"
                   priority
-                  className="object-cover object-[center_15%] scale-110 transition-transform duration-700 ease-out group-hover:scale-120"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
                 {/* Ambient vignette */}

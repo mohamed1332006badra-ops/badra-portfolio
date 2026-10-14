@@ -166,29 +166,35 @@ export function Hero({
             </span>
           </div>
 
-          {/* Name & Titles with Sleek Executive Avatar */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-5">
-            {/* Sleek squircle avatar focusing on face & multi-monitor code setup */}
-            <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden ring-2 ring-indigo-500/60 shadow-[0_0_25px_rgba(99,102,241,0.4)] shrink-0 bg-slate-900 group">
+          {/* Name & Titles with Prominent Executive Portrait */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 mb-6">
+            {/* Prominent rounded-3xl glowing portrait frame focusing on face & command center */}
+            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-3xl overflow-hidden ring-2 ring-indigo-500 shadow-[0_0_40px_rgba(99,102,241,0.45)] shrink-0 bg-slate-950 group">
               <Image
-                src="/badra-avatar.jpg"
+                src="/badra-portrait-crop.webp"
                 alt="Eng. Mohamed Ahmed Badra"
                 fill
                 priority
-                className="object-cover object-[center_18%] scale-125 transition-transform duration-500 group-hover:scale-135"
+                sizes="(max-width: 768px) 112px, 144px"
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-3xl pointer-events-none" />
+              {/* Live production indicator */}
+              <div className="absolute bottom-2 right-2 flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900/90 border border-emerald-500/40 text-[10px] font-mono text-emerald-400 backdrop-blur-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>ONLINE</span>
+              </div>
             </div>
 
             <div>
-              <span className="block font-mono text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mb-1 uppercase tracking-widest">
+              <span className="block font-mono text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 mb-1.5 uppercase tracking-widest">
                 {SITE_METADATA.brand} · {SITE_METADATA.name}
               </span>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                 <span className="block">
                   {language === "en" ? "Full-Stack Developer" : "مطور برمجيات شامل"}
                 </span>
-                <span className="block text-slate-600 dark:text-slate-400 font-normal text-lg sm:text-2xl mt-0.5">
+                <span className="block text-slate-600 dark:text-slate-400 font-normal text-lg sm:text-2xl mt-1">
                   {language === "en"
                     ? "AI Systems Architect · Product Builder"
                     : "مهندس نظم الذكاء الاصطناعي · صانع منتجات"}
