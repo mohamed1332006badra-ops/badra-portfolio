@@ -203,8 +203,8 @@ export const PROJECTS: Project[] = [
     ],
     simulationType: "materials-calculator",
     problem: {
-      en: "Construction procurement is traditionally fragmented, requiring complex mathematical volume estimation ($m^3$, rebar ratios, truck dispatch) and currency management for high-stakes contractor orders.",
-      ar: "توريد مواد البناء يعاني من تعقيد حسابات الأحجام والخرسانة المسلحة ($m^3$) ونسب أطنان حديد التسليح وتخطيط شاحنات النقل وإدارة فواتير المقاولين الضخمة.",
+      en: "Construction procurement is traditionally fragmented, requiring complex mathematical volume estimation (m³, rebar ratios, truck dispatch) and currency management for high-stakes contractor orders.",
+      ar: "توريد مواد البناء يعاني من تعقيد حسابات الأحجام والخرسانة المسلحة (م³) ونسب أطنان حديد التسليح وتخطيط شاحنات النقل وإدارة فواتير المقاولين الضخمة.",
     },
     solution: {
       en: "Engineered an enterprise B2B heavy industry platform featuring a dynamic structural calculator, live Shuwaikh spot price sync, tiered contractor bulk discounts, and sub-80ms edge lookup.",

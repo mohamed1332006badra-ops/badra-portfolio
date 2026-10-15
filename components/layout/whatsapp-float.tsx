@@ -1,11 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useI18n } from "@/lib/i18n-context";
 import { WhatsAppIcon } from "@/components/ui/icons";
 
 export function WhatsAppFloat() {
   const { language, direction } = useI18n();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const checkModalState = () => {
+      if (typeof document === "undefined") return;
+      const hasOverflowHidden =
+        document.body.style.overflow === "hidden" ||
+        document.body.classList.contains("overflow-hidden");
+      const hasModalInDom = !!document.querySelector(
+        '[role="dialog"], [aria-modal="true"], #printable-resume'
+      );
+      setIsModalOpen(Boolean(hasOverflowHidden || hasModalInDom));
+    };
+
+    checkModalState();
+
+    const observer = new MutationObserver(() => {
+      checkModalState();
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["style", "class"],
+      childList: true,
+      subtree: true,
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const isAr = language === "ar";
   const encodedMessage = isAr
@@ -17,9 +46,11 @@ export function WhatsAppFloat() {
   return (
     <aside
       aria-label={isAr ? "مساعد التواصل عبر واتساب" : "WhatsApp Quick Contact"}
-      className={`fixed bottom-4 md:bottom-6 ${
+      className={`whatsapp-float-btn fixed bottom-4 md:bottom-6 ${
         direction === "rtl" ? "left-4 md:left-6" : "right-4 md:right-6"
-      } z-50 print:hidden flex items-center group`}
+      } z-30 print:hidden flex items-center group transition-all duration-300 ${
+        isModalOpen ? "opacity-0 pointer-events-none scale-75 invisible" : "opacity-100 scale-100 visible"
+      }`}
     >
       <a
         href={whatsappUrl}

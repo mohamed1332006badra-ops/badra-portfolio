@@ -202,7 +202,7 @@ Dispatched via: https://badra-portfolio.vercel.app`;
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">
-                      Email
+                      {language === "en" ? "Email" : "البريد الإلكتروني"}
                     </span>
                     <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-blue-500">
                       {SITE_METADATA.contact.email}
@@ -221,11 +221,14 @@ Dispatched via: https://badra-portfolio.vercel.app`;
                   </div>
                   <div>
                     <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase block font-medium">
-                      WhatsApp / Instant Message
+                      {language === "en" ? "WhatsApp / Instant Message" : "واتساب / تواصل فوري"}
                     </span>
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-500">
-                      +20 1016731179 (Direct WhatsApp)
-                    </span>
+                    <div className="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-500 flex items-center gap-1.5 flex-wrap">
+                      <span dir="ltr" className="inline-block font-mono">+20 1016731179</span>
+                      <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
+                        {language === "en" ? "(Direct WhatsApp)" : "(واتساب مباشر)"}
+                      </span>
+                    </div>
                   </div>
                 </a>
               </div>

@@ -73,7 +73,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
       });
 
       if (!res.ok) {
-        let errMessage = "Failed to generate architecture analysis.";
+        let errMessage = language === "en" ? "Failed to generate architecture analysis." : "فشل توليد التحليل المعماري للمشروع.";
         try {
           const errData = await res.json();
           errMessage = errData.error || errMessage;
@@ -85,7 +85,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
 
       const reader = res.body?.getReader();
       if (!reader) {
-        throw new Error("No readable stream received from server.");
+        throw new Error(language === "en" ? "No readable stream received from server." : "لم يتم استلام تدفق استجابة صالح من الخادم.");
       }
 
       const decoder = new TextDecoder();
@@ -280,7 +280,7 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 </div>
                 <div className="flex items-center gap-2 text-emerald-400">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>SSE Active</span>
+                  <span>{language === "en" ? "SSE Active" : "البث المباشر نشط"}</span>
                 </div>
               </div>
 
@@ -342,25 +342,35 @@ export function AiScoperModal({ isOpen, onClose, onPassToContact }: AiScoperModa
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
                   <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
-                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Frontend</span>
+                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">
+                      {language === "en" ? "Frontend" : "واجهة المستخدم (Frontend)"}
+                    </span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.frontend}</span>
                   </div>
                   <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
-                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Backend / APIs</span>
+                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">
+                      {language === "en" ? "Backend / APIs" : "الخوادم والواجهات البرمجية (Backend)"}
+                    </span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.backend}</span>
                   </div>
                   <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
-                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">Database & Caching</span>
+                    <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase block font-semibold">
+                      {language === "en" ? "Database & Caching" : "قواعد البيانات والتخزين المؤقت"}
+                    </span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.database}</span>
                   </div>
                   {result.recommendedArchitecture.aiComponents && (
                     <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs">
-                      <span className="font-mono text-[10px] text-purple-600 dark:text-purple-400 uppercase block font-semibold">AI & Vectors</span>
+                      <span className="font-mono text-[10px] text-purple-600 dark:text-purple-400 uppercase block font-semibold">
+                        {language === "en" ? "AI & Vectors" : "نماذج الذكاء الاصطناعي والمتجهات"}
+                      </span>
                       <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.aiComponents}</span>
                     </div>
                   )}
                   <div className="p-2.5 rounded bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 shadow-xs sm:col-span-2">
-                    <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 uppercase block font-semibold">Hosting & CDN</span>
+                    <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 uppercase block font-semibold">
+                      {language === "en" ? "Hosting & CDN" : "الاستضافة والشبكة الموزعة (CDN)"}
+                    </span>
                     <span className="font-medium text-slate-800 dark:text-slate-200">{result.recommendedArchitecture.hosting}</span>
                   </div>
                 </div>

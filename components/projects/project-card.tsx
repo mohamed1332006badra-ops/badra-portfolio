@@ -158,7 +158,7 @@ export function ProjectCard({
             <span className="font-mono uppercase tracking-wider text-rose-500 font-semibold block mb-0.5">
               {language === "en" ? "Problem:" : "المشكلة:"}
             </span>
-            <span className="text-slate-700 dark:text-slate-300 line-clamp-2">
+            <span className="text-slate-700 dark:text-slate-300 leading-relaxed block">
               {language === "en" ? project.problem.en : project.problem.ar}
             </span>
           </div>
@@ -166,7 +166,7 @@ export function ProjectCard({
             <span className="font-mono uppercase tracking-wider text-emerald-500 font-semibold block mb-0.5">
               {language === "en" ? "Solution:" : "الحل:"}
             </span>
-            <span className="text-slate-700 dark:text-slate-300 line-clamp-2">
+            <span className="text-slate-700 dark:text-slate-300 leading-relaxed block">
               {language === "en" ? project.solution.en : project.solution.ar}
             </span>
           </div>

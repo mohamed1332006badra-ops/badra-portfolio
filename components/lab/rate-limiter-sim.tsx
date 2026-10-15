@@ -121,27 +121,33 @@ export function RateLimiterSim() {
           </div>
 
           {/* Real-time Status Badge */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-700 dark:text-slate-400 font-mono">Last Response:</span>
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs text-slate-700 dark:text-slate-400 font-mono">
+              {language === "en" ? "Last Response:" : "آخر استجابة:"}
+            </span>
             {lastStatus === "ok" && (
-              <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+              <span dir="ltr" className="inline-flex items-center gap-1 text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
                 <CheckCircle2 className="w-3.5 h-3.5" /> 200 OK (Processed)
               </span>
             )}
             {lastStatus === "limited" && (
-              <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 px-2 py-0.5 rounded border border-red-200 dark:border-red-800">
+              <span dir="ltr" className="inline-flex items-center gap-1 text-xs font-mono font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/40 px-2 py-0.5 rounded border border-red-200 dark:border-red-800">
                 <AlertOctagon className="w-3.5 h-3.5" /> 429 Too Many Requests (Rate Limited)
               </span>
             )}
             {!lastStatus && (
-              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">Waiting for trigger</span>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                {language === "en" ? "Waiting for trigger" : "بانتظار التشغيل"}
+              </span>
             )}
           </div>
 
           {/* Metric Stats */}
           <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200 dark:border-white/5 font-mono text-center">
             <div className="p-2 rounded bg-white dark:bg-[#1b2030] border border-slate-200 dark:border-white/5 shadow-2xs">
-              <span className="text-[10px] text-slate-600 dark:text-slate-400 block font-semibold">TOTAL</span>
+              <span className="text-[10px] text-slate-600 dark:text-slate-400 block font-semibold">
+                {language === "en" ? "TOTAL" : "الإجمالي"}
+              </span>
               <span className="text-sm font-bold text-slate-900 dark:text-white">{stats.total}</span>
             </div>
             <div className="p-2 rounded bg-white dark:bg-[#1b2030] border border-slate-200 dark:border-white/5 shadow-2xs">

@@ -47,10 +47,12 @@ export function EngineeringLab() {
             return (
               <button
                 key={exp.id}
+                type="button"
+                aria-pressed={isSelected}
                 onClick={() => setActiveExperiment(exp.type)}
-                className={`min-w-[260px] md:min-w-0 shrink-0 snap-center flex flex-col text-left p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
+                className={`min-w-[260px] md:min-w-0 shrink-0 snap-center flex flex-col text-start p-4 rounded-xl border transition-all duration-150 cursor-pointer ${
                   isSelected
-                    ? "bg-white dark:bg-slate-900 border-blue-500 shadow-md ring-1 ring-blue-500/20"
+                    ? "bg-blue-50/60 dark:bg-slate-900 border-blue-500 shadow-md ring-2 ring-blue-500/40"
                     : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md"
                 }`}
               >

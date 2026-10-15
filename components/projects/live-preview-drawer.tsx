@@ -45,15 +45,19 @@ function LivePreviewDrawerInner({
     return () => clearTimeout(timer);
   }, [iframeKey]);
 
-  // Handle escape key
+  // Handle escape key & lock body scroll
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
       }
     };
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [onClose]);
 
   const demoUrl = project.demoUrl || "https://badra-portfolio.vercel.app";

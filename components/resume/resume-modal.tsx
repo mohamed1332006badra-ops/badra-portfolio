@@ -295,22 +295,19 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 {data.projects.map((proj, idx) => (
                   <div key={idx} className="resume-entry">
                     <div className="flex flex-wrap items-baseline justify-between gap-1 mb-0.5 print:mb-0">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-wrap">
                         <span className="font-bold text-xs sm:text-sm text-black print:text-[8.5pt]">
                           {typeof proj.title === "string" ? proj.title : (isAr ? proj.title.ar : proj.title.en)}
                         </span>
-                        <span className="text-neutral-500 text-xs print:text-[7.5pt]">
-                          (
-                          <a
-                            href={proj.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-neutral-900 font-medium hover:underline"
-                          >
-                            {proj.displayUrl}
-                          </a>
-                          )
-                        </span>
+                        <a
+                          href={proj.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          dir="ltr"
+                          className="inline-block font-mono text-[11px] text-indigo-600 dark:text-indigo-400 break-keep whitespace-nowrap hover:underline print:text-black print:text-[7.5pt]"
+                        >
+                          {proj.displayUrl}
+                        </a>
                       </div>
                       <span className="text-[11px] font-mono text-neutral-600 print:text-[7pt]">
                         {proj.technologies.slice(0, 4).join(" • ")}

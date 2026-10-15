@@ -433,3 +433,14 @@
   }
 }
 
+/* Auto-hide floating WhatsApp button when any modal, drawer, or dialog is open */
+body[style*="overflow: hidden"] .whatsapp-float-btn,
+body[style*="overflow-y: hidden"] .whatsapp-float-btn,
+body:has([role="dialog"]) .whatsapp-float-btn,
+body:has([aria-modal="true"]) .whatsapp-float-btn {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: scale(0.75) !important;
+}
+
