@@ -29,8 +29,6 @@ function getLangClient(): Language {
   try {
     const saved = localStorage.getItem("badra_lang") as Language | null;
     if (saved === "en" || saved === "ar") return saved;
-    const browserLang = navigator.language.toLowerCase();
-    if (browserLang.startsWith("ar")) return "ar";
   } catch {
     // Ignore error
   }

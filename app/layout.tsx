@@ -88,7 +88,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("badra_theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem("badra_theme");if(t==="light"){document.documentElement.classList.remove("dark")}else{document.documentElement.classList.add("dark")};var l=localStorage.getItem("badra_lang");if(l==="ar"){document.documentElement.setAttribute("lang","ar");document.documentElement.setAttribute("dir","rtl")}else{document.documentElement.setAttribute("lang","en");document.documentElement.setAttribute("dir","ltr")}}catch(e){}})()`,
           }}
         />
       </head>
