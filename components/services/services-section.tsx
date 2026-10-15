@@ -5,6 +5,8 @@ import { useI18n } from "@/lib/i18n-context";
 import { SERVICES } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, Clock, ArrowRight, Layout, Cpu, Box, Zap } from "lucide-react";
+import { SprintEstimator } from "./sprint-estimator";
+import { XRayTag } from "@/lib/xray-context";
 
 interface ServicesSectionProps {
   onSelectService: (serviceTitle: string) => void;
@@ -26,6 +28,8 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
   return (
     <section id="services" className="py-24 border-t border-slate-200 dark:border-slate-800/60 bg-white dark:bg-[#08090d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <XRayTag component="ServicesSection" props={{ items: 4, mode: "direct-partnership" }} />
+
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-2 mb-2 font-mono text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -119,6 +123,9 @@ export function ServicesSection({ onSelectService }: ServicesSectionProps) {
             </div>
           ))}
         </div>
+
+        {/* Interactive Instant Architecture & Sprint Estimator */}
+        <SprintEstimator onPreFillInquiry={onSelectService} />
       </div>
     </section>
   );

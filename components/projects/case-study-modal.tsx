@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { TechLogo } from "@/components/ui/brand-logos";
+import { SystemTopologyFlow } from "./system-topology-flow";
 import {
   AlertTriangle,
   Layers,
@@ -823,6 +824,9 @@ export function CaseStudyModal({ caseStudy, isOpen, onClose }: CaseStudyModalPro
         {caseStudy.projectId === "gulf-building-materials" && (
           <EmbeddedMaterialsCalculator language={language as "en" | "ar"} />
         )}
+
+        {/* Interactive Live System Topology Flow Diagram */}
+        <SystemTopologyFlow projectId={caseStudy.projectId} />
 
         {/* Database Schema Architecture - Multi-Line Syntax Highlighted */}
         <div>

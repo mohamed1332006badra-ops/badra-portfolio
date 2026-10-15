@@ -5,6 +5,7 @@ import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
 import { PROJECTS } from "@/lib/content";
 import { X, CornerDownLeft } from "lucide-react";
+import { useXRay } from "@/lib/xray-context";
 
 interface TerminalModalProps {
   isOpen: boolean;
@@ -28,6 +29,7 @@ export function TerminalModal({
 }: TerminalModalProps) {
   const { language } = useI18n();
   const { theme, toggleTheme } = useTheme();
+  const { xrayMode, toggleXRayMode } = useXRay();
   const [inputVal, setInputVal] = useState("");
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
@@ -118,6 +120,7 @@ export function TerminalModal({
             <div className="text-emerald-400 font-bold mb-1">AVAILABLE COMMANDS:</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
               <div><span className="text-amber-300 font-semibold">help, ?</span> : Display this command manual</div>
+              <div><span className="text-amber-300 font-semibold">xray</span> : Toggle Architect X-Ray Mode (Alt+X)</div>
               <div><span className="text-amber-300 font-semibold">skills</span> : Full-stack technical competency matrix</div>
               <div><span className="text-amber-300 font-semibold">projects</span> : List verified production systems</div>
               <div><span className="text-amber-300 font-semibold">open &lt;slug&gt;</span> : Launch live sandbox or demo URL</div>
@@ -127,6 +130,19 @@ export function TerminalModal({
               <div><span className="text-amber-300 font-semibold">clear</span> : Clear terminal display buffer</div>
               <div><span className="text-amber-300 font-semibold">exit</span> : Terminate session and close terminal</div>
             </div>
+          </div>
+        );
+        break;
+
+      case "xray":
+        toggleXRayMode();
+        output = (
+          <div className="text-xs text-cyan-300">
+            [ARCHITECT X-RAY] Blueprint mode toggled:{" "}
+            <span className="font-bold text-white">
+              {!xrayMode ? "ACTIVE (Cyan Grid & Component Tags ON)" : "DISABLED"}
+            </span>
+            . Use <span className="text-amber-300">Alt+X</span> anywhere to toggle.
           </div>
         );
         break;

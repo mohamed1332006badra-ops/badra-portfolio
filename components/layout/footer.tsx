@@ -13,12 +13,14 @@ interface FooterProps {
   onOpenCommandPalette: () => void;
   onOpenResumeModal?: () => void;
   onOpenTerminal?: () => void;
+  onOpenTelemetryHud?: () => void;
 }
 
 export function Footer({
   onOpenCommandPalette,
   onOpenResumeModal,
   onOpenTerminal,
+  onOpenTelemetryHud,
 }: FooterProps) {
   const { language } = useI18n();
 
@@ -31,7 +33,7 @@ export function Footer({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Observability Telemetry & GitHub Activity Stream */}
         <div className="space-y-3">
-          <StatusBar onOpenTerminal={onOpenTerminal} />
+          <StatusBar onOpenTerminal={onOpenTerminal} onOpenTelemetryHud={onOpenTelemetryHud} />
           <GitHubActivity />
         </div>
 

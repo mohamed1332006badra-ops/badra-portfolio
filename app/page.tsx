@@ -16,10 +16,13 @@ import { ContactModal } from "@/components/contact/contact-modal";
 import { ResumeModal } from "@/components/resume/resume-modal";
 import { TerminalModal } from "@/components/terminal/terminal-modal";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
+import { TelemetryHud } from "@/components/layout/telemetry-hud";
+import { XRayTag } from "@/lib/xray-context";
 
 export default function HomePage() {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [terminalOpen, setTerminalOpen] = useState(false);
+  const [telemetryHudOpen, setTelemetryHudOpen] = useState(false);
   const [aiScoperOpen, setAiScoperOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
@@ -79,20 +82,40 @@ export default function HomePage() {
       {/* Main Content Sections */}
       <main className="flex-1 overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
-        <Hero
-          onOpenContactModal={() => setContactModalOpen(true)}
-          onOpenAiScoper={() => setAiScoperOpen(true)}
-          onOpenResumeModal={() => setResumeModalOpen(true)}
-        />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+            <XRayTag component="HeroSystem" props={{ rsc: "true", render: "0.8ms", hydration: "selective" }} />
+          </div>
+          <Hero
+            onOpenContactModal={() => setContactModalOpen(true)}
+            onOpenAiScoper={() => setAiScoperOpen(true)}
+            onOpenResumeModal={() => setResumeModalOpen(true)}
+          />
+        </div>
 
         {/* 01 // Engineering Proof Matrix */}
-        <EngineeringProof />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
+            <XRayTag component="ProofMatrix" props={{ telemetry: "live", workers: 4, sla: "99.9%" }} />
+          </div>
+          <EngineeringProof />
+        </div>
 
         {/* 02 // Projects & Deep-Dive Case Studies */}
-        <ProjectsSection />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
+            <XRayTag component="ProjectGrid" props={{ items: 8, hydration: "selective", architecture: "rsc" }} />
+          </div>
+          <ProjectsSection />
+        </div>
 
         {/* 03 // Engineering Lab & Interactive Sandboxes */}
-        <EngineeringLab />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
+            <XRayTag component="EngineeringLab" props={{ fsm: "atomic", sandboxes: 3, frameSync: "rAF" }} />
+          </div>
+          <EngineeringLab />
+        </div>
 
         {/* 04 // Engineering Services & Capabilities */}
         <ServicesSection onSelectService={handleSelectService} />
@@ -101,10 +124,15 @@ export default function HomePage() {
         <AboutSection />
 
         {/* 06 // Contact & Project Inquiry */}
-        <ContactSection
-          initialService={selectedServiceForInquiry}
-          initialDescription={inquiryDescription}
-        />
+        <div className="relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2">
+            <XRayTag component="ContactSection" props={{ encrypted: "aes-256", dispatch: "direct-queue" }} />
+          </div>
+          <ContactSection
+            initialService={selectedServiceForInquiry}
+            initialDescription={inquiryDescription}
+          />
+        </div>
       </main>
 
       {/* Footer with Observability Telemetry & GitHub Stream */}
@@ -112,6 +140,7 @@ export default function HomePage() {
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
         onOpenTerminal={() => setTerminalOpen(true)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
+        onOpenTelemetryHud={() => setTelemetryHudOpen(true)}
       />
 
       {/* Global Command Center (⌘K) */}
@@ -122,6 +151,7 @@ export default function HomePage() {
         onOpenAiScoper={() => setAiScoperOpen(true)}
         onOpenContactModal={() => setContactModalOpen(true)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
+        onOpenTelemetryHud={() => setTelemetryHudOpen(true)}
       />
 
       {/* Developer Retro-Modern CLI Modal (badra-shell v1.0.0) */}
@@ -129,6 +159,12 @@ export default function HomePage() {
         isOpen={terminalOpen}
         onClose={() => setTerminalOpen(false)}
         onOpenResumeModal={() => setResumeModalOpen(true)}
+      />
+
+      {/* Live Browser Telemetry & Core Vitals HUD */}
+      <TelemetryHud
+        isOpen={telemetryHudOpen}
+        onClose={() => setTelemetryHudOpen(false)}
       />
 
       {/* AI Project Scoper Modal */}

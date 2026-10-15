@@ -444,3 +444,28 @@ body:has([aria-modal="true"]) .whatsapp-float-btn {
   transform: scale(0.75) !important;
 }
 
+/* Architect X-Ray Mode Blueprint Grid Overlay */
+html.xray-active body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 35;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: xrayFadeIn 0.3s ease-out;
+}
+
+html.xray-active section {
+  outline: 1px dashed rgba(6, 182, 212, 0.25) !important;
+  outline-offset: -2px;
+}
+
+@keyframes xrayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+

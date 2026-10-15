@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, CornerDownLeft, FileText } from "lucide-react";
+import { Search, Terminal, Laptop, Cpu, Layers, User, Mail, Moon, Sun, Globe, CornerDownLeft, FileText, Eye, Gauge } from "lucide-react";
 import { useI18n } from "@/lib/i18n-context";
 import { useTheme } from "@/lib/theme-context";
+import { useXRay } from "@/lib/xray-context";
 
 interface CommandItem {
   id: string;
@@ -21,6 +22,7 @@ interface CommandPaletteProps {
   onOpenContactModal: () => void;
   onOpenResumeModal: () => void;
   onOpenTerminal?: () => void;
+  onOpenTelemetryHud?: () => void;
 }
 
 export function CommandPalette({
@@ -30,11 +32,13 @@ export function CommandPalette({
   onOpenContactModal,
   onOpenResumeModal,
   onOpenTerminal,
+  onOpenTelemetryHud,
 }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { language, toggleLanguage } = useI18n();
   const { theme, toggleTheme } = useTheme();
+  const { toggleXRayMode } = useXRay();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClose = React.useCallback(() => {
@@ -52,6 +56,33 @@ export function CommandPalette({
   };
 
   const commands: CommandItem[] = [
+    {
+      id: "xray",
+      title: {
+        en: "badra --xray · Toggle Architect X-Ray Mode (Component Blueprints)",
+        ar: "badra --xray · تفعيل/إلغاء وضع الأشعة السينية المعماري (مخطط المكونات)",
+      },
+      category: { en: "Developer Tools", ar: "أدوات المطورين" },
+      icon: <Eye className="w-4 h-4 text-cyan-400" />,
+      shortcut: "Alt+X",
+      action: () => {
+        onClose();
+        toggleXRayMode();
+      },
+    },
+    {
+      id: "telemetry",
+      title: {
+        en: "badra --telemetry · Launch Live Browser Telemetry & Core Vitals HUD",
+        ar: "badra --telemetry · فتح لوحة قياس الأداء الحية ومؤشرات المتصفح (HUD)",
+      },
+      category: { en: "Developer Tools", ar: "أدوات المطورين" },
+      icon: <Gauge className="w-4 h-4 text-emerald-400" />,
+      action: () => {
+        onClose();
+        if (onOpenTelemetryHud) onOpenTelemetryHud();
+      },
+    },
     {
       id: "cli",
       title: {
